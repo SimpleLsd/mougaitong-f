@@ -17,10 +17,14 @@
       </nav>
     </div>
   </header> -->
-
-  <NavLayout />
-
-  <RouterView />
+  <div class="app">
+    <div class="nav_view">
+      <NavLayout />
+    </div>
+    <div class="main_view">
+      <RouterView />
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -30,7 +34,7 @@ import NavLayout from "./components/NavLayout.vue";
 </script>
 
 <style scoped>
-header {
+/* header {
   line-height: 1.5;
   max-height: 100vh;
 }
@@ -63,9 +67,9 @@ nav a {
 
 nav a:first-of-type {
   border: 0;
-}
+} */
 
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
   header {
     display: flex;
     place-items: center;
@@ -90,5 +94,5 @@ nav a:first-of-type {
     padding: 1rem 0;
     margin-top: 1rem;
   }
-}
+} */
 </style>

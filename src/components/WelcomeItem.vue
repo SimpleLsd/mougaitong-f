@@ -29,7 +29,6 @@ i {
   place-content: center;
   width: 32px;
   height: 32px;
-
   color: var(--color-text);
 }
 
@@ -48,7 +47,7 @@ h3 {
 
   i {
     top: calc(50% - 25px);
-    left: -26px;
+    left: 20px;
     position: absolute;
     border: 1px solid var(--color-border);
     background: var(--color-background);
@@ -61,7 +60,7 @@ h3 {
     content: " ";
     border-left: 1px solid var(--color-border);
     position: absolute;
-    left: 0;
+    left: 45px;
     bottom: calc(50% + 25px);
     height: calc(50% - 25px);
   }
@@ -70,7 +69,7 @@ h3 {
     content: " ";
     border-left: 1px solid var(--color-border);
     position: absolute;
-    left: 0;
+    left: 45px;
     top: calc(50% + 25px);
     height: calc(50% - 25px);
   }
