@@ -26,10 +26,18 @@
       </div>
     </div>
     <div class="contact">
-      <span><IconConBehance /></span>
-      <span><iconConWechat /></span>
-      <span><IconConZcool /></span>
-      <span><IconConContact /></span>
+      <span>
+        <IconConBehance />
+      </span>
+      <span>
+        <iconConWechat />
+      </span>
+      <span>
+        <IconConZcool />
+      </span>
+      <span>
+        <IconConContact />
+      </span>
     </div>
   </div>
 </template>
@@ -46,11 +54,34 @@ import IconConContact from "./icons/IconConContact.vue";
   width: 210px;
   font-size: 14px;
 }
+
 .logo {
   width: 100%;
   height: 160px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+ul span {
+  display: block;
+  padding-left: 24px;
+  margin-top: 24px;
+}
+
+ul {
+  padding-bottom: 24px;
+}
+ul:after {
+  content: " ";
+  border-bottom: 1px solid var(--color-border);
+  position: absolute;
+  bottom: 0;
+  left: 24px;
+  width: calc(100% - 48px);
+}
+.tag_items {
+  margin-top: 24px;
+  padding-left: 24px;
 }
 </style>
