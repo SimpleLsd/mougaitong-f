@@ -16,7 +16,7 @@
       <div class="tag_title">全部标签</div>
       <div class="tag">
         <span>玩儿什么</span>
-        <span>游戏</span>
+        <span>GAMES</span>
         <span>画渣记录</span>
         <span>学习笔记</span>
         <span>安利</span>
@@ -25,7 +25,7 @@
         <span>视觉补完计划</span>
       </div>
     </div>
-    <div class="contact">
+    <div class="context">
       <span>
         <IconConBehance />
       </span>
@@ -52,6 +52,7 @@ import IconConContact from "./icons/IconConContact.vue";
   display: flex;
   flex-direction: column;
   width: 210px;
+  height: 100%;
   font-size: 14px;
 }
 
@@ -81,7 +82,27 @@ ul:after {
   width: calc(100% - 48px);
 }
 .tag_items {
+  flex: auto;
   margin-top: 24px;
-  padding-left: 24px;
+  padding: 0 24px;
+}
+.tag_items .tag_title {
+  font-size: 12px;
+  color: var(--mougaitong-theme);
+}
+.tag_items .tag span {
+  display: inline-block;
+  margin-top: 16px;
+  margin-right: 16px;
+}
+.context {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: 44px;
+}
+.context span {
+  margin: 0 10px;
 }
 </style>
