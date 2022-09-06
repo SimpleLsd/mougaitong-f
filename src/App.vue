@@ -34,6 +34,17 @@ import NavLayout from "./components/NavLayout.vue";
 </script>
 
 <style scoped>
+.app {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+.nav_view {
+  width: 210px;
+}
+.main_view {
+  flex: 1;
+}
 /* header {
   line-height: 1.5;
   max-height: 100vh;
