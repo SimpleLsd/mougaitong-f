@@ -42,10 +42,10 @@
   </div>
 </template>
 <script setup lang="ts">
-import IconConBehance from "./icons/IconConBehance.vue";
-import iconConWechat from "./icons/iconConWechat.vue";
-import IconConZcool from "./icons/IconConZcool.vue";
-import IconConContact from "./icons/IconConContact.vue";
+import IconConBehance from "@/components/icons/IconConBehance.vue";
+import iconConWechat from "@/components/icons/iconConWechat.vue";
+import IconConZcool from "@/components/icons/IconConZcool.vue";
+import IconConContact from "@/components/icons/IconConContact.vue";
 </script>
 <style scoped>
 .nav {
