@@ -51,7 +51,7 @@ import IconConContact from "@/components/icons/IconConContact.vue";
 .nav {
   display: flex;
   flex-direction: column;
-  width: 210px;
+  width: 100%;
   height: 100%;
   font-size: 14px;
 }
