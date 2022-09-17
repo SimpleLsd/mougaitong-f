@@ -1,5 +1,5 @@
 <template>
-  <div class="nav">
+  <div class="nav_main">
     <div class="logo">
       <img src="@/assets/mougaitong-logo.svg" />
     </div>
@@ -48,10 +48,11 @@ import IconConZcool from "@/components/icons/IconConZcool.vue";
 import IconConContact from "@/components/icons/IconConContact.vue";
 </script>
 <style scoped>
-.nav {
+.nav_main {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  /* width: 210px; */
+  flex: 0 0 210px;
   height: 100%;
   font-size: 14px;
 }
