@@ -17,6 +17,7 @@
       <div class="title"></div>
     </div>
   </div>
+  <!-- <img src="http://43.142.29.240/static/cover_01.png" alt="1" /> -->
 </template>
 
 <script setup lang="ts">
