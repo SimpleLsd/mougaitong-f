@@ -6,8 +6,8 @@
 </template>
 
 <script setup lang="ts">
-import { RouterView } from "vue-router";
 // import { RouterLink, RouterView } from "vue-router";
+import { RouterView } from "vue-router";
 import NavLayout from "./components/layout/NavLayout.vue";
 </script>
 <style scoped></style>

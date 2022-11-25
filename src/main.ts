@@ -2,11 +2,17 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
 
-import "./assets/main.css";
-import "./api/database/connect.ts";
+import sydRequest from "./service";
+
+import "./assets/css/main.css";
 
 const app = createApp(App);
 
 app.use(router);
 
 app.mount("#app");
+
+sydRequest.request({
+  url: "/articles/test_articlae_id_8",
+  method: "GET",
+});
