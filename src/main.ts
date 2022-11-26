@@ -15,4 +15,12 @@ app.mount("#app");
 sydRequest.request({
   url: "/articles/test_articlae_id_8",
   method: "GET",
+  interceptors: {
+    responceInterceptor: (res: any) => {
+      return res.data
+    }
+  }
+}).then((res) => {
+  console.log(res);
 });
+
