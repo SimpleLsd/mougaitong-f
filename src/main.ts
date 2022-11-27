@@ -2,7 +2,7 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
 
-import sydRequest from "./service";
+import getArticleById from "./service"
 
 import "./assets/css/main.css";
 
@@ -12,15 +12,5 @@ app.use(router);
 
 app.mount("#app");
 
-sydRequest.request({
-  url: "/articles/test_articlae_id_8",
-  method: "GET",
-  interceptors: {
-    responceInterceptor: (res: any) => {
-      return res.data
-    }
-  }
-}).then((res) => {
-  console.log(res);
-});
+console.log( await getArticleById(1));
 
