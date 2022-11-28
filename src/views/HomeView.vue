@@ -5,10 +5,7 @@
 </template>
 
 <script setup lang="ts">
-// import TheWelcome from "@/components/TheWelcome.vue";
-// import HomeMain from "../components/HomeMain.vue";
 import TopRecommend from "@/components/layout/home/TopRecommend.vue";
-// let prop = 1;
 </script>
 
 <style scoped>
