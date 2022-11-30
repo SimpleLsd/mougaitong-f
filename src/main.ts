@@ -2,7 +2,7 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
 
-import getArticleById from "./service"
+// import getArticleById from "./service";
 
 import "./assets/css/main.css";
 
@@ -12,5 +12,4 @@ app.use(router);
 
 app.mount("#app");
 
-console.log( await getArticleById(1));
-
+// console.log(await getArticleById(1));

@@ -24,6 +24,7 @@
 const topRecommendData = defineProps({
   propA: Number,
 });
+console.log(1);
 </script>
 
 <style scoped>
