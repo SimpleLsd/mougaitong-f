@@ -1,27 +1,29 @@
 import type { Module } from "vuex";
-import type { IMetadataObject, IRootState } from "./types";
+import type { IMetadataObject, IMetadata, IRootState } from "./types";
 import { getMetadata } from "@/service";
 
-const metadata: Module<IMetadataObject, IRootState> = {
+const metadata: Module<IMetadata, IRootState> = {
   namespaced: true,
   state() {
     return {
-      metadata: {
-        // id: "",
-        topArticle: "",
-        totalNum: 0,
-        totalArticleNum: 0,
-        totalPictureNum: 0,
-        totalChatNum: 0,
-        articleTags: [],
-      },
+      id: "",
+      topArticle: "",
+      totalNum: 0,
+      totalArticleNum: 0,
+      totalPictureNum: 0,
+      totalChatNum: 0,
+      articleTags: [],
     };
   },
   getters: {},
   mutations: {
-    changeMetadataMutation(state, metadata) {
-      state.metadata = metadata;
-      // console.log(state.metadata);
+    changeMetadataMutation(state, metadata: IMetadata) {
+      state.topArticle = metadata.topArticle;
+      state.totalNum = metadata.totalNum;
+      state.totalArticleNum = metadata.totalArticleNum;
+      state.totalPictureNum = metadata.totalPictureNum;
+      state.totalChatNum = metadata.totalChatNum;
+      state.articleTags = metadata.articleTags;
     },
   },
   actions: {

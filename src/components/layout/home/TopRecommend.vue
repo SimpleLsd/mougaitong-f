@@ -3,7 +3,10 @@
     <div class="top_article">
       <div class="cover">{{ topRecommendData.propA }}</div>
       <div class="inner">
-        <div class="small_title num"></div>
+        <div class="small_title num">
+          <!-- {{ storeNum }} -->
+          {{ metadata.totalNum }}
+        </div>
         <div class="title"></div>
         <div class="tag_date"></div>
         <div class="des">
@@ -21,15 +24,17 @@
 </template>
 
 <script setup lang="ts">
+import { computed, isRef } from "vue";
 import { useStore } from "vuex";
 const store = useStore();
-store.dispatch("metadata/getMetadataAction", 1);
-// const store = useStore();
-// store.dispatch("metadata/getMetadata");
 
 const topRecommendData = defineProps({
   propA: Number,
 });
+
+const metadata = computed(() => store.state.metadata);
+console.log(metadata);
+console.log(isRef(metadata));
 </script>
 
 <style scoped>

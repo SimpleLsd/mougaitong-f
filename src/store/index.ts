@@ -7,7 +7,11 @@ import metadata from "./metadata";
 const store = createStore<IRootState>({
   state: () => {
     return {
-      name: "a",
+      num: 44,
+      numObj: {
+        num1: 55,
+        num2: 66,
+      },
     };
   },
   mutations: {},

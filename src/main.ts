@@ -17,3 +17,5 @@ app.mount("#app");
 
 // console.log(await getArticleById(1));
 // console.log(await getMetadata());
+
+store.dispatch("metadata/getMetadataAction");
