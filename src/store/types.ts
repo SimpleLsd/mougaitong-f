@@ -11,3 +11,7 @@ export interface IMetadata {
   totalChatNum: number;
   articleTags: Array<object>;
 }
+
+export interface IMetadataObject {
+  metadata: IMetadata;
+}

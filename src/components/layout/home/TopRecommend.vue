@@ -21,10 +21,15 @@
 </template>
 
 <script setup lang="ts">
+import { useStore } from "vuex";
+const store = useStore();
+store.dispatch("metadata/getMetadataAction", 1);
+// const store = useStore();
+// store.dispatch("metadata/getMetadata");
+
 const topRecommendData = defineProps({
   propA: Number,
 });
-console.log(1);
 </script>
 
 <style scoped>

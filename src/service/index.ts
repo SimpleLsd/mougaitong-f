@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import SYDRequest from "./api/index";
 import { BASE_URL, TIME_OUT } from "./api/config";
 
@@ -6,30 +7,42 @@ const sydRequest = new SYDRequest({
   timeout: TIME_OUT,
   interceptors: {
     requestInterceptor: (config) => {
-      return config
+      return config;
     },
     requestInterceptorCatch: (err) => {
-      return err
+      return err;
     },
     responceInterceptor: (config) => {
-      return config
+      return config;
     },
     responceInterceptorCatch: (err) => {
-      return err
+      return err;
     },
-  }
+  },
 });
 
-const getArticleById = async (num:number) => {
+const getArticleById = async (num: number) => {
   return sydRequest.request({
     url: `/articles/test_articlae_id_${num}`,
     method: "GET",
     interceptors: {
       responceInterceptor: (res: any) => {
-        return res.data
-      }
-    }
-  })
-}
+        return res.data;
+      },
+    },
+  });
+};
 
-export default getArticleById;
+const getMetadata = async () => {
+  return sydRequest.request({
+    url: "/metadata",
+    method: "GET",
+    interceptors: {
+      responceInterceptor: (res: any) => {
+        return res.data;
+      },
+    },
+  });
+};
+
+export { getArticleById, getMetadata };
