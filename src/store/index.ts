@@ -3,10 +3,12 @@ import { createStore } from "vuex";
 import type { IRootState } from "./types";
 
 import metadata from "./metadata";
+import toparticle from "./toparticle";
 
 const store = createStore<IRootState>({
   state: () => {
     return {
+      name: "",
       num: 44,
       numObj: {
         num1: 55,
@@ -23,6 +25,7 @@ const store = createStore<IRootState>({
   },
   modules: {
     metadata,
+    toparticle,
   },
 });
 

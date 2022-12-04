@@ -21,9 +21,9 @@ const sydRequest = new SYDRequest({
   },
 });
 
-const getArticleById = async (num: number) => {
+const getArticleById = async (id: string) => {
   return sydRequest.request({
-    url: `/articles/test_articlae_id_${num}`,
+    url: `/articles/${id}`,
     method: "GET",
     interceptors: {
       responceInterceptor: (res: any) => {

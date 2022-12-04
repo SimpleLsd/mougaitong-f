@@ -31,6 +31,9 @@ const metadata: Module<IMetadata, IRootState> = {
       const metadata: IMetadataObject = await getMetadata();
       commit("changeMetadataMutation", metadata);
     },
+    getTopArticleFromMetadata({ state }) {
+      return state.topArticle;
+    },
   },
 };
 

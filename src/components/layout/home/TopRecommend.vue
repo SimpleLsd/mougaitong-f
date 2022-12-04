@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, isRef } from "vue";
+import { computed } from "vue";
 import { useStore } from "vuex";
 const store = useStore();
 
@@ -33,8 +33,8 @@ const topRecommendData = defineProps({
 });
 
 const metadata = computed(() => store.state.metadata);
-console.log(metadata);
-console.log(isRef(metadata));
+// console.log(metadata);
+// console.log(isRef(metadata));
 </script>
 
 <style scoped>
