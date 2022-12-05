@@ -27,6 +27,7 @@ const metadata: Module<IMetadata, IRootState> = {
       state.totalChatNum = metadata.totalChatNum;
       state.articleTags = metadata.articleTags;
       state.secondArticle = metadata.secondArticle;
+      state.topCollection = metadata.topCollection;
     },
   },
   actions: {
