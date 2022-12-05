@@ -19,6 +19,7 @@
       <div class="small_title"></div>
       <div class="title"></div>
     </div>
+    <v-if></v-if>
   </div>
   <!-- <img src="http://43.142.29.240/static/cover_01.png" alt="1" /> -->
 </template>

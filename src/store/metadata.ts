@@ -12,7 +12,9 @@ const metadata: Module<IMetadata, IRootState> = {
       totalArticleNum: 0,
       totalPictureNum: 0,
       totalChatNum: 0,
+      topCollection: "",
       articleTags: [],
+      secondArticle: [],
     };
   },
   getters: {},
@@ -24,6 +26,7 @@ const metadata: Module<IMetadata, IRootState> = {
       state.totalPictureNum = metadata.totalPictureNum;
       state.totalChatNum = metadata.totalChatNum;
       state.articleTags = metadata.articleTags;
+      state.secondArticle = metadata.secondArticle;
     },
   },
   actions: {

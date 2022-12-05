@@ -9,7 +9,9 @@ export interface IMetadata {
   totalArticleNum: number;
   totalPictureNum: number;
   totalChatNum: number;
+  topCollection: string;
   articleTags: Array<object>;
+  secondArticle: Array<string>;
 }
 
 interface IArticleTag {
