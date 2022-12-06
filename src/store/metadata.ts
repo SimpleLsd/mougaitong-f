@@ -6,6 +6,7 @@ const metadata: Module<IMetadata, IRootState> = {
   namespaced: true,
   state() {
     return {
+      ready: false,
       id: "",
       topArticle: "",
       totalNum: 0,
@@ -28,6 +29,7 @@ const metadata: Module<IMetadata, IRootState> = {
       state.articleTags = metadata.articleTags;
       state.secondArticle = metadata.secondArticle;
       state.topCollection = metadata.topCollection;
+      state.ready = true;
     },
   },
   actions: {

@@ -19,8 +19,6 @@
       <div class="small_title"></div>
       <div class="title"></div>
     </div>
-    <div v-if="metadata.totalNum === 0">0</div>
-    <div v-else>1</div>
   </div>
   <!-- <img src="http://43.142.29.240/static/cover_01.png" alt="1" /> -->
 </template>
@@ -35,8 +33,6 @@ const topRecommendData = defineProps({
 });
 
 const metadata = computed(() => store.state.metadata);
-// console.log(metadata);
-// console.log(isRef(metadata));
 </script>
 
 <style scoped>

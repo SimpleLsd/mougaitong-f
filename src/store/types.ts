@@ -3,6 +3,7 @@ export interface IRootState {
 }
 
 export interface IMetadata {
+  ready: boolean;
   id?: string;
   topArticle: string;
   totalNum: number;

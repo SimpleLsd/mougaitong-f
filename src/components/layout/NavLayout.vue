@@ -48,11 +48,22 @@ import IconConZcool from "@/components/icons/IconConZcool.vue";
 import IconConContact from "@/components/icons/IconConContact.vue";
 </script>
 <style scoped>
+@media (min-width: 600px) and (max-width: 1279px) {
+  .nav_main {
+    --side-width: 75px;
+  }
+}
+@media (min-width: 1280px) and (max-width: 1919px) {
+  .nav_main {
+    --side-width: 210px;
+  }
+}
 .nav_main {
   display: flex;
   flex-direction: column;
-  /* width: 210px; */
-  flex: 0 0 210px;
+  width: var(--side-width);
+  /* flex: 0 0 var(--side-width); */
+  flex-shrink: 0;
   height: 100%;
   font-size: 14px;
 }
