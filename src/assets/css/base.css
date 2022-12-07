@@ -1,6 +1,9 @@
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
-  --mougaitong-theme: #E60000;
+  --mougaitong-theme: #e60000;
+
+  --body-font-family: PingFangSC, Open Sans, Helvetica Neue, Arial,
+    Hiragino Sans GB, Microsoft YaHei, WenQuanYi Micro Hei, sans-serif;
 
   --vt-c-white: #ffffff;
   --vt-c-white-soft: #f8f8f8;
@@ -50,6 +53,10 @@
     --color-heading: var(--vt-c-text-dark-1);
     --color-text: var(--vt-c-text-dark-2);
   }
+}
+
+* {
+  font-family: var(--body-font-family);
 }
 
 *,

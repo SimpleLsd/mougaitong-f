@@ -3,6 +3,7 @@
     <div class="top_article">
       <div class="cover">{{ topRecommendData.propA }}</div>
       <div class="text">测试文字</div>
+      <h3>测试文字H3</h3>
       <div class="inner">
         <div class="small_title num">
           <!-- {{ storeNum }} -->
@@ -48,6 +49,6 @@ const metadata = computed(() => store.state.metadata);
 }
 .text {
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 600;
 }
 </style>
