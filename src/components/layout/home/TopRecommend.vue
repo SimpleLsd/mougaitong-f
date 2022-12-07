@@ -47,6 +47,7 @@ const metadata = computed(() => store.state.metadata);
   display: block;
 }
 .text {
-  font-size: 1.5rem;
+  font-size: 24px;
+  font-weight: 500;
 }
 </style>
