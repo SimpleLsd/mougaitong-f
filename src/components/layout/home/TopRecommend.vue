@@ -2,6 +2,7 @@
   <div class="top_recommend">
     <div class="top_article">
       <div class="cover">{{ topRecommendData.propA }}</div>
+      <div class="text">测试文字</div>
       <div class="inner">
         <div class="small_title num">
           <!-- {{ storeNum }} -->
@@ -37,8 +38,15 @@ const metadata = computed(() => store.state.metadata);
 
 <style scoped>
 .top_recommend {
-  width: 100px;
-  height: 100px;
+  width: 100%;
   background-color: azure;
+}
+.top_recommend::after {
+  content: "";
+  padding-top: 15%;
+  display: block;
+}
+.text {
+  font-size: 1.5rem;
 }
 </style>
