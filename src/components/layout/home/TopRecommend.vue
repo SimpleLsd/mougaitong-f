@@ -9,6 +9,8 @@
         <!-- {{ storeNum }} -->
         {{ metadata.totalNum }}
         {{ count }}
+        {{ pinia.count }}
+        {{ piniaCount }}
       </div>
       <div class="title"></div>
       <div class="tag_date"></div>
@@ -26,9 +28,22 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed } from "vue";
 import { useStore } from "vuex";
+
+import { storeToRefs } from "pinia";
+import { useMetadataStore } from "@/pinia/index";
+
 const store = useStore();
+const pinia = useMetadataStore();
+
+const piniaCount = computed(() => pinia.count);
+
+const { count } = storeToRefs(pinia);
+
+console.log(pinia);
+console.log(piniaCount);
+console.log(count);
 
 // const topRecommendData = defineProps({
 //   propA: Number,
@@ -36,8 +51,6 @@ const store = useStore();
 
 const metadata = computed(() => store.state.metadata);
 const toparticle = computed(() => store.state.toparticle);
-
-const count = ref(0);
 
 count.value = metadata.value.totalNum;
 </script>
