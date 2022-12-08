@@ -37,7 +37,6 @@ const toparticle: Module<IArticle, IRootState> = {
         { root: true }
       );
       const b = await getArticleById(a);
-      console.log(b[0]);
       commit("changeAtricleMutations", b[0]);
     },
   },

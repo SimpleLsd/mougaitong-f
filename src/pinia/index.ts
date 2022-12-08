@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-export const useMetadataStore = defineStore("metadata", {
+export const useMetaDataStore = defineStore("metadata", {
   state: () => ({
     count: 0,
   }),

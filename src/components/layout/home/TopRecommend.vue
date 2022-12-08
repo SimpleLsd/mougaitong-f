@@ -7,10 +7,11 @@
     <div class="top_article">
       <div class="small_title num">
         <!-- {{ storeNum }} -->
-        {{ metadata.totalNum }}
-        {{ count }}
-        {{ pinia.count }}
-        {{ piniaCount }}
+        <!-- {{ metadata.totalNum }} -->
+        <!-- {{ count }} -->
+        <!-- {{ pinia.count }} -->
+        <!-- {{ piniaCount }} -->
+        {{ totalNum }}
       </div>
       <div class="title"></div>
       <div class="tag_date"></div>
@@ -31,28 +32,34 @@
 import { computed } from "vue";
 import { useStore } from "vuex";
 
-import { storeToRefs } from "pinia";
-import { useMetadataStore } from "@/pinia/index";
+// import { storeToRefs } from "pinia";
+// import { useMetaDataStore } from "@/pinia/index";
+import { useMetadataStore } from "@/pinia/metadata";
 
 const store = useStore();
-const pinia = useMetadataStore();
+// const pinia = useMetaDataStore();
+const metadata = useMetadataStore();
 
-const piniaCount = computed(() => pinia.count);
+// console.log(metadata);
 
-const { count } = storeToRefs(pinia);
+metadata.getMetadataAction();
 
-console.log(pinia);
-console.log(piniaCount);
-console.log(count);
+// const piniaCount = computed(() => pinia.count);
+const totalNum = computed(() => metadata.totalNum);
+// const { count } = storeToRefs(pinia);
+
+// console.log(pinia);
+// console.log(piniaCount);
+// console.log(count);
 
 // const topRecommendData = defineProps({
 //   propA: Number,
 // });
 
-const metadata = computed(() => store.state.metadata);
+// const metadata = computed(() => store.state.metadata);
 const toparticle = computed(() => store.state.toparticle);
 
-count.value = metadata.value.totalNum;
+// count.value = metadata.value.totalNum;
 </script>
 
 <style scoped>
