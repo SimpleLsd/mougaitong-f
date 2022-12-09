@@ -2,8 +2,8 @@ import { createApp } from "vue";
 import { createPinia } from "pinia";
 import App from "./App.vue";
 import router from "./router";
-import store from "./store/index";
 
+// import store from "./store/index";
 // import { getArticleById } from "./service";
 // import { getMetadata } from "./service";
 
@@ -12,15 +12,12 @@ import "./assets/css/main.css";
 const app = createApp(App);
 const pinia = createPinia();
 
+// app.use(store);
 app.use(router);
-app.use(store);
 app.use(pinia);
 
 app.mount("#app");
 
-// console.log(await getArticleById(1));
-// console.log(await getMetadata());
-
-store.dispatch("metadata/getMetadataAction").then(() => {
-  store.dispatch("toparticle/getToparticleAction");
-});
+// store.dispatch("metadata/getMetadataAction").then(() => {
+//   store.dispatch("toparticle/getToparticleAction");
+// });

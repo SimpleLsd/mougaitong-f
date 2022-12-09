@@ -1,46 +1,38 @@
-import type { Module } from "vuex";
-import type { IMetadataObject, IMetadata, IRootState } from "./types";
+import { defineStore } from "pinia";
 import { getMetadata } from "@/service";
+import type { IMetadata } from "./types";
 
-const metadata: Module<IMetadata, IRootState> = {
-  namespaced: true,
-  state() {
-    return {
-      ready: false,
-      id: "",
-      topArticle: "",
-      totalNum: 0,
-      totalArticleNum: 0,
-      totalPictureNum: 0,
-      totalChatNum: 0,
-      topCollection: "",
-      articleTags: [],
-      secondArticle: [],
-    };
-  },
+export const useMetadataStore = defineStore("metadata", {
+  state: (): IMetadata => ({
+    ready: false,
+    id: "",
+    topArticle: "",
+    totalNum: 0,
+    totalArticleNum: 0,
+    totalPictureNum: 0,
+    totalChatNum: 0,
+    topCollection: "",
+    articleTags: [],
+    secondArticle: [],
+  }),
   getters: {},
-  mutations: {
-    changeMetadataMutation(state, metadata: IMetadata) {
-      state.topArticle = metadata.topArticle;
-      state.totalNum = metadata.totalNum;
-      state.totalArticleNum = metadata.totalArticleNum;
-      state.totalPictureNum = metadata.totalPictureNum;
-      state.totalChatNum = metadata.totalChatNum;
-      state.articleTags = metadata.articleTags;
-      state.secondArticle = metadata.secondArticle;
-      state.topCollection = metadata.topCollection;
-      state.ready = true;
-    },
-  },
   actions: {
-    async getMetadataAction({ commit }) {
-      const metadata: IMetadataObject = await getMetadata();
-      commit("changeMetadataMutation", metadata);
-    },
-    getTopArticleFromMetadata({ state }) {
-      return state.topArticle;
+    async getMetadataAction() {
+      try {
+        const metadata = await getMetadata();
+        this.ready = true;
+        this.id = metadata._id;
+        this.topArticle = metadata.topArticle;
+        this.totalNum = metadata.totalNum;
+        this.totalArticleNum = metadata.totalArticleNum;
+        this.totalPictureNum = metadata.totalPictureNum;
+        this.totalChatNum = metadata.totalChatNum;
+        this.topCollection = metadata.topCollection;
+        this.articleTags = metadata.articleTags;
+        this.secondArticle = metadata.secondArticle;
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
-};
-
-export default metadata;
+});

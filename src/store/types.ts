@@ -1,7 +1,3 @@
-export interface IRootState {
-  name: string;
-}
-
 export interface IMetadata {
   ready: boolean;
   id?: string;
@@ -11,7 +7,7 @@ export interface IMetadata {
   totalPictureNum: number;
   totalChatNum: number;
   topCollection: string;
-  articleTags: Array<object>;
+  articleTags: Array<IArticleTag>;
   secondArticle: Array<string>;
 }
 
