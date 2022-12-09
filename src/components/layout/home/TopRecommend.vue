@@ -1,17 +1,13 @@
 <template>
   <div class="top_recommend">
-    <div
-      class="top_article_cover"
-      :style="{ backgroundImage: `url(${toparticle.cover})` }"
-    ></div>
+    <div class="top_article_cover" :style="{ backgroundImage: `` }"></div>
     <div class="top_article">
       <div class="small_title num">
-        <!-- {{ storeNum }} -->
-        <!-- {{ metadata.totalNum }} -->
-        <!-- {{ count }} -->
-        <!-- {{ pinia.count }} -->
-        <!-- {{ piniaCount }} -->
-        {{ totalNum }}
+        <!-- {{ totalNum }} -->
+        <!-- {{ tagIDSub[0] ? tagIDSub[0].tagID : "" }} -->
+        {{ articleTags[0] ? articleTags[0].tagID : "" }}
+        <br />
+        {{ topArticle.cover }}
       </div>
       <div class="title"></div>
       <div class="tag_date"></div>
@@ -29,37 +25,40 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
-import { useStore } from "vuex";
+import { ref } from "vue";
 
 // import { storeToRefs } from "pinia";
-// import { useMetaDataStore } from "@/pinia/index";
-import { useMetadataStore } from "@/pinia/metadata";
+import { useMetadataStore } from "@/store/metadata";
+import { getArticleById } from "@/service";
+import { storeToRefs } from "pinia";
 
-const store = useStore();
-// const pinia = useMetaDataStore();
+import type { IArticle } from "@/store/types";
+
 const metadata = useMetadataStore();
-
-// console.log(metadata);
 
 metadata.getMetadataAction();
 
-// const piniaCount = computed(() => pinia.count);
-const totalNum = computed(() => metadata.totalNum);
-// const { count } = storeToRefs(pinia);
+const { articleTags } = storeToRefs(metadata);
+const topArticle = ref({} as IArticle);
 
-// console.log(pinia);
-// console.log(piniaCount);
-// console.log(count);
+metadata.$subscribe(async (mutation, state) => {
+  // tagIDSub.value = state.articleTags;
+  const a = await getArticleById(state.topArticle);
+  topArticle.value = a[0];
+  console.log(topArticle.value.cover);
+});
 
-// const topRecommendData = defineProps({
-//   propA: Number,
-// });
+// const totalNum = computed(() => metadata.totalNum);
+// console.log(isReactive(tagID));
 
-// const metadata = computed(() => store.state.metadata);
-const toparticle = computed(() => store.state.toparticle);
+// const tagIDSub = ref([] as Array<ItagIDSub>);
+// interface ItagIDSub {
+//   tagID: string;
+//   tagName: string;
+//   tagRoute: string;
+// }
 
-// count.value = metadata.value.totalNum;
+// console.log(tagID);
 </script>
 
 <style scoped>
