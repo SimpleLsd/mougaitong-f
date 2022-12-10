@@ -1,11 +1,11 @@
 <template>
   <div class="top_recommend">
     <div class="top_article_cover" :style="{ backgroundImage: `` }"></div>
-    <div class="top_article">
+    <div class="top_article_content">
       <div class="small_title num">
         <!-- {{ totalNum }} -->
         <!-- {{ tagIDSub[0] ? tagIDSub[0].tagID : "" }} -->
-        {{ articleTags[0] ? articleTags[0].tagID : "" }}
+        <!-- {{ articleTags[0] ? articleTags[0].tagID : "" }} -->
         <br />
         {{ topArticle.cover }}
       </div>
@@ -30,7 +30,7 @@ import { ref } from "vue";
 // import { storeToRefs } from "pinia";
 import { useMetadataStore } from "@/store/metadata";
 import { getArticleById } from "@/service";
-import { storeToRefs } from "pinia";
+// import { storeToRefs } from "pinia";
 
 import type { IArticle } from "@/store/types";
 
@@ -38,7 +38,7 @@ const metadata = useMetadataStore();
 
 metadata.getMetadataAction();
 
-const { articleTags } = storeToRefs(metadata);
+// const { articleTags } = storeToRefs(metadata);
 const topArticle = ref({} as IArticle);
 
 metadata.$subscribe(async (mutation, state) => {
@@ -48,6 +48,9 @@ metadata.$subscribe(async (mutation, state) => {
   console.log(topArticle.value.cover);
 });
 
+//
+//
+//
 // const totalNum = computed(() => metadata.totalNum);
 // console.log(isReactive(tagID));
 
