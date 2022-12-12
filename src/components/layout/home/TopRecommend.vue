@@ -4,29 +4,32 @@
       class="top_article_cover"
       :style="{ backgroundImage: `url(${topArticle.cover})` }"
     ></div>
-    <div class="top_article_content">
-      <div class="small_title">
-        头条推荐&nbsp;&nbsp;&nbsp;NO.111
-        <!-- {{ totalNum }} -->
-        <!-- {{ tagIDSub[0] ? tagIDSub[0].tagID : "" }} -->
 
-        <!-- 3. 元素据标签集-3 -->
-        <!-- {{ articleTags[0] ? articleTags[0].tagID : "" }} -->
-        <!-- {{ topArticle.cover }} -->
+    <div class="top_article_content">
+      <!-- {{ totalNum }} -->
+      <!-- {{ tagIDSub[0] ? tagIDSub[0].tagID : "" }} -->
+      <!-- 3. 元素据标签集-3 -->
+      <!-- {{ articleTags[0] ? articleTags[0].tagID : "" }} -->
+      <!-- {{ topArticle.cover }} -->
+      <div class="small_title theme_red small_font">
+        头条推荐&nbsp;&nbsp;&nbsp;NO.111
       </div>
-      <div class="title">
+
+      <div class="title big_font">
         欸！UI设计师不可不了解的文档输出格式
         <!-- {{ topArticle }} -->
       </div>
-      <div class="tag_date">
-        <span class="tag">What to Play</span>
-        <span class="date">7月17日</span>
+
+      <div class="tag_date small_font">
+        <span class="tag theme_red">What to Play</span>
+        <span class="date gray">7月17日</span>
       </div>
+
       <div class="des">
-        <span class="content"
+        <span class="content small_font"
           >今天的节目内容主要是由自称18流前端开发的应姓主播来向大家道歉，中间穿插一些他在近期coding工作时接触的事例所组成。
         </span>
-        <span class="see_all">查看全部</span>
+        <span class="see_all theme_red small_font">查看文章</span>
       </div>
     </div>
 
@@ -34,9 +37,10 @@
       class="top_collection_cover"
       :style="{ backgroundImage: `url(${test_collection_cover})` }"
     ></div>
+
     <div class="top_collection_content">
-      <div class="small_title">专题推荐</div>
-      <div class="title">Ever forever 的记忆和记录的故事</div>
+      <div class="small_title small_font">专题推荐</div>
+      <div class="title big_font">印象笔记的记忆和记录的故事</div>
     </div>
   </div>
 </template>
@@ -84,30 +88,84 @@ metadata.$subscribe(async (mutation, state) => {
 //   tagName: string;
 //   tagRoute: string;
 // }
-
-// console.log(tagID);
 </script>
 
 <style scoped>
-@media (min-width: 1280px) and (max-width: 1919px) {
-  .top_article_content .small_title,
-  .top_article_content .tag_date span,
-  .top_article_content .des span {
-    font-size: 16px;
+/* @media (max-width: 1100px) {
+  .top_article_cover {
+    width: 240px !important;
   }
-  .top_article_content .title {
-    font-size: 24px;
+} */
+
+@media (max-width: 1249px) {
+  .top_collection_cover {
+    display: none;
+  }
+  .top_collection_content {
+    display: none;
   }
 }
-@media (min-width: 600px) and (max-width: 1279px) {
-  .top_article_content .small_title,
-  .top_article_content .tag_date span,
-  .top_article_content .des span {
+
+@media (max-width: 640px) {
+  .small_font {
+    font-size: 10px;
+  }
+  .big_font {
+    font-size: 12px;
+  }
+  .des {
+    display: none;
+  }
+}
+@media (min-width: 641px) and (max-width: 959px) {
+  .small_font {
+    font-size: 12px;
+  }
+  .big_font {
     font-size: 14px;
   }
-  .top_article_content .title {
+  .des {
+    display: none;
+  }
+}
+@media (min-width: 960px) and (max-width: 1279px) {
+  .small_font {
+    font-size: 14px;
+  }
+  .big_font {
+    font-size: 18px;
+  }
+}
+@media (min-width: 1280px) and (max-width: 1599px) {
+  .small_font {
+    font-size: 14px;
+  }
+  .big_font {
+    font-size: 18px;
+  }
+}
+@media (min-width: 1600px) and (max-width: 1920px) {
+  .small_font {
+    font-size: 16px;
+  }
+  .big_font {
     font-size: 20px;
   }
+}
+@media (min-width: 1921px) {
+  .small_font {
+    font-size: 16px;
+  }
+  .big_font {
+    font-size: 22px;
+  }
+}
+
+.theme_red {
+  color: #e60012;
+}
+.gray {
+  color: #8a8b8c;
 }
 
 .top_recommend {
@@ -117,7 +175,7 @@ metadata.$subscribe(async (mutation, state) => {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 28px 50px;
+  padding: 1% 2%;
 }
 .top_recommend::after {
   /* 等比缩放顶部推荐 */
@@ -139,14 +197,13 @@ metadata.$subscribe(async (mutation, state) => {
   padding-top: 56%;
 }
 .top_article_content {
-  background-color: azure;
-  padding: 0 32px;
+  width: 100%;
+  padding: 0 2%;
 }
-.top_article_content .small_title {
-  /* 小标题 */
-  color: #e60012;
+/* .top_article_content .small_title {
+  小标题
   font-size: var(--text-fz);
-}
+} */
 .top_article_content .title {
   /* 大标题 */
   font-weight: 700;
@@ -154,15 +211,17 @@ metadata.$subscribe(async (mutation, state) => {
   text-overflow: ellipsis;
   white-space: nowrap;
   text-align: justify;
-  padding: 12px 0;
+  margin: 1.5% 0;
+}
+.top_article_content .tag_date {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
 .top_article_content .des .content {
-  margin: 12px 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+  margin: 1.5% 0;
+}
+.top_article_content .des .content {
   text-align: justify;
 }
 .top_collection_cover {
@@ -172,7 +231,6 @@ metadata.$subscribe(async (mutation, state) => {
   background-size: cover;
   border-radius: 8px;
   flex-shrink: 0;
-  /* flex-shrink: 1; */
 }
 .top_collection_cover::after {
   content: "";
@@ -180,6 +238,13 @@ metadata.$subscribe(async (mutation, state) => {
   padding-top: 132.5%;
 }
 .top_collection_content {
-  width: 18%;
+  width: 24%;
+  padding: 0 20px;
+}
+.top_collection_content .small_title {
+  color: #e60012;
+}
+.top_collection_content .title {
+  font-weight: 700;
 }
 </style>
