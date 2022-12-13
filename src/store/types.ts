@@ -1,7 +1,7 @@
 export interface IMetadata {
   ready: boolean;
-  id?: string;
-  topArticle: string;
+  _id?: string;
+  topArticle: number;
   totalNum: number;
   totalArticleNum: number;
   totalPictureNum: number;
@@ -25,6 +25,7 @@ interface IArticleSection {
 
 export interface IArticle {
   id?: string;
+  articleNum: number;
   articleId: string;
   totalNum: number;
   dateStr: string;

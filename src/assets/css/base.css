@@ -1,6 +1,14 @@
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
   --mougaitong-theme: #e60000;
+  --mougaitong-black: #000000;
+  --mougaitong-gray-dark: #333537;
+  --mougaitong-gray-middle: #656769;
+  --mougaitong-gray: #949799;
+  --mougaitong-gray-light: #d7d8d9;
+  --mougaitong-background: #f6f6f7;
+  --mougaitong-white: #fff;
+  --mougaitong-context: #464646;
 
   --body-font-family: PingFangSC, Open Sans, Helvetica Neue, Arial,
     Hiragino Sans GB, Microsoft YaHei, WenQuanYi Micro Hei, sans-serif;

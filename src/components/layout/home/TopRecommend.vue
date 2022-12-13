@@ -15,7 +15,7 @@
         头条推荐&nbsp;&nbsp;&nbsp;NO.111
       </div>
 
-      <div class="title big_font">
+      <div class="title big_font black">
         欸！UI设计师不可不了解的文档输出格式
         <!-- {{ topArticle }} -->
       </div>
@@ -26,20 +26,20 @@
       </div>
 
       <div class="des">
-        <span class="content small_font"
+        <span class="content small_font dark_gray"
           >今天的节目内容主要是由自称18流前端开发的应姓主播来向大家道歉，中间穿插一些他在近期coding工作时接触的事例所组成。
         </span>
         <span class="see_all theme_red small_font">查看文章</span>
       </div>
     </div>
-
+    <div class="line"></div>
     <div
       class="top_collection_cover"
       :style="{ backgroundImage: `url(${test_collection_cover})` }"
     ></div>
 
     <div class="top_collection_content">
-      <div class="small_title small_font">专题推荐</div>
+      <div class="small_font theme_red">专题推荐</div>
       <div class="title big_font">印象笔记的记忆和记录的故事</div>
     </div>
   </div>
@@ -49,7 +49,7 @@
 import { ref } from "vue";
 
 import { useMetadataStore } from "@/store/metadata";
-import { getArticleById } from "@/service";
+import { getArticleByNum } from "@/service";
 
 // 1.元素据标签集-1
 // import { storeToRefs } from "pinia";
@@ -71,9 +71,9 @@ const topArticle = ref({} as IArticle);
 
 metadata.$subscribe(async (mutation, state) => {
   // tagIDSub.value = state.articleTags;
-  const a = await getArticleById(state.topArticle);
+  const a = await getArticleByNum(state.topArticle);
   topArticle.value = a[0];
-  console.log(topArticle.value.cover);
+  // console.log(topArticle.value.cover);
 });
 
 //
@@ -98,10 +98,9 @@ metadata.$subscribe(async (mutation, state) => {
 } */
 
 @media (max-width: 1249px) {
-  .top_collection_cover {
-    display: none;
-  }
-  .top_collection_content {
+  .top_collection_cover,
+  .top_collection_content,
+  .line {
     display: none;
   }
 }
@@ -162,10 +161,22 @@ metadata.$subscribe(async (mutation, state) => {
 }
 
 .theme_red {
-  color: #e60012;
+  color: var(--mougaitong-theme);
 }
 .gray {
-  color: #8a8b8c;
+  color: var(--mougaitong-gray);
+}
+.black {
+  color: var(--mougaitong-black);
+}
+.dark_gray {
+  color: var(--mougaitong-gray-dark);
+}
+.middle_gray {
+  color: var(--mougaitong-gray-middle);
+}
+.light_gray {
+  color: var(--mougaitong-gray-light);
 }
 
 .top_recommend {
@@ -198,7 +209,7 @@ metadata.$subscribe(async (mutation, state) => {
 }
 .top_article_content {
   width: 100%;
-  padding: 0 2%;
+  margin: 0 2%;
 }
 /* .top_article_content .small_title {
   小标题
@@ -211,7 +222,7 @@ metadata.$subscribe(async (mutation, state) => {
   text-overflow: ellipsis;
   white-space: nowrap;
   text-align: justify;
-  margin: 1.5% 0;
+  margin: 1% 0;
 }
 .top_article_content .tag_date {
   display: flex;
@@ -241,10 +252,13 @@ metadata.$subscribe(async (mutation, state) => {
   width: 24%;
   padding: 0 20px;
 }
-.top_collection_content .small_title {
-  color: #e60012;
-}
 .top_collection_content .title {
   font-weight: 700;
+}
+.line {
+  width: 1px;
+  height: 130px;
+  background-color: var(--mougaitong-gray-light);
+  margin: 0 2%;
 }
 </style>

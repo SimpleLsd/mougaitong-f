@@ -23,7 +23,19 @@ const sydRequest = new SYDRequest({
 
 const getArticleById = async (id: string) => {
   return sydRequest.request({
-    url: `/articles/${id}`,
+    url: `/articles/id/${id}`,
+    method: "GET",
+    interceptors: {
+      responceInterceptor: (res: any) => {
+        return res.data;
+      },
+    },
+  });
+};
+
+const getArticleByNum = async (num: number) => {
+  return sydRequest.request({
+    url: `/articles/${num}`,
     method: "GET",
     interceptors: {
       responceInterceptor: (res: any) => {
@@ -45,4 +57,4 @@ const getMetadata = async () => {
   });
 };
 
-export { getArticleById, getMetadata };
+export { getArticleById, getArticleByNum, getMetadata };

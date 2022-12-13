@@ -5,8 +5,8 @@ import type { IMetadata } from "./types";
 export const useMetadataStore = defineStore("metadata", {
   state: (): IMetadata => ({
     ready: false,
-    id: "",
-    topArticle: "",
+    _id: "",
+    topArticle: 0,
     totalNum: 0,
     totalArticleNum: 0,
     totalPictureNum: 0,
@@ -19,9 +19,9 @@ export const useMetadataStore = defineStore("metadata", {
   actions: {
     async getMetadataAction() {
       try {
-        const metadata = await getMetadata();
+        const metadata: IMetadata = await getMetadata();
         this.ready = true;
-        this.id = metadata._id;
+        this._id = metadata._id;
         this.topArticle = metadata.topArticle;
         this.totalNum = metadata.totalNum;
         this.totalArticleNum = metadata.totalArticleNum;
