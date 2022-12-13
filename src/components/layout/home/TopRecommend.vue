@@ -12,22 +12,23 @@
       <!-- {{ articleTags[0] ? articleTags[0].tagID : "" }} -->
       <!-- {{ topArticle.cover }} -->
       <div class="small_title theme_red small_font">
-        头条推荐&nbsp;&nbsp;&nbsp;NO.111
+        头条推荐&nbsp;&nbsp;&nbsp;{{ `NO.${articleNumStr}` }}
       </div>
 
       <div class="title big_font black">
-        欸！UI设计师不可不了解的文档输出格式
-        <!-- {{ topArticle }} -->
+        {{ topArticle.title }}
       </div>
 
       <div class="tag_date small_font">
-        <span class="tag theme_red">What to Play</span>
+        <span class="tag theme_red">{{
+          topArticle.articleTags ? topArticle.articleTags[0].tagName : ""
+        }}</span>
         <span class="date gray">7月17日</span>
       </div>
 
       <div class="des">
         <span class="content small_font dark_gray"
-          >今天的节目内容主要是由自称18流前端开发的应姓主播来向大家道歉，中间穿插一些他在近期coding工作时接触的事例所组成。
+          >{{ topArticle.subTitle }}
         </span>
         <span class="see_all theme_red small_font">查看文章</span>
       </div>
@@ -46,7 +47,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, computed } from "vue";
 
 import { useMetadataStore } from "@/store/metadata";
 import { getArticleByNum } from "@/service";
@@ -73,11 +74,21 @@ metadata.$subscribe(async (mutation, state) => {
   // tagIDSub.value = state.articleTags;
   const a = await getArticleByNum(state.topArticle);
   topArticle.value = a[0];
+  // console.log(topArticle.value.articleNum);
   // console.log(topArticle.value.cover);
 });
 
-//
-//
+const articleNumStr = computed(() => {
+  if (topArticle.value.articleNum) {
+    const str = topArticle.value.articleNum + "";
+    const pad = "000";
+    const ans = pad.substring(0, pad.length - str.length) + str;
+    return ans;
+  } else {
+    return "";
+  }
+});
+
 //
 // const totalNum = computed(() => metadata.totalNum);
 // console.log(isReactive(tagID));
