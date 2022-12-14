@@ -206,6 +206,7 @@ const articleNumStr = computed(() => {
 }
 
 .top_recommend {
+  /* margin-bottom: 20px; */
   width: 100%;
   background-color: #fff;
   border-radius: 16px;

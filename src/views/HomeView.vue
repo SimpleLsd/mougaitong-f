@@ -1,11 +1,13 @@
 <template>
   <div class="home_main">
     <TopRecommend :prop-a="42" />
+    <SecondRecommendVue />
   </div>
 </template>
 
 <script setup lang="ts">
 import TopRecommend from "@/components/layout/home/TopRecommend.vue";
+import SecondRecommendVue from "@/components/layout/home/SecondRecommend.vue";
 </script>
 
 <style scoped>
