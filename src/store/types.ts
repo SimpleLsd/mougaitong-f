@@ -24,7 +24,7 @@ interface IArticleSection {
 }
 
 export interface IArticle {
-  id?: string;
+  _id?: string;
   articleNum: number;
   articleId: string;
   totalNum: number;

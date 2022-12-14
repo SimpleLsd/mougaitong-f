@@ -5,7 +5,8 @@
       :style="{ backgroundImage: `url(${topArticle.cover})` }"
     ></div>
 
-    <div class="top_article_content">
+    <!-- 加载隐藏 -->
+    <div v-if="topArticle.title" class="top_article_content">
       <!-- {{ totalNum }} -->
       <!-- {{ tagIDSub[0] ? tagIDSub[0].tagID : "" }} -->
       <!-- 3. 元素据标签集-3 -->
@@ -33,6 +34,22 @@
         <span class="see_all theme_red small_font">查看文章</span>
       </div>
     </div>
+    <!-- 加载显示 -->
+    <div v-else class="loading_container">
+      <div class="loading_small_title">
+        <ContentLoading />
+      </div>
+      <div class="loading_big_title">
+        <ContentLoading />
+      </div>
+      <div class="loading_content_long">
+        <ContentLoading />
+      </div>
+      <div class="loading_content_short">
+        <ContentLoading />
+      </div>
+    </div>
+
     <div class="line"></div>
     <div
       class="top_collection_cover"
@@ -51,6 +68,8 @@ import { ref, computed } from "vue";
 
 import { useMetadataStore } from "@/store/metadata";
 import { getArticleByNum } from "@/service";
+
+import ContentLoading from "@/components/common/ContentLoading.vue";
 
 // 1.元素据标签集-1
 // import { storeToRefs } from "pinia";
@@ -79,6 +98,7 @@ metadata.$subscribe(async (mutation, state) => {
 });
 
 const articleNumStr = computed(() => {
+  // 修整序号数字
   if (topArticle.value.articleNum) {
     const str = topArticle.value.articleNum + "";
     const pad = "000";
@@ -102,16 +122,11 @@ const articleNumStr = computed(() => {
 </script>
 
 <style scoped>
-/* @media (max-width: 1100px) {
-  .top_article_cover {
-    width: 240px !important;
-  }
-} */
-
 @media (max-width: 1249px) {
   .top_collection_cover,
   .top_collection_content,
-  .line {
+  .line,
+  .loading_content_long {
     display: none;
   }
 }
@@ -270,6 +285,27 @@ const articleNumStr = computed(() => {
   width: 1px;
   height: 130px;
   background-color: var(--mougaitong-gray-light);
+  margin: 0 2% 0 0;
+}
+.loading_container {
+  /* background-color: azure; */
+  width: 100%;
   margin: 0 2%;
+  flex-grow: 2;
+}
+.loading_small_title {
+  width: 10%;
+  margin-bottom: 1%;
+}
+.loading_big_title {
+  width: 80%;
+  margin-bottom: 1%;
+}
+.loading_content_long {
+  width: 100%;
+  margin-bottom: 1%;
+}
+.loading_content_short {
+  width: 60%;
 }
 </style>
