@@ -8,7 +8,7 @@ export interface IMetadata {
   totalChatNum: number;
   topCollection: string;
   articleTags: Array<IArticleTag>;
-  secondArticle: Array<string>;
+  secondArticle: Array<number>;
 }
 
 interface IArticleTag {
@@ -38,4 +38,8 @@ export interface IArticle {
 
 export interface IMetadataObject {
   metadata: IMetadata;
+}
+
+export interface IArticleArray {
+  [index: number]: IArticle;
 }

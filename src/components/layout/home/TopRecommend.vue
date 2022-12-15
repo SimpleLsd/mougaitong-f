@@ -71,6 +71,8 @@ import { getArticleByNum } from "@/service";
 
 import ContentLoading from "@/components/common/ContentLoading.vue";
 
+import { numtoNO3 } from "@/utils/tools";
+
 // 1.元素据标签集-1
 // import { storeToRefs } from "pinia";
 
@@ -97,16 +99,21 @@ metadata.$subscribe(async (mutation, state) => {
   // console.log(topArticle.value.cover);
 });
 
+// const articleNumStr = computed(() => {
+//   // 修整序号数字
+//   if (topArticle.value.articleNum) {
+//     const str = topArticle.value.articleNum + "";
+//     const pad = "000";
+//     const ans = pad.substring(0, pad.length - str.length) + str;
+//     return ans;
+//   } else {
+//     return "";
+//   }
+// });
+
 const articleNumStr = computed(() => {
   // 修整序号数字
-  if (topArticle.value.articleNum) {
-    const str = topArticle.value.articleNum + "";
-    const pad = "000";
-    const ans = pad.substring(0, pad.length - str.length) + str;
-    return ans;
-  } else {
-    return "";
-  }
+  return numtoNO3(topArticle.value.articleNum);
 });
 
 //
@@ -184,25 +191,6 @@ const articleNumStr = computed(() => {
   .big_font {
     font-size: 22px;
   }
-}
-
-.theme_red {
-  color: var(--mougaitong-theme);
-}
-.gray {
-  color: var(--mougaitong-gray);
-}
-.black {
-  color: var(--mougaitong-black);
-}
-.dark_gray {
-  color: var(--mougaitong-gray-dark);
-}
-.middle_gray {
-  color: var(--mougaitong-gray-middle);
-}
-.light_gray {
-  color: var(--mougaitong-gray-light);
 }
 
 .top_recommend {

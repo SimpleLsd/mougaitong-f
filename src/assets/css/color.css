@@ -1,0 +1,22 @@
+/* 全局颜色类 */
+.theme_red {
+  color: var(--mougaitong-theme);
+}
+.gray {
+  color: var(--mougaitong-gray);
+}
+.black {
+  color: var(--mougaitong-black);
+}
+.dark_gray {
+  color: var(--mougaitong-gray-dark);
+}
+.middle_gray {
+  color: var(--mougaitong-gray-middle);
+}
+.light_gray {
+  color: var(--mougaitong-gray-light);
+}
+.white {
+  color: var(--mougaitong-white);
+}
