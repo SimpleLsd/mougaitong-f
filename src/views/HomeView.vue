@@ -3,6 +3,8 @@
     <TopRecommend :prop-a="42" />
     <div class="second_recommend">
       <SecondRecommendVue :article="topArticle[0]" />
+      <SecondRecommendVue :article="topArticle[1]" />
+      <SecondRecommendVue :article="topArticle[2]" />
     </div>
   </div>
 </template>
@@ -26,7 +28,7 @@ metadata.$subscribe(async (mutation, state) => {
     const a = await getArticleByNum(state.secondArticle[iterator - 1]);
     topArticle.value[iterator - 1] = a[0];
   }
-  console.log(topArticle);
+  // console.log(topArticle);
   // console.log(isRef(topArticle));
 });
 </script>

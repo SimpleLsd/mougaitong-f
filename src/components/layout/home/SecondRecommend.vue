@@ -1,44 +1,56 @@
 <template>
   <div class="second_article">
     <div class="top_group">
-      <div
-        class="cover"
-        :style="{ backgroundImage: `url(${test_collection_cover})` }"
-      ></div>
+      <div class="cover" :style="{ backgroundImage: `url(${cover})` }"></div>
       <div class="title_group">
         <div class="num theme_red small_font">{{ `NO.${articleNumStr}` }}</div>
-        <div class="title big_font">{{ props.article.title }}</div>
+        <div class="title big_font">{{ title }}</div>
       </div>
     </div>
     <div class="tag_date">
-      <div class="tag small_font theme_red">玩点什么</div>
-      <div class="date small_font gray">7月17日</div>
+      <div class="tag small_font theme_red">{{ tag }}</div>
+      <div class="date small_font gray">{{ date }}</div>
     </div>
-    <div class="des small_font dark_gray">
-      “没有谁能像这两支队伍一样广为人知、备受喜爱、如此传奇。”
-    </div>
+    <div class="des small_font dark_gray">{{ subTitle }}</div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from "vue";
 import type { IArticle } from "@/store/types";
-import { numtoNO3 } from "@/utils/tools";
+import { numtoNO3, utctoDateTime } from "@/utils/tools";
 
-const test_collection_cover =
-  "https://image.gcores.com/d8c1f38b-6591-4963-a4d0-0f8c621754af.jpg?x-oss-process=image/resize,limit_1,m_lfit,w_2000,h_2000/quality,q_90/format,webp";
 interface Props {
   article: IArticle;
 }
 const props = defineProps<Props>();
-console.log(props.article);
+
+const title = computed(() => {
+  return props.article ? props.article.title : "";
+});
+
+const cover = computed(() => {
+  return props.article ? props.article.cover : "";
+});
+
+const tag = computed(() => {
+  return props.article ? props.article.articleTags[0].tagName : "";
+});
+
+const date = computed(() => {
+  // return props.article ? props.article.dateStr : "";
+  if (props.article) {
+    console.log(utctoDateTime(props.article.dateStr));
+  }
+  return 0;
+});
+
+const subTitle = computed(() => {
+  return props.article ? props.article.subTitle : "";
+});
 
 const articleNumStr = computed(() => {
-  if (props.article) {
-    return numtoNO3(props.article.articleNum);
-  } else {
-    return "";
-  }
+  return props.article ? numtoNO3(props.article.articleNum) : "";
 });
 </script>
 
@@ -133,7 +145,11 @@ const articleNumStr = computed(() => {
 }
 .title {
   margin-top: 2%;
-  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 .tag_date {
   margin: 2% 0;
