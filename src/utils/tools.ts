@@ -14,6 +14,7 @@ export const test_collection_cover =
 
 // 2022-10-26T09:45:55.258Z
 export const utctoDateTime = (utc: string | null): object => {
+  console.log(utc);
   const result = {
     year: 0,
     month: 0,
@@ -24,6 +25,11 @@ export const utctoDateTime = (utc: string | null): object => {
   };
   if (utc) {
     result.year = parseInt(utc.substring(0, 4));
+    result.month = parseInt(utc.substring(5, 7));
+    result.day = parseInt(utc.substring(8, 10));
+    result.hour = parseInt(utc.substring(11, 13));
+    result.minite = parseInt(utc.substring(14, 16));
+    result.second = parseInt(utc.substring(17, 19));
   }
   return result;
 };

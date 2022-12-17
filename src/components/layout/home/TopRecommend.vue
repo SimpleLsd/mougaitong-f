@@ -1,9 +1,13 @@
 <template>
   <div class="top_recommend">
     <div
+      v-if="!topArticle.title"
       class="top_article_cover"
       :style="{ backgroundImage: `url(${topArticle.cover})` }"
     ></div>
+    <div v-else>
+      <ContentLoading />
+    </div>
 
     <!-- 加载隐藏 -->
     <div v-if="topArticle.title" class="top_article_content">
