@@ -36,4 +36,9 @@
   animation: progressing 0.8s ease-in infinite;
   -webkit-animation: progressing 0.8s ease-in infinite;
 }
+.progress::after {
+  content: "";
+  display: block;
+  padding-top: 20%;
+}
 </style>

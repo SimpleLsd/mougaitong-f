@@ -20,11 +20,11 @@
 } */
 @keyframes progressing {
   0% {
-    margin-left: -100px;
+    margin-left: -100%;
     opacity: 1;
   }
   100% {
-    margin-left: 80%;
+    margin-left: 100%;
     opacity: 0;
   }
 }

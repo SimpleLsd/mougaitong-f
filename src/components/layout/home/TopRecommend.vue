@@ -1,7 +1,7 @@
 <template>
   <div class="top_recommend">
     <div
-      v-if="topArticle.title"
+      v-if="!topArticle.title"
       class="top_article_cover"
       :style="{ backgroundImage: `url(${topArticle.cover})` }"
     ></div>
@@ -9,8 +9,8 @@
       <ImageLoading />
     </div>
 
-    <!-- 加载隐藏 -->
-    <div v-if="topArticle.title" class="top_article_content">
+    <!-- 加载完成 -->
+    <div v-if="!topArticle.title" class="top_article_content">
       <!-- {{ totalNum }} -->
       <!-- {{ tagIDSub[0] ? tagIDSub[0].tagID : "" }} -->
       <!-- 3. 元素据标签集-3 -->
@@ -28,7 +28,7 @@
         <span class="tag theme_red">{{
           topArticle.articleTags ? topArticle.articleTags[0].tagName : ""
         }}</span>
-        <span class="date gray">7月17日</span>
+        <span class="date gray">{{ dateStr }}</span>
       </div>
 
       <div class="des">
@@ -38,7 +38,7 @@
         <span class="see_all theme_red small_font">查看文章</span>
       </div>
     </div>
-    <!-- 加载显示 -->
+    <!-- 加载中 -->
     <div v-else class="loading_container">
       <div class="loading_small_title">
         <ContentLoading />
@@ -76,7 +76,7 @@ import { getArticleByNum } from "@/service";
 import ContentLoading from "@/components/common/ContentLoading.vue";
 import ImageLoading from "@/components/common/ImageLoading.vue";
 
-import { numtoNO3 } from "@/utils/tools";
+import { numtoNO3, utctoDateTime } from "@/utils/tools";
 
 // 1.元素据标签集-1
 // import { storeToRefs } from "pinia";
@@ -119,6 +119,11 @@ metadata.$subscribe(async (mutation, state) => {
 const articleNumStr = computed(() => {
   // 修整序号数字
   return numtoNO3(topArticle.value.articleNum);
+});
+
+const dateStr = computed(() => {
+  const date = utctoDateTime(topArticle.value.dateStr);
+  return `${date.month}月${date.day}日`;
 });
 
 //
