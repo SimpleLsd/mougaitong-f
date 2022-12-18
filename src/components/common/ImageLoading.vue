@@ -30,7 +30,7 @@
 }
 .progress {
   opacity: 0.8;
-  width: 100px;
+  width: 100%;
   background: linear-gradient(
     270deg,
     rgba(255, 255, 255, 0) 0%,
@@ -44,6 +44,6 @@
 .progress::after {
   content: "";
   display: block;
-  padding-top: 18%;
+  padding-top: 56%;
 }
 </style>

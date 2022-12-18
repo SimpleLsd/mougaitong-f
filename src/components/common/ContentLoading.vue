@@ -13,11 +13,6 @@
   background-color: #eee;
   border-radius: 8px;
 }
-/* .content::after {
-  content: "";
-  display: block;
-  padding-top: 3%;
-} */
 @keyframes progressing {
   0% {
     margin-left: -100px;
@@ -40,10 +35,5 @@
   );
   animation: progressing 0.8s ease-in infinite;
   -webkit-animation: progressing 0.8s ease-in infinite;
-}
-.progress::after {
-  content: "";
-  display: block;
-  padding-top: 18%;
 }
 </style>

@@ -1,12 +1,12 @@
 <template>
   <div class="top_recommend">
     <div
-      v-if="!topArticle.title"
+      v-if="topArticle.title"
       class="top_article_cover"
       :style="{ backgroundImage: `url(${topArticle.cover})` }"
     ></div>
-    <div v-else>
-      <ContentLoading />
+    <div v-else class="top_article_cover_loading">
+      <ImageLoading />
     </div>
 
     <!-- 加载隐藏 -->
@@ -74,6 +74,7 @@ import { useMetadataStore } from "@/store/metadata";
 import { getArticleByNum } from "@/service";
 
 import ContentLoading from "@/components/common/ContentLoading.vue";
+import ImageLoading from "@/components/common/ImageLoading.vue";
 
 import { numtoNO3 } from "@/utils/tools";
 
@@ -225,6 +226,14 @@ const articleNumStr = computed(() => {
   content: "";
   display: block;
   padding-top: 56%;
+}
+.top_article_cover_loading {
+  width: 25%;
+  background-color: azure;
+  background-position: center;
+  background-size: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
 }
 .top_article_content {
   width: 100%;
