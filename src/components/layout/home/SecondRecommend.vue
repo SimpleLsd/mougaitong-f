@@ -1,24 +1,47 @@
 <template>
   <div class="second_article">
-    <div class="top_group">
+    <div v-if="!props.article" class="top_group">
+      <!-- 加载时隐藏 -->
       <div class="cover" :style="{ backgroundImage: `url(${cover})` }"></div>
       <div class="title_group">
         <div class="num theme_red small_font">{{ `NO.${articleNumStr}` }}</div>
         <div class="title big_font">{{ title }}</div>
       </div>
     </div>
-    <div class="tag_date">
-      <div class="tag small_font theme_red">{{ tag }}</div>
-      <div class="date small_font gray">{{ date }}</div>
+    <div v-else class="top_group">
+      <!-- 加载时显示 -->
+      <div class="loading_cover">
+        <ImageLoading />
+      </div>
+      <div class="title_group">
+        <ContentLoading />
+      </div>
     </div>
-    <div class="des small_font dark_gray">{{ subTitle }}</div>
+
+    <div v-if="!props.article" class="tag_date">
+      <div class="tag small_font theme_red">{{ tag }}</div>
+      <div class="date small_font gray">{{ dateStr }}</div>
+    </div>
+    <div v-else class="loading_tag_date">
+      <ContentLoading />
+    </div>
+
+    <div v-if="!props.article" class="des small_font dark_gray">
+      {{ subTitle }}
+    </div>
+    <div v-else class="loading_des">
+      <ContentLoading />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from "vue";
 import type { IArticle } from "@/store/types";
-import { numtoNO3, utctoDateTime } from "@/utils/tools";
+import { numtoNO3, dateMD } from "@/utils/tools";
+
+import ContentLoading from "@/components/common/ContentLoading.vue";
+import ImageLoading from "@/components/common/ImageLoading.vue";
 
 interface Props {
   article: IArticle;
@@ -37,20 +60,16 @@ const tag = computed(() => {
   return props.article ? props.article.articleTags[0].tagName : "";
 });
 
-const date = computed(() => {
-  // return props.article ? props.article.dateStr : "";
-  if (props.article) {
-    console.log(utctoDateTime(props.article.dateStr));
-  }
-  return 0;
-});
-
 const subTitle = computed(() => {
   return props.article ? props.article.subTitle : "";
 });
 
 const articleNumStr = computed(() => {
   return props.article ? numtoNO3(props.article.articleNum) : "";
+});
+
+const dateStr = computed(() => {
+  return props.article ? dateMD(props.article.dateStr) : "";
 });
 </script>
 
@@ -128,18 +147,26 @@ const articleNumStr = computed(() => {
   display: flex;
   align-items: center;
 }
-.cover {
+.top_group .cover {
   width: 40%;
   background-size: cover;
   flex-shrink: 0;
   border-radius: 8px;
 }
-.cover::after {
+.top_group .cover::after {
   content: "";
   display: block;
   padding-top: 60%;
 }
-.title_group {
+
+.loading_cover {
+  width: 40%;
+  background-size: cover;
+  flex-shrink: 0;
+  border-radius: 8px;
+}
+
+.top_group .title_group {
   width: 60%;
   padding-left: 4%;
 }
