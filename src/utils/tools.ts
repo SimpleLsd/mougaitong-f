@@ -42,4 +42,9 @@ export const utctoDateTime = (utc: string | null): Idate => {
   return result;
 };
 
+export const dateMD = (utc: string | null): string => {
+  const date = utctoDateTime(utc);
+  return `${date.month}月${date.day}日`;
+};
+
 // how to define a empty object or array in typescript with given type

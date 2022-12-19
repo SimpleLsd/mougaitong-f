@@ -1,7 +1,7 @@
 <template>
   <div class="top_recommend">
     <div
-      v-if="!topArticle.title"
+      v-if="topArticle.title"
       class="top_article_cover"
       :style="{ backgroundImage: `url(${topArticle.cover})` }"
     ></div>
@@ -10,7 +10,7 @@
     </div>
 
     <!-- 加载完成 -->
-    <div v-if="!topArticle.title" class="top_article_content">
+    <div v-if="topArticle.title" class="top_article_content">
       <!-- {{ totalNum }} -->
       <!-- {{ tagIDSub[0] ? tagIDSub[0].tagID : "" }} -->
       <!-- 3. 元素据标签集-3 -->
@@ -76,7 +76,7 @@ import { getArticleByNum } from "@/service";
 import ContentLoading from "@/components/common/ContentLoading.vue";
 import ImageLoading from "@/components/common/ImageLoading.vue";
 
-import { numtoNO3, utctoDateTime } from "@/utils/tools";
+import { numtoNO3, dateMD } from "@/utils/tools";
 
 // 1.元素据标签集-1
 // import { storeToRefs } from "pinia";
@@ -122,8 +122,7 @@ const articleNumStr = computed(() => {
 });
 
 const dateStr = computed(() => {
-  const date = utctoDateTime(topArticle.value.dateStr);
-  return `${date.month}月${date.day}日`;
+  return dateMD(topArticle.value.dateStr);
 });
 
 //
