@@ -22,7 +22,6 @@ interface Idate {
   second: number;
 }
 export const utctoDateTime = (utc: string | null): Idate => {
-  console.log(utc);
   const result = {
     year: 0,
     month: 0,

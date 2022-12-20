@@ -4,7 +4,7 @@
     <div class="second_recommend">
       <SecondRecommendVue :article="topArticle[0]" />
       <SecondRecommendVue :article="topArticle[1]" />
-      <SecondRecommendVue :article="topArticle[2]" />
+      <SecondRecommendVue :article="topArticle[2]" class="secondRecommend_3" />
     </div>
   </div>
 </template>
@@ -34,6 +34,17 @@ metadata.$subscribe(async (mutation, state) => {
 </script>
 
 <style scoped>
+/* ----次级推荐数量媒体查询---- */
+@media (max-width: 960px) {
+  .secondRecommend_3 {
+    display: none;
+  }
+}
+@media (min-width: 961px) {
+  .secondRecommend_3 {
+    display: block;
+  }
+}
 .home_main {
   background-color: #f6f6f7;
   width: 100%;
@@ -43,7 +54,7 @@ metadata.$subscribe(async (mutation, state) => {
 .second_recommend {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 2%;
   width: 100%;
 }
 </style>
