@@ -2,20 +2,31 @@
   <div class="home_main">
     <TopRecommend :prop-a="42" />
     <div class="second_recommend">
-      <SecondRecommendVue :article="topArticle[0]" />
-      <SecondRecommendVue :article="topArticle[1]" />
-      <SecondRecommendVue :article="topArticle[2]" class="secondRecommend_3" />
+      <SecondRecommend :article="topArticle[0]" />
+      <SecondRecommend :article="topArticle[1]" />
+      <SecondRecommend :article="topArticle[2]" class="second_recommend_3" />
+    </div>
+    <div class="home_articles">
+      <div class="title">最新文章</div>
+      <div class="articles">
+        <HomeArticles />
+        <HomeArticles />
+        <HomeArticles />
+        <HomeArticles />
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import TopRecommend from "@/components/layout/home/TopRecommend.vue";
-import SecondRecommendVue from "@/components/layout/home/SecondRecommend.vue";
-import { useMetadataStore } from "@/store/metadata";
 import { ref } from "vue";
+import { useMetadataStore } from "@/store/metadata";
 import type { IArticleArray } from "@/store/types";
 import { getArticleByNum } from "@/service";
+
+import TopRecommend from "@/components/layout/home/TopRecommend.vue";
+import SecondRecommend from "@/components/layout/home/SecondRecommend.vue";
+import HomeArticles from "@/components/layout/home/HomeArticles.vue";
 
 const metadata = useMetadataStore();
 const topArticle = ref([] as IArticleArray);
@@ -36,7 +47,7 @@ metadata.$subscribe(async (mutation, state) => {
 <style scoped>
 /* ----次级推荐数量媒体查询---- */
 @media (max-width: 960px) {
-  .secondRecommend_3 {
+  .second_recommend_3 {
     display: none;
   }
 }
@@ -55,6 +66,24 @@ metadata.$subscribe(async (mutation, state) => {
   display: flex;
   justify-content: space-between;
   margin-top: 2%;
+  width: 100%;
+}
+.home_articles {
+  /* display: flex;
+  justify-content: space-between; */
+  margin-top: 2%;
+  padding: 1% 2%;
+  width: 100%;
+  background-color: var(--mougaitong-white);
+  border-radius: 16px;
+}
+.home_articles .title {
+  font-weight: 700;
+}
+.home_articles .articles {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5%;
   width: 100%;
 }
 </style>

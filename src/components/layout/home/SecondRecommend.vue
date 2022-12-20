@@ -1,5 +1,5 @@
 <template>
-  <div class="second_article">
+  <div class="main">
     <div v-if="loaded" class="top_group">
       <!-- 加载时隐藏 -->
       <div class="cover" :style="{ backgroundImage: `url(${cover})` }"></div>
@@ -138,19 +138,19 @@ const dateStr = computed(() => {
 }
 /* ------------------------媒体查询-显示数量部分-------------------------- */
 @media (max-width: 960px) {
-  .second_article {
+  .main {
     padding: 1% 2%;
     width: 49%;
   }
 }
 @media (min-width: 961px) {
-  .second_article {
+  .main {
     padding: 1% 2%;
     width: 32%;
   }
 }
 /* ------------------------------布局部分------------------------------- */
-.second_article {
+.main {
   background-color: var(--mougaitong-white);
   border-radius: 16px;
 }
