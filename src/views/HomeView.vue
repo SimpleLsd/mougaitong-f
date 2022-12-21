@@ -1,28 +1,30 @@
 <template>
-  <div class="home_main">
-    <TopRecommend :prop-a="42" />
-    <div class="second_recommend">
-      <SecondRecommend :article="topArticle[0]" />
-      <SecondRecommend :article="topArticle[1]" />
-      <SecondRecommend :article="topArticle[2]" class="second_recommend_3" />
-    </div>
-    <div class="home_articles">
-      <div class="middle_title_font">最新文章</div>
-      <div class="articles">
-        <HomeArticles />
-        <HomeArticles />
-        <HomeArticles />
-        <HomeArticles />
+  <Suspense>
+    <div class="home_main">
+      <TopRecommend :prop-a="42" />
+      <div class="second_recommend">
+        <SecondRecommend :article="topArticle[0]" />
+        <SecondRecommend :article="topArticle[1]" />
+        <SecondRecommend :article="topArticle[2]" class="second_recommend_3" />
+      </div>
+      <div class="home_articles">
+        <div class="middle_title_font">最新文章</div>
+        <div class="articles">
+          <HomeArticles />
+          <HomeArticles />
+          <HomeArticles />
+          <HomeArticles />
+        </div>
       </div>
     </div>
-  </div>
+  </Suspense>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { useMetadataStore } from "@/store/metadata";
 import type { IArticleArray } from "@/store/types";
-import { getArticleByNum } from "@/service";
+import { getArticles, getArticleByNum } from "@/service";
 
 import TopRecommend from "@/components/layout/home/TopRecommend.vue";
 import SecondRecommend from "@/components/layout/home/SecondRecommend.vue";
@@ -30,18 +32,21 @@ import HomeArticles from "@/components/layout/home/HomeArticles.vue";
 
 const metadata = useMetadataStore();
 const topArticle = ref([] as IArticleArray);
+const newArticle = ref([] as IArticleArray);
 
 metadata.$subscribe(async (mutation, state) => {
-  // tagIDSub.value = state.articleTags;
-  // console.log(state.secondArticle.length);
   for (const iterator of state.secondArticle) {
-    // console.log(iterator);
     const a = await getArticleByNum(state.secondArticle[iterator - 1]);
     topArticle.value[iterator - 1] = a[0];
   }
-  // console.log(topArticle);
-  // console.log(isRef(topArticle));
 });
+onMounted(async () => {
+  const newArticles = await getArticles();
+  for (const iterator in newArticles) {
+    newArticle.value[parseInt(iterator)] = newArticles[parseInt(iterator)];
+  }
+});
+console.log(newArticle);
 </script>
 
 <style scoped>

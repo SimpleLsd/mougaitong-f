@@ -1,9 +1,7 @@
 <template>
   <div class="app">
     <NavLayout />
-    <keep-alive>
-      <RouterView />
-    </keep-alive>
+    <RouterView />
   </div>
 </template>
 
