@@ -1,0 +1,84 @@
+@media (max-width: 640px) {
+  .big_title_font {
+    font-weight: 700;
+    font-size: 12px;
+  }
+  .middle_title_font {
+    font-weight: 700;
+    font-size: 12px;
+  }
+  .des_font {
+    font-size: 10px;
+  }
+  .des {
+    display: none;
+  }
+}
+@media (min-width: 641px) and (max-width: 959px) {
+  .big_title_font {
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .middle_title_font {
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .des_font {
+    font-size: 12px;
+  }
+  .des {
+    display: none;
+  }
+}
+@media (min-width: 960px) and (max-width: 1279px) {
+  .big_title_font {
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .middle_title_font {
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .des_font {
+    font-size: 14px;
+  }
+}
+@media (min-width: 1280px) and (max-width: 1599px) {
+  .big_title_font {
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .middle_title_font {
+    font-weight: 700;
+    font-size: 16px;
+  }
+  .des_font {
+    font-size: 14px;
+  }
+}
+@media (min-width: 1600px) and (max-width: 1920px) {
+  .big_title_font {
+    font-weight: 700;
+    font-size: 20px;
+  }
+  .middle_title_font {
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .des_font {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1921px) {
+  .big_title_font {
+    font-weight: 700;
+    font-size: 22px;
+  }
+  .middle_title_font {
+    font-weight: 700;
+    font-size: 20px;
+  }
+  .des_font {
+    font-size: 16px;
+  }
+}

@@ -4,8 +4,8 @@
       <!-- 加载时隐藏 -->
       <div class="cover" :style="{ backgroundImage: `url(${cover})` }"></div>
       <div class="title_group">
-        <div class="num theme_red small_font">{{ `NO.${articleNumStr}` }}</div>
-        <div class="title big_font">{{ title }}</div>
+        <div class="num theme_red des_font">{{ `NO.${articleNumStr}` }}</div>
+        <div class="title middle_title_font">{{ title }}</div>
       </div>
     </div>
     <div v-else class="top_group">
@@ -19,14 +19,14 @@
     </div>
 
     <div v-if="loaded" class="tag_date">
-      <div class="tag small_font theme_red">{{ tag }}</div>
-      <div class="date small_font gray">{{ dateStr }}</div>
+      <div class="tag des_font theme_red">{{ tag }}</div>
+      <div class="date des_font gray">{{ dateStr }}</div>
     </div>
     <div v-else class="loading_tag_date">
       <ContentLoading />
     </div>
 
-    <div v-if="loaded" class="des small_font dark_gray">
+    <div v-if="loaded" class="des des_font dark_gray">
       {{ subTitle }}
     </div>
     <div v-else class="loading_des">
@@ -79,63 +79,7 @@ const dateStr = computed(() => {
 
 <style scoped>
 /* ----------------------------媒体查询部分----------------------------- */
-@media (max-width: 640px) {
-  .small_font {
-    font-size: 10px;
-  }
-  .big_font {
-    font-size: 12px;
-    font-weight: 700;
-  }
-  .des {
-    display: none;
-  }
-}
-@media (min-width: 641px) and (max-width: 959px) {
-  .small_font {
-    font-size: 12px;
-  }
-  .big_font {
-    font-size: 13px;
-    font-weight: 700;
-  }
-}
-@media (min-width: 960px) and (max-width: 1279px) {
-  .small_font {
-    font-size: 13px;
-  }
-  .big_font {
-    font-size: 15px;
-    font-weight: 700;
-  }
-}
-@media (min-width: 1280px) and (max-width: 1599px) {
-  .small_font {
-    font-size: 14px;
-  }
-  .big_font {
-    font-size: 16px;
-    font-weight: 700;
-  }
-}
-@media (min-width: 1600px) and (max-width: 1920px) {
-  .small_font {
-    font-size: 16px;
-  }
-  .big_font {
-    font-size: 18px;
-    font-weight: 700;
-  }
-}
-@media (min-width: 1921px) {
-  .small_font {
-    font-size: 16px;
-  }
-  .big_font {
-    font-size: 20px;
-    font-weight: 700;
-  }
-}
+/* 转移到fontsize.css */
 /* ------------------------媒体查询-显示数量部分-------------------------- */
 @media (max-width: 960px) {
   .main {
@@ -192,6 +136,7 @@ const dateStr = computed(() => {
   padding-left: 4%;
 }
 .title {
+  font-weight: 700;
   margin-top: 2%;
   overflow: hidden;
   text-overflow: ellipsis;

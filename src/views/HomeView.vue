@@ -7,7 +7,7 @@
       <SecondRecommend :article="topArticle[2]" class="second_recommend_3" />
     </div>
     <div class="home_articles">
-      <div class="title">最新文章</div>
+      <div class="middle_title_font">最新文章</div>
       <div class="articles">
         <HomeArticles />
         <HomeArticles />
@@ -76,9 +76,6 @@ metadata.$subscribe(async (mutation, state) => {
   width: 100%;
   background-color: var(--mougaitong-white);
   border-radius: 16px;
-}
-.home_articles .title {
-  font-weight: 700;
 }
 .home_articles .articles {
   display: flex;

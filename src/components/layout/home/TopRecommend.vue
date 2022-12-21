@@ -16,15 +16,15 @@
       <!-- 3. 元素据标签集-3 -->
       <!-- {{ articleTags[0] ? articleTags[0].tagID : "" }} -->
       <!-- {{ topArticle.cover }} -->
-      <div class="small_title theme_red small_font">
+      <div class="small_title theme_red des_font">
         头条推荐&nbsp;&nbsp;&nbsp;{{ `NO.${articleNumStr}` }}
       </div>
 
-      <div class="title big_font black">
+      <div class="title big_title_font black">
         {{ topArticle.title }}
       </div>
 
-      <div class="tag_date small_font">
+      <div class="tag_date des_font">
         <span class="tag theme_red">{{
           topArticle.articleTags ? topArticle.articleTags[0].tagName : ""
         }}</span>
@@ -32,10 +32,10 @@
       </div>
 
       <div class="des">
-        <span class="content small_font dark_gray"
+        <span class="content des_font dark_gray"
           >{{ topArticle.subTitle }}
         </span>
-        <span class="see_all theme_red small_font">查看文章</span>
+        <span class="see_all theme_red des_font">查看文章</span>
       </div>
     </div>
     <!-- 加载中 -->
@@ -61,8 +61,8 @@
     ></div>
 
     <div class="top_collection_content">
-      <div class="small_font theme_red">专题推荐</div>
-      <div class="title big_font">印象笔记的记忆和记录的故事</div>
+      <div class="des_font theme_red">专题推荐</div>
+      <div class="title big_title_font">印象笔记的记忆和记录的故事</div>
     </div>
   </div>
 </template>
@@ -146,62 +146,6 @@ const dateStr = computed(() => {
     display: none;
   }
 }
-
-@media (max-width: 640px) {
-  .small_font {
-    font-size: 10px;
-  }
-  .big_font {
-    font-size: 12px;
-  }
-  .des {
-    display: none;
-  }
-}
-@media (min-width: 641px) and (max-width: 959px) {
-  .small_font {
-    font-size: 12px;
-  }
-  .big_font {
-    font-size: 14px;
-  }
-  .des {
-    display: none;
-  }
-}
-@media (min-width: 960px) and (max-width: 1279px) {
-  .small_font {
-    font-size: 14px;
-  }
-  .big_font {
-    font-size: 18px;
-  }
-}
-@media (min-width: 1280px) and (max-width: 1599px) {
-  .small_font {
-    font-size: 14px;
-  }
-  .big_font {
-    font-size: 18px;
-  }
-}
-@media (min-width: 1600px) and (max-width: 1920px) {
-  .small_font {
-    font-size: 16px;
-  }
-  .big_font {
-    font-size: 20px;
-  }
-}
-@media (min-width: 1921px) {
-  .small_font {
-    font-size: 16px;
-  }
-  .big_font {
-    font-size: 22px;
-  }
-}
-
 .top_recommend {
   /* margin-bottom: 20px; */
   width: 100%;
