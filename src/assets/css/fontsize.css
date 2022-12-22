@@ -7,8 +7,12 @@
     font-weight: 700;
     font-size: 12px;
   }
+  .small_title_font {
+    font-weight: 700;
+    font-size: 12px;
+  }
   .des_font {
-    font-size: 10px;
+    font-size: 12px;
   }
   .des {
     display: none;
@@ -22,6 +26,10 @@
   .middle_title_font {
     font-weight: 700;
     font-size: 13px;
+  }
+  .small_title_font {
+    font-weight: 700;
+    font-size: 12px;
   }
   .des_font {
     font-size: 12px;
@@ -39,8 +47,12 @@
     font-weight: 700;
     font-size: 14px;
   }
+  .small_title_font {
+    font-weight: 700;
+    font-size: 12px;
+  }
   .des_font {
-    font-size: 14px;
+    font-size: 13px;
   }
 }
 @media (min-width: 1280px) and (max-width: 1599px) {
@@ -50,10 +62,14 @@
   }
   .middle_title_font {
     font-weight: 700;
-    font-size: 16px;
+    font-size: 15px;
+  }
+  .small_title_font {
+    font-weight: 700;
+    font-size: 13px;
   }
   .des_font {
-    font-size: 14px;
+    font-size: 13px;
   }
 }
 @media (min-width: 1600px) and (max-width: 1920px) {
@@ -63,10 +79,14 @@
   }
   .middle_title_font {
     font-weight: 700;
-    font-size: 18px;
+    font-size: 16px;
+  }
+  .small_title_font {
+    font-weight: 700;
+    font-size: 13px;
   }
   .des_font {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 @media (min-width: 1921px) {
@@ -76,7 +96,11 @@
   }
   .middle_title_font {
     font-weight: 700;
-    font-size: 20px;
+    font-size: 18px;
+  }
+  .small_title_font {
+    font-weight: 700;
+    font-size: 14px;
   }
   .des_font {
     font-size: 16px;

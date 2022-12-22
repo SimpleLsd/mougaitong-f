@@ -2,18 +2,14 @@
   <div class="main">
     <div v-if="loaded" class="top_group">
       <!-- 加载时隐藏 -->
-      <div
-        class="cover"
-        :style="{ backgroundImage: `url(${test_collection_cover})` }"
-      ></div>
+      <div class="cover" :style="{ backgroundImage: `url(${cover})` }"></div>
       <div class="title_group">
         <div class="num theme_red">
-          <!-- {{ `NO.${articleNumStr}` }} -->
-          NO.111
+          {{ `NO.${articleNumStr}` }}
         </div>
-        <div class="title middle_title_font">
-          <!-- {{ title }} -->
-          大标题
+        <div class="title small_title_font">
+          {{ title }}
+          <!-- 大标题 -->
         </div>
       </div>
     </div>
@@ -29,12 +25,10 @@
 
     <div v-if="loaded" class="tag_date">
       <div class="tag des_font theme_red">
-        <!-- {{ tag }} -->
-        标签
+        {{ tag }}
       </div>
       <div class="date des_font gray">
-        <!-- {{ dateStr }} -->
-        日期
+        {{ dateStr }}
       </div>
     </div>
     <div v-else class="loading_tag_date">
@@ -42,8 +36,7 @@
     </div>
 
     <div v-if="loaded" class="des des_font dark_gray">
-      <!-- {{ subTitle }} -->
-      描述性文字
+      {{ subTitle }}
     </div>
     <div v-else class="loading_des">
       <ContentLoading />
@@ -52,16 +45,51 @@
 </template>
 
 <script setup lang="ts">
-import { test_collection_cover } from "@/utils/tools";
+// import { test_collection_cover } from "@/utils/tools";
 import ContentLoading from "@/components/common/ContentLoading.vue";
 import ImageLoading from "@/components/common/ImageLoading.vue";
-const loaded = true;
+import { computed } from "vue";
+import type { IArticle } from "@/store/types";
+import { numtoNO3, dateMD } from "@/utils/tools";
+
+interface Props {
+  article: IArticle;
+}
+const props = defineProps<Props>();
+
+const loaded = computed(() => {
+  return props.article ? true : false;
+});
+
+const title = computed(() => {
+  return props.article ? props.article.title : "";
+});
+
+const cover = computed(() => {
+  return props.article ? props.article.cover : "";
+});
+
+const tag = computed(() => {
+  return props.article ? props.article.articleTags[0].tagName : "";
+});
+
+const subTitle = computed(() => {
+  return props.article ? props.article.subTitle : "";
+});
+
+const articleNumStr = computed(() => {
+  return props.article ? numtoNO3(props.article.articleNum) : "";
+});
+
+const dateStr = computed(() => {
+  return props.article ? dateMD(props.article.dateStr) : "";
+});
 </script>
 
 <style scoped>
 .main {
   width: 24%;
-  background-color: azure;
+  /* background-color: azure; */
 }
 .top_group {
   display: flex;
@@ -101,7 +129,7 @@ const loaded = true;
 }
 .title {
   font-weight: 700;
-  margin-top: 2%;
+  /* margin-top: 2%; */
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -116,5 +144,10 @@ const loaded = true;
 .des {
   width: 100%;
   margin: 1% 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 </style>

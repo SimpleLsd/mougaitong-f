@@ -10,10 +10,10 @@
       <div class="home_articles">
         <div class="middle_title_font">最新文章</div>
         <div class="articles">
-          <HomeArticles />
-          <HomeArticles />
-          <HomeArticles />
-          <HomeArticles />
+          <HomeArticles :article="newArticle[0]" />
+          <HomeArticles :article="newArticle[1]" />
+          <HomeArticles :article="newArticle[2]" />
+          <HomeArticles :article="newArticle[3]" />
         </div>
       </div>
     </div>
