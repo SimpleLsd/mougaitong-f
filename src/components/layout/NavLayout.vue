@@ -15,7 +15,7 @@
             <span class="text">首页</span>
           </div>
         </router-link>
-        <router-link to="/">
+        <router-link to="/works">
           <div class="nav_item_big">
             <span>👜 作品合集 /Works </span>
           </div>
@@ -24,7 +24,7 @@
             <span class="text">作品</span>
           </div>
         </router-link>
-        <router-link to="/">
+        <router-link to="/articles">
           <div class="nav_item_big">
             <span>✍ 历史文章 /Articles </span>
           </div>
@@ -33,7 +33,7 @@
             <span class="text">文章</span>
           </div>
         </router-link>
-        <router-link to="/">
+        <router-link to="/gallery">
           <div class="nav_item_big">
             <span>🎨 我的画廊 /Gallery </span>
           </div>
@@ -42,7 +42,7 @@
             <span class="text">画廊</span>
           </div>
         </router-link>
-        <router-link to="/">
+        <router-link to="/about">
           <div class="nav_item_big">
             <span>👉 关于本站 /About </span>
           </div>
