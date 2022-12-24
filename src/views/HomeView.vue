@@ -16,6 +16,10 @@
           <HomeArticles :article="newArticle[3]" />
         </div>
       </div>
+      <div class="home_gallery">
+        <div class="middle_title_font">最新画作</div>
+        <div class="pictures"></div>
+      </div>
     </div>
   </Suspense>
 </template>
