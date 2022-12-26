@@ -7,8 +7,12 @@ export interface IMetadata {
   totalPictureNum: number;
   totalChatNum: number;
   topCollection: string;
-  articleTags: Array<IArticleTag>;
+  totalTags: Array<IArticleTag>;
   secondArticle: Array<number>;
+}
+
+export interface IMetadataObject {
+  metadata: IMetadata;
 }
 
 interface IArticleTag {
@@ -36,10 +40,22 @@ export interface IArticle {
   sections: Array<IArticleSection>;
 }
 
-export interface IMetadataObject {
-  metadata: IMetadata;
-}
-
 export interface IArticleArray {
   [index: number]: IArticle;
+}
+
+export interface IPicture {
+  _id?: string;
+  pictureNum: number;
+  pictureId: string;
+  totalNum: number;
+  dateStr: string;
+  pictureTags: Array<IArticleTag>;
+  title: string;
+  link: string;
+  descriptions: Array<IArticleSection>;
+}
+
+export interface IPictureArray {
+  [index: number]: IPicture;
 }

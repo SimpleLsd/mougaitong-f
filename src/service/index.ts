@@ -69,4 +69,22 @@ const getMetadata = async () => {
   });
 };
 
-export { getArticles, getArticleById, getArticleByNum, getMetadata };
+const getPictures = async () => {
+  return sydRequest.request({
+    url: `/pictures`,
+    method: "GET",
+    interceptors: {
+      responceInterceptor: (res: any) => {
+        return res.data;
+      },
+    },
+  });
+};
+
+export {
+  getArticles,
+  getArticleById,
+  getArticleByNum,
+  getMetadata,
+  getPictures,
+};

@@ -18,7 +18,14 @@
       </div>
       <div class="home_gallery">
         <div class="middle_title_font">最新画作</div>
-        <div class="pictures"></div>
+        <div class="pictures">
+          <HomeGallery :picture="newPicture[0]" />
+          <HomeGallery :picture="newPicture[1]" />
+          <HomeGallery :picture="newPicture[2]" />
+          <HomeGallery :picture="newPicture[3]" />
+          <HomeGallery :picture="newPicture[4]" />
+          <HomeGallery :picture="newPicture[5]" />
+        </div>
       </div>
     </div>
   </Suspense>
@@ -27,16 +34,18 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import { useMetadataStore } from "@/store/metadata";
-import type { IArticleArray } from "@/store/types";
-import { getArticles, getArticleByNum } from "@/service";
+import type { IArticleArray, IPictureArray } from "@/store/types";
+import { getArticles, getArticleByNum, getPictures } from "@/service";
 
 import TopRecommend from "@/components/layout/home/TopRecommend.vue";
 import SecondRecommend from "@/components/layout/home/SecondRecommend.vue";
 import HomeArticles from "@/components/layout/home/HomeArticles.vue";
+import HomeGallery from "@/components/layout/home/HomeGallery.vue";
 
 const metadata = useMetadataStore();
 const topArticle = ref([] as IArticleArray);
 const newArticle = ref([] as IArticleArray);
+const newPicture = ref([] as IPictureArray);
 
 metadata.$subscribe(async (mutation, state) => {
   for (const iterator of state.secondArticle) {
@@ -49,8 +58,13 @@ onMounted(async () => {
   for (const iterator in newArticles) {
     newArticle.value[parseInt(iterator)] = newArticles[parseInt(iterator)];
   }
+  const newPictures = await getPictures();
+  for (const iterator in newPictures) {
+    newPicture.value[parseInt(iterator)] = newPictures[parseInt(iterator)];
+  }
+  console.log(newPicture);
 });
-console.log(newArticle);
+// console.log(newArticle);
 </script>
 
 <style scoped>
@@ -77,16 +91,16 @@ console.log(newArticle);
   margin-top: 2%;
   width: 100%;
 }
-.home_articles {
-  /* display: flex;
-  justify-content: space-between; */
+.home_articles,
+.home_gallery {
   margin-top: 2%;
   padding: 1% 2%;
   width: 100%;
   background-color: var(--mougaitong-white);
   border-radius: 16px;
 }
-.home_articles .articles {
+.home_articles .articles,
+.home_gallery .pictures {
   display: flex;
   justify-content: space-between;
   margin-top: 1.5%;
