@@ -12,7 +12,7 @@ export const useMetadataStore = defineStore("metadata", {
     totalPictureNum: 0,
     totalChatNum: 0,
     topCollection: "",
-    articleTags: [],
+    totalTags: [],
     secondArticle: [],
   }),
   getters: {},
@@ -28,7 +28,7 @@ export const useMetadataStore = defineStore("metadata", {
         this.totalPictureNum = metadata.totalPictureNum;
         this.totalChatNum = metadata.totalChatNum;
         this.topCollection = metadata.topCollection;
-        this.articleTags = metadata.articleTags;
+        this.totalTags = metadata.totalTags;
         this.secondArticle = metadata.secondArticle;
       } catch (error) {
         console.log(error);

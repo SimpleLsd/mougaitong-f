@@ -17,7 +17,3 @@ app.use(router);
 app.use(pinia);
 
 app.mount("#app");
-
-// store.dispatch("metadata/getMetadataAction").then(() => {
-//   store.dispatch("toparticle/getToparticleAction");
-// });
