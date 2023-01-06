@@ -1,10 +1,14 @@
 <template>
   <div class="content">
-    <div class="progress"></div>
+    <div v-if="props.size === 100" class="progress size_100"></div>
+    <div v-else class="progress size_56"></div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const props = defineProps(["size"]);
+console.log(document.getElementById("progress"));
+</script>
 
 <style scoped>
 .content {
@@ -13,11 +17,6 @@
   background-color: #eee;
   border-radius: 8px;
 }
-/* .content::after {
-  content: "";
-  display: block;
-  padding-top: 3%;
-} */
 @keyframes progressing {
   0% {
     margin-left: -100%;
@@ -30,7 +29,6 @@
 }
 .progress {
   opacity: 0.8;
-  width: 100%;
   background: linear-gradient(
     270deg,
     rgba(255, 255, 255, 0) 0%,
@@ -41,9 +39,20 @@
   animation: progressing 0.8s ease-in infinite;
   -webkit-animation: progressing 0.8s ease-in infinite;
 }
-.progress::after {
+.size_56 {
+  width: 100%;
+}
+.size_56::after {
   content: "";
   display: block;
   padding-top: 56%;
+}
+.size_100 {
+  width: 100%;
+}
+.size_100::after {
+  content: "";
+  display: block;
+  padding-top: 100%;
 }
 </style>

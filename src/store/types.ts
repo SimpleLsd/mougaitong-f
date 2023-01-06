@@ -54,6 +54,7 @@ export interface IPicture {
   title: string;
   link: string;
   descriptions: Array<IArticleSection>;
+  size: Array<number>;
 }
 
 export interface IPictureArray {

@@ -1,14 +1,35 @@
 <template>
-  <div>{{ loaded }}</div>
-  <div></div>
+  <!-- <div>{{ loaded }}</div> -->
+  <div class="main">
+    <div
+      v-if="loaded"
+      class="thumbnail"
+      :style="{ backgroundImage: `url(${link})` }"
+    ></div>
+    <div v-else>
+      <!-- 加载时显示 -->
+      <div class="loading_image">
+        <ImageLoading :size="100" />
+      </div>
+    </div>
+
+    <div v-if="loaded" class="info">
+      <div class="num theme_red">{{ `NO.${num}` }}</div>
+      <div class="size_group gray">1920*1080</div>
+    </div>
+    <div v-else class="loading_content">
+      <ContentLoading />
+    </div>
+    <div v-if="loaded" class="small_title_font">{{ title }}</div>
+  </div>
 </template>
 
 <script setup lang="ts">
-// import ContentLoading from "@/components/common/ContentLoading.vue";
-// import ImageLoading from "@/components/common/ImageLoading.vue";
+import ContentLoading from "@/components/common/ContentLoading.vue";
+import ImageLoading from "@/components/common/ImageLoading.vue";
 import { computed } from "vue";
 import type { IPicture } from "@/store/types";
-import { numtoNO3, dateMD } from "@/utils/tools";
+import { numtoNO3 } from "@/utils/tools";
 
 interface Props {
   picture: IPicture;
@@ -27,17 +48,44 @@ const link = computed(() => {
   return props.picture ? props.picture.link : "";
 });
 
-const tag = computed(() => {
-  return props.picture ? props.picture.pictureTags[0].tagName : "";
+const num = computed(() => {
+  return props.picture ? numtoNO3(props.picture.totalNum) : "";
 });
 
-const pictureNumStr = computed(() => {
-  return props.picture ? numtoNO3(props.picture.pictureNum) : "";
-});
-
-const dateStr = computed(() => {
-  return props.picture ? dateMD(props.picture.dateStr) : "";
-});
+// const pictureNumStr = computed(() => {
+//   return props.picture ? numtoNO3(props.picture.pictureNum) : "";
+// });
 </script>
 
-<style scoped></style>
+<style scoped>
+.main {
+  width: 15.4%;
+  padding-bottom: 1%;
+}
+.thumbnail {
+  background-size: cover;
+  flex-shrink: 0;
+  border-radius: 4px;
+}
+.thumbnail::after {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+.loading_image {
+  width: 100%;
+  background-size: cover;
+  flex-shrink: 0;
+  border-radius: 4px;
+}
+.info {
+  margin: 5px 0;
+  display: flex;
+  font-size: 12px;
+  justify-content: space-between;
+}
+.loading_content {
+  margin: 6% 0;
+  width: 100%;
+}
+</style>

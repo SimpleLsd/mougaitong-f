@@ -1,4 +1,7 @@
 export const numtoNO3 = (num: number | null): string => {
+  if (num === 0) {
+    return "000";
+  }
   if (num) {
     const str = num + "";
     const pad = "000";

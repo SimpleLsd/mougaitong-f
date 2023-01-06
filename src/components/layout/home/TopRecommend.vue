@@ -104,18 +104,6 @@ metadata.$subscribe(async (mutation, state) => {
   // console.log(topArticle.value.cover);
 });
 
-// const articleNumStr = computed(() => {
-//   // 修整序号数字
-//   if (topArticle.value.articleNum) {
-//     const str = topArticle.value.articleNum + "";
-//     const pad = "000";
-//     const ans = pad.substring(0, pad.length - str.length) + str;
-//     return ans;
-//   } else {
-//     return "";
-//   }
-// });
-
 const articleNumStr = computed(() => {
   // 修整序号数字
   return numtoNO3(topArticle.value.articleNum);

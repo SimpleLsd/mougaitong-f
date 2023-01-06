@@ -8,7 +8,7 @@
         <SecondRecommend :article="topArticle[2]" class="second_recommend_3" />
       </div>
       <div class="home_articles">
-        <div class="middle_title_font">最新文章</div>
+        <div class="middle_title_font">New Articles</div>
         <div class="articles">
           <HomeArticles :article="newArticle[0]" />
           <HomeArticles :article="newArticle[1]" />
@@ -17,7 +17,7 @@
         </div>
       </div>
       <div class="home_gallery">
-        <div class="middle_title_font">最新画作</div>
+        <div class="middle_title_font">New Drawings</div>
         <div class="pictures">
           <HomeGallery :picture="newPicture[0]" />
           <HomeGallery :picture="newPicture[1]" />
@@ -62,7 +62,7 @@ onMounted(async () => {
   for (const iterator in newPictures) {
     newPicture.value[parseInt(iterator)] = newPictures[parseInt(iterator)];
   }
-  console.log(newPicture);
+  // console.log(newPicture);
 });
 // console.log(newArticle);
 </script>
