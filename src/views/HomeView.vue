@@ -51,6 +51,8 @@ import { getArticles, getArticleByNum, getPictures } from "@/service";
 import Top3Recommend from "@/components/layout/home/Top3Recommend.vue";
 
 const metadata = useMetadataStore();
+// metadata.getMetadataAction();
+
 const topArticle = ref([] as IArticleArray);
 const newArticle = ref([] as IArticleArray);
 const newPicture = ref([] as IPictureArray);
