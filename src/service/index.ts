@@ -58,6 +58,7 @@ const getArticleByNum = async (num: number) => {
 };
 
 const getMetadata = async () => {
+  console.log("getMetadata");
   return sydRequest.request({
     url: "/metadata",
     method: "GET",

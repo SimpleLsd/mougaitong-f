@@ -11,11 +11,6 @@
 
     <!-- 加载完成 -->
     <div v-if="topArticle.title" class="top_article_content">
-      <!-- {{ totalNum }} -->
-      <!-- {{ tagIDSub[0] ? tagIDSub[0].tagID : "" }} -->
-      <!-- 3. 元素据标签集-3 -->
-      <!-- {{ articleTags[0] ? articleTags[0].tagID : "" }} -->
-      <!-- {{ topArticle.cover }} -->
       <div class="small_title theme_red des_font">
         头条推荐&nbsp;&nbsp;&nbsp;{{ `NO.${articleNumStr}` }}
       </div>
@@ -112,17 +107,6 @@ const articleNumStr = computed(() => {
 const dateStr = computed(() => {
   return dateMD(topArticle.value.dateStr);
 });
-
-//
-// const totalNum = computed(() => metadata.totalNum);
-// console.log(isReactive(tagID));
-
-// const tagIDSub = ref([] as Array<ItagIDSub>);
-// interface ItagIDSub {
-//   tagID: string;
-//   tagName: string;
-//   tagRoute: string;
-// }
 </script>
 
 <style scoped>

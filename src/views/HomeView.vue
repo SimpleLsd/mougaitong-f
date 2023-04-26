@@ -1,7 +1,12 @@
 <template>
   <Suspense>
     <div class="home_main">
-      <TopRecommend :prop-a="42" />
+      <div class="top_3_recommend">
+        <Top3Recommend :article="topArticle[0]" />
+        <Top3Recommend :article="topArticle[1]" />
+        <Top3Recommend :article="topArticle[2]" />
+      </div>
+      <!-- <TopRecommend :prop-a="42" />
       <div class="second_recommend">
         <SecondRecommend :article="topArticle[0]" />
         <SecondRecommend :article="topArticle[1]" />
@@ -27,6 +32,7 @@
           <HomeGallery :picture="newPicture[5]" />
         </div>
       </div>
+      -->
     </div>
   </Suspense>
 </template>
@@ -37,10 +43,12 @@ import { useMetadataStore } from "@/store/metadata";
 import type { IArticleArray, IPictureArray } from "@/store/types";
 import { getArticles, getArticleByNum, getPictures } from "@/service";
 
-import TopRecommend from "@/components/layout/home/TopRecommend.vue";
-import SecondRecommend from "@/components/layout/home/SecondRecommend.vue";
-import HomeArticles from "@/components/layout/home/HomeArticles.vue";
-import HomeGallery from "@/components/layout/home/HomeGallery.vue";
+// import TopRecommend from "@/components/layout/home/TopRecommend.vue";
+// import SecondRecommend from "@/components/layout/home/SecondRecommend.vue";
+// import HomeArticles from "@/components/layout/home/HomeArticles.vue";
+// import HomeGallery from "@/components/layout/home/HomeGallery.vue";
+
+import Top3Recommend from "@/components/layout/home/Top3Recommend.vue";
 
 const metadata = useMetadataStore();
 const topArticle = ref([] as IArticleArray);
@@ -49,6 +57,7 @@ const newPicture = ref([] as IPictureArray);
 
 metadata.$subscribe(async (mutation, state) => {
   for (const iterator of state.secondArticle) {
+    console.log(iterator);
     const a = await getArticleByNum(state.secondArticle[iterator - 1]);
     topArticle.value[iterator - 1] = a[0];
   }
@@ -62,9 +71,7 @@ onMounted(async () => {
   for (const iterator in newPictures) {
     newPicture.value[parseInt(iterator)] = newPictures[parseInt(iterator)];
   }
-  // console.log(newPicture);
 });
-// console.log(newArticle);
 </script>
 
 <style scoped>
@@ -80,11 +87,19 @@ onMounted(async () => {
   }
 }
 .home_main {
-  background-color: #f6f6f7;
+  background-color: #f9f9fd;
   width: 100%;
   height: 100%;
-  padding: 20px 20px;
+  padding: 20px 80px;
 }
+/* w = 1420 */
+.top_3_recommend {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2%;
+  width: 100%;
+}
+
 .second_recommend {
   display: flex;
   justify-content: space-between;

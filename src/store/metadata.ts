@@ -30,6 +30,7 @@ export const useMetadataStore = defineStore("metadata", {
         this.topCollection = metadata.topCollection;
         this.totalTags = metadata.totalTags;
         this.secondArticle = metadata.secondArticle;
+        console.log(1);
       } catch (error) {
         console.log(error);
       }

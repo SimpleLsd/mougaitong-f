@@ -8,7 +8,8 @@
       <ul>
         <router-link to="/">
           <div class="nav_item_big">
-            <span>🏠 网站首页 /Home </span>
+            <span class="icon">🏠</span>
+            <span class="text">网站首页 /Home </span>
           </div>
           <div class="nav_item_small">
             <span class="icon">🏠</span>
@@ -17,7 +18,8 @@
         </router-link>
         <router-link to="/works">
           <div class="nav_item_big">
-            <span>👜 作品合集 /Works </span>
+            <span class="icon">👜</span>
+            <span class="text">作品合集 /Works </span>
           </div>
           <div class="nav_item_small">
             <span class="icon">👜</span>
@@ -26,7 +28,8 @@
         </router-link>
         <router-link to="/articles">
           <div class="nav_item_big">
-            <span>✍ 历史文章 /Articles </span>
+            <span class="icon">✍</span>
+            <span class="text">历史文章 /Articles </span>
           </div>
           <div class="nav_item_small">
             <span class="icon">✍</span>
@@ -35,7 +38,8 @@
         </router-link>
         <router-link to="/gallery">
           <div class="nav_item_big">
-            <span>🎨 我的画廊 /Gallery </span>
+            <span class="icon">🎨</span>
+            <span class="text">我的画廊 /Gallery </span>
           </div>
           <div class="nav_item_small">
             <span class="icon">🎨</span>
@@ -44,7 +48,8 @@
         </router-link>
         <router-link to="/about">
           <div class="nav_item_big">
-            <span>👉 关于本站 /About </span>
+            <span class="icon">👉</span>
+            <span class="text">关于本站 /About </span>
           </div>
           <div class="nav_item_small">
             <span class="icon">👉</span>
@@ -53,40 +58,13 @@
         </router-link>
       </ul>
     </div>
-    <div class="tag_items">
-      <div class="tag_title">全部标签</div>
-      <div class="tag">
-        <span>玩儿什么</span>
-        <span>GAMES</span>
-        <span>画渣记录</span>
-        <span>学习笔记</span>
-        <span>安利</span>
-        <span>大前端</span>
-        <span>小后端</span>
-        <span>视觉补完计划</span>
-      </div>
-    </div>
-    <div class="contract">
-      <span>
-        <IconConBehance />
-      </span>
-      <span>
-        <iconConWechat />
-      </span>
-      <span>
-        <IconConZcool />
-      </span>
-      <span>
-        <IconConContact />
-      </span>
-    </div>
   </div>
 </template>
 <script setup lang="ts">
-import IconConBehance from "@/components/icons/IconConBehance.vue";
-import iconConWechat from "@/components/icons/iconConWechat.vue";
-import IconConZcool from "@/components/icons/IconConZcool.vue";
-import IconConContact from "@/components/icons/IconConContact.vue";
+// import IconConBehance from "@/components/icons/IconConBehance.vue";
+// import iconConWechat from "@/components/icons/iconConWechat.vue";
+// import IconConZcool from "@/components/icons/IconConZcool.vue";
+// import IconConContact from "@/components/icons/IconConContact.vue";
 </script>
 <style scoped>
 @media (max-width: 800px) {
@@ -108,9 +86,24 @@ import IconConContact from "@/components/icons/IconConContact.vue";
     display: none;
   }
   ul a {
+    color: #333;
     padding-left: 12px;
-    height: 40px;
+    height: 64px;
     line-height: 40px;
+  }
+
+  ul a span {
+    display: inline-block;
+  }
+  ul a .icon {
+    line-height: 64px;
+    font-size: 22px;
+  }
+  ul a .text {
+    line-height: 64px;
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 8px;
   }
   .contract {
     display: flex;
@@ -194,34 +187,19 @@ ul a:hover {
 }
 
 ul a.router-link-active {
-  background-color: #f5f5f5;
+  background-color: #f9f9fd;
 }
 
 ul span {
   display: block;
 }
 
-ul:after {
+/* ul:after {
   content: " ";
   border-bottom: 1px solid var(--color-border);
   position: absolute;
   bottom: 0;
   left: 24px;
   width: calc(100% - 48px);
-}
-
-.tag_items {
-  flex: auto;
-  margin-top: 24px;
-  padding: 0 24px;
-}
-.tag_items .tag_title {
-  font-size: 12px;
-  color: var(--mougaitong-theme);
-}
-.tag_items .tag span {
-  display: inline-block;
-  margin-top: 16px;
-  margin-right: 16px;
-}
+} */
 </style>
