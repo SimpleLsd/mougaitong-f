@@ -58,10 +58,10 @@ const newArticle = ref([] as IArticleArray);
 const newPicture = ref([] as IPictureArray);
 
 metadata.$subscribe(async (mutation, state) => {
-  for (const iterator of state.secondArticle) {
+  for (const iterator of state.secondArticle.entries()) {
     console.log(iterator);
-    const a = await getArticleByNum(state.secondArticle[iterator - 1]);
-    topArticle.value[iterator - 1] = a[0];
+    const a = await getArticleByNum(state.secondArticle[iterator[0]]);
+    topArticle.value[iterator[0]] = a[0];
   }
 });
 onMounted(async () => {
@@ -79,27 +79,28 @@ onMounted(async () => {
 <style scoped>
 /* ----次级推荐数量媒体查询---- */
 @media (max-width: 960px) {
-  .second_recommend_3 {
+  /* .second_recommend_3 {
     display: none;
-  }
+  } */
 }
 @media (min-width: 961px) {
-  .secondRecommend_3 {
+  /* .secondRecommend_3 {
     display: block;
-  }
+  } */
 }
+
 .home_main {
   background-color: #f9f9fd;
   width: 100%;
   height: 100%;
-  padding: 20px 80px;
 }
 /* w = 1420 */
 .top_3_recommend {
   display: flex;
   justify-content: space-between;
-  margin-top: 2%;
-  width: 100%;
+  background-color: #eee;
+  width: 1080px;
+  margin: 10px auto;
 }
 
 .second_recommend {

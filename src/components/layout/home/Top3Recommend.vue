@@ -45,23 +45,21 @@ const cover = computed(() => {
 /* ------------------------媒体查询-显示数量部分-------------------------- */
 @media (max-width: 960px) {
   .main {
-    padding: 1% 2%;
     width: 49%;
   }
 }
 @media (min-width: 961px) {
   .main {
-    padding: 1% 2%;
     width: 32%;
   }
 }
 /* ------------------------------布局部分------------------------------- */
 .main {
   background-color: var(--mougaitong-white);
-  border-radius: 16px;
+  border-radius: 12px;
 }
 
-.top_group {
+/* .top_group {
   display: flex;
   align-items: center;
 }
@@ -114,5 +112,5 @@ const cover = computed(() => {
 .des {
   width: 100%;
   margin: 2% 0;
-}
+} */
 </style>

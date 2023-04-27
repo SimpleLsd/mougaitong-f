@@ -101,7 +101,7 @@
   }
   ul a .text {
     line-height: 64px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
     margin-left: 8px;
   }
