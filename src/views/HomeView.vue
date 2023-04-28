@@ -92,7 +92,7 @@ onMounted(async () => {
 .home_main {
   background-color: #f9f9fd;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
 }
 /* w = 1420 */
 .top_3_recommend {
@@ -100,9 +100,13 @@ onMounted(async () => {
   justify-content: space-between;
   background-color: #eee;
   width: 1080px;
-  margin: 10px auto;
+  margin: 20px auto;
 }
 
+/*  */
+/*  */
+/*  */
+/*  */
 .second_recommend {
   display: flex;
   justify-content: space-between;

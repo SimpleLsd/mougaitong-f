@@ -34,12 +34,6 @@ const cover = computed(() => {
 });
 </script>
 <style scoped>
-.main {
-  width: 100px;
-  height: 100px;
-  background-color: #eee;
-}
-
 /* ----------------------------媒体查询部分----------------------------- */
 /* 转移到fontsize.css */
 /* ------------------------媒体查询-显示数量部分-------------------------- */
@@ -55,20 +49,31 @@ const cover = computed(() => {
 }
 /* ------------------------------布局部分------------------------------- */
 .main {
-  background-color: var(--mougaitong-white);
   border-radius: 12px;
 }
+.main::after {
+  content: "";
+  display: block;
+  padding-top: 60%;
+}
 
-/* .top_group {
-  display: flex;
-  align-items: center;
+.top_group {
+  width: 100%;
+  height: 100%;
 }
+
 .top_group .cover {
-  width: 40%;
+  width: 100%;
+  height: 100%;
   background-size: cover;
-  flex-shrink: 0;
-  border-radius: 8px;
+  border-radius: 12px;
 }
+/* .top_group .cover::after {
+  content: "";
+  display: block;
+  padding-top: 60%;
+} */
+/*
 .top_group .cover::after {
   content: "";
   display: block;
