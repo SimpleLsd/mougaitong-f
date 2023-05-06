@@ -27,6 +27,14 @@ a,
   transition: 0.4s;
 }
 
+.radius12 {
+  border-radius: 12px;
+}
+
+:root {
+  --radius-12: 12px;
+}
+
 @media (hover: hover) {
   a:hover {
     background-color: hsla(160, 100%, 37%, 0.2);

@@ -2,11 +2,14 @@
   <div class="main">
     <div v-if="loaded" class="top_group">
       <!-- 加载时隐藏 -->
-      <div class="cover" :style="{ backgroundImage: `url(${cover})` }"></div>
+      <div
+        class="cover radius12"
+        :style="{ backgroundImage: `url(${cover})` }"
+      ></div>
     </div>
     <div v-else class="top_group">
       <!-- 加载时显示 -->
-      <div class="loading_cover">
+      <div class="loading_cover radius12">
         <ImageLoading />
       </div>
     </div>
@@ -15,9 +18,10 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import type { IArticle } from "@/store/types";
-// import { numtoNO3, dateMD } from "@/utils/tools";
 
+// import { numtoNO3, dateMD } from "@/utils/tools";
 // import ContentLoading from "@/components/common/ContentLoading.vue";
+
 import ImageLoading from "@/components/common/ImageLoading.vue";
 
 interface Props {
@@ -39,18 +43,18 @@ const cover = computed(() => {
 /* ------------------------媒体查询-显示数量部分-------------------------- */
 @media (max-width: 960px) {
   .main {
-    width: 49%;
+    width: 50%;
   }
 }
 @media (min-width: 961px) {
   .main {
-    width: 32%;
+    width: 350px;
   }
 }
 /* ------------------------------布局部分------------------------------- */
-.main {
+/* .main {
   border-radius: 12px;
-}
+} */
 .main::after {
   content: "";
   display: block;
@@ -66,7 +70,6 @@ const cover = computed(() => {
   width: 100%;
   height: 100%;
   background-size: cover;
-  border-radius: 12px;
 }
 /* .top_group .cover::after {
   content: "";
