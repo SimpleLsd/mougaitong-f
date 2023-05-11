@@ -6,7 +6,7 @@
         <Top3Recommend :article="topArticle[1]" />
         <Top3Recommend :article="topArticle[2]" class="second_recommend_3" />
       </div>
-      <div class="new_articles">
+      <div class="section">
         <div class="middle_title_font">New Articles</div>
         <div class="articles">
           <NewArticles :article="newArticle[0]" />
@@ -19,34 +19,17 @@
           <NewArticles :article="newArticle[3]" />
         </div>
       </div>
-      <!-- <TopRecommend :prop-a="42" />
-      <div class="second_recommend">
-        <SecondRecommend :article="topArticle[0]" />
-        <SecondRecommend :article="topArticle[1]" />
-        <SecondRecommend :article="topArticle[2]" class="second_recommend_3" />
-      </div>
-
-      <div class="home_articles">
-        <div class="middle_title_font">New Articles</div>
-        <div class="articles">
-          <HomeArticles :article="newArticle[0]" />
-          <HomeArticles :article="newArticle[1]" />
-          <HomeArticles :article="newArticle[2]" />
-          <HomeArticles :article="newArticle[3]" />
-        </div>
-      </div>
-      <div class="home_gallery">
+      <div class="section">
         <div class="middle_title_font">New Drawings</div>
-        <div class="pictures">
-          <HomeGallery :picture="newPicture[0]" />
-          <HomeGallery :picture="newPicture[1]" />
-          <HomeGallery :picture="newPicture[2]" />
-          <HomeGallery :picture="newPicture[3]" />
-          <HomeGallery :picture="newPicture[4]" />
-          <HomeGallery :picture="newPicture[5]" />
+        <div class="drawings">
+          <NewPicture :picture="newPicture[0]" />
+          <NewPicture :picture="newPicture[1]" />
+          <NewPicture :picture="newPicture[2]" />
+          <NewPicture :picture="newPicture[3]" />
+          <NewPicture :picture="newPicture[4]" />
         </div>
       </div>
-      -->
+      <FooterFooter />
     </div>
   </Suspense>
 </template>
@@ -64,6 +47,9 @@ import { getArticles, getArticleByNum, getPictures } from "@/service";
 
 import Top3Recommend from "@/components/layout/home/Top3Recommend.vue";
 import NewArticles from "@/components/layout/home/NewArticles.vue";
+import NewPicture from "@/components/layout/home/NewPicture.vue";
+
+import FooterFooter from "@/components/common/FooterFooter.vue";
 
 const metadata = useMetadataStore();
 // metadata.getMetadataAction();
@@ -105,15 +91,16 @@ onMounted(async () => {
 }
 
 .home_main {
-  background-color: #f9f9fd;
   width: 100%;
-  /* height: 100%; */
 }
 /* w = 1420 */
 .top_3_recommend {
   display: flex;
   justify-content: space-between;
-  background-color: #eee;
+  width: 1080px;
+  margin: 20px auto;
+}
+.section {
   width: 1080px;
   margin: 20px auto;
 }
@@ -122,13 +109,18 @@ onMounted(async () => {
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  /* background-color: #eee; */
-  width: 1080px;
+  width: 100%;
+  margin: 20px auto;
+}
+.drawings {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
   margin: 20px auto;
 }
 
-/*  */
-/*  */
 /*  */
 /*  */
 /* .second_recommend {

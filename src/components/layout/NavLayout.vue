@@ -1,62 +1,64 @@
 <template>
-  <div class="nav_main">
-    <div class="logo">
-      <img class="logo-inner-1" src="@/assets/mougaitong-logo.svg" />
-      <img class="logo-inner-2" src="@/assets/mougaitong-logo-small.svg" />
-    </div>
-    <div class="nav_items">
-      <ul>
-        <router-link to="/">
-          <div class="nav_item_big">
-            <span class="icon">🏠</span>
-            <span class="text">网站首页 /Home </span>
-          </div>
-          <div class="nav_item_small">
-            <span class="icon">🏠</span>
-            <span class="text">首页</span>
-          </div>
-        </router-link>
-        <router-link to="/works">
-          <div class="nav_item_big">
-            <span class="icon">👜</span>
-            <span class="text">作品合集 /Works </span>
-          </div>
-          <div class="nav_item_small">
-            <span class="icon">👜</span>
-            <span class="text">作品</span>
-          </div>
-        </router-link>
-        <router-link to="/articles">
-          <div class="nav_item_big">
-            <span class="icon">✍</span>
-            <span class="text">历史文章 /Articles </span>
-          </div>
-          <div class="nav_item_small">
-            <span class="icon">✍</span>
-            <span class="text">文章</span>
-          </div>
-        </router-link>
-        <router-link to="/gallery">
-          <div class="nav_item_big">
-            <span class="icon">🎨</span>
-            <span class="text">我的画廊 /Gallery </span>
-          </div>
-          <div class="nav_item_small">
-            <span class="icon">🎨</span>
-            <span class="text">画廊</span>
-          </div>
-        </router-link>
-        <router-link to="/about">
-          <div class="nav_item_big">
-            <span class="icon">👉</span>
-            <span class="text">关于本站 /About </span>
-          </div>
-          <div class="nav_item_small">
-            <span class="icon">👉</span>
-            <span class="text">关于</span>
-          </div>
-        </router-link>
-      </ul>
+  <div class="nav_container">
+    <div class="nav_main">
+      <div class="logo">
+        <img class="logo-inner-1" src="@/assets/mougaitong-logo.svg" />
+        <img class="logo-inner-2" src="@/assets/mougaitong-logo-small.svg" />
+      </div>
+      <div class="nav_items">
+        <ul>
+          <router-link to="/">
+            <div class="nav_item_big">
+              <span class="icon">🏠</span>
+              <span class="text">网站首页 /Home </span>
+            </div>
+            <div class="nav_item_small">
+              <span class="icon">🏠</span>
+              <span class="text">首页</span>
+            </div>
+          </router-link>
+          <router-link to="/works">
+            <div class="nav_item_big">
+              <span class="icon">👜</span>
+              <span class="text">作品合集 /Works </span>
+            </div>
+            <div class="nav_item_small">
+              <span class="icon">👜</span>
+              <span class="text">作品</span>
+            </div>
+          </router-link>
+          <router-link to="/articles">
+            <div class="nav_item_big">
+              <span class="icon">✍</span>
+              <span class="text">历史文章 /Articles </span>
+            </div>
+            <div class="nav_item_small">
+              <span class="icon">✍</span>
+              <span class="text">文章</span>
+            </div>
+          </router-link>
+          <router-link to="/gallery">
+            <div class="nav_item_big">
+              <span class="icon">🎨</span>
+              <span class="text">我的画廊 /Gallery </span>
+            </div>
+            <div class="nav_item_small">
+              <span class="icon">🎨</span>
+              <span class="text">画廊</span>
+            </div>
+          </router-link>
+          <router-link to="/about">
+            <div class="nav_item_big">
+              <span class="icon">👉</span>
+              <span class="text">关于本站 /About </span>
+            </div>
+            <div class="nav_item_small">
+              <span class="icon">👉</span>
+              <span class="text">关于</span>
+            </div>
+          </router-link>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -159,7 +161,7 @@
   flex-direction: column;
   width: var(--side-width);
   flex-shrink: 0;
-  height: 100%;
+  height: 100vh;
   font-size: 14px;
 }
 

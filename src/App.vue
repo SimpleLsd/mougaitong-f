@@ -1,11 +1,13 @@
 <template>
   <div class="app">
     <NavLayout />
-    <router-view v-slot="{ Component }">
-      <keep-alive>
-        <component :is="Component" />
-      </keep-alive>
-    </router-view>
+    <div class="router-view-container">
+      <router-view v-slot="{ Component }">
+        <keep-alive>
+          <component :is="Component" />
+        </keep-alive>
+      </router-view>
+    </div>
   </div>
 </template>
 
@@ -19,4 +21,11 @@ import { useMetadataStore } from "@/store/metadata";
 const metadata = useMetadataStore();
 metadata.getMetadataAction();
 </script>
-<style scoped></style>
+<style scoped>
+.router-view-container {
+  flex-grow: 1;
+  height: 100%;
+  overflow: auto;
+  background-color: #f9f9fd;
+}
+</style>
