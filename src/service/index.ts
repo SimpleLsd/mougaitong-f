@@ -57,6 +57,18 @@ const getArticleByNum = async (num: number) => {
   });
 };
 
+const getArticlesCount = async () => {
+  return sydRequest.request({
+    url: `/articles/count`,
+    method: "GET",
+    interceptors: {
+      responceInterceptor: (res: any) => {
+        return res.data;
+      },
+    },
+  });
+};
+
 const getMetadata = async () => {
   console.log("getMetadata");
   return sydRequest.request({
@@ -88,4 +100,5 @@ export {
   getArticleByNum,
   getMetadata,
   getPictures,
+  getArticlesCount,
 };

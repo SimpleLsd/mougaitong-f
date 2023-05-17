@@ -17,22 +17,22 @@
       <div class="num theme_red">
         {{ `NO.${articleNumStr}` }}
       </div>
-      <div class="title small_title_font">
+      <div class="title">
         {{ title }}
       </div>
       <div class="tag_data">
-        <div class="tag des_font theme_red">
+        <div class="theme_red">
           {{ tag }}
         </div>
-        <div class="date des_font gray">
+        <div class="gray">
           {{ dateStr }}
         </div>
       </div>
     </div>
 
-    <div v-else class="loading_tag_date">
+    <!-- <div v-else class="loading_tag_date">
       <ContentLoading />
-    </div>
+    </div> -->
 
     <!-- <div v-if="loaded" class="des des_font dark_gray">
       {{ subTitle }}
@@ -43,7 +43,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import ContentLoading from "@/components/common/ContentLoading.vue";
+// import ContentLoading from "@/components/common/ContentLoading.vue";
 import ImageLoading from "@/components/common/ImageLoading.vue";
 import { computed } from "vue";
 import type { IArticle } from "@/store/types";

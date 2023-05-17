@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { getMetadata } from "@/service";
+import { getMetadata, getArticlesCount } from "@/service";
 import type { IMetadata } from "./types";
 
 export const useMetadataStore = defineStore("metadata", {
@@ -20,11 +20,12 @@ export const useMetadataStore = defineStore("metadata", {
     async getMetadataAction() {
       try {
         const metadata: IMetadata = await getMetadata();
+        const articlesCount = await getArticlesCount();
         this.ready = true;
         this._id = metadata._id;
         this.topArticle = metadata.topArticle;
         this.totalNum = metadata.totalNum;
-        this.totalArticleNum = metadata.totalArticleNum;
+        this.totalArticleNum = articlesCount;
         this.totalPictureNum = metadata.totalPictureNum;
         this.totalChatNum = metadata.totalChatNum;
         this.topCollection = metadata.topCollection;

@@ -1,20 +1,18 @@
 <template>
   <div class="main">
-    <div v-if="loaded" class="top_group">
-      <!-- 加载时隐藏 -->
-      <div
-        class="cover radius12"
-        :style="{ backgroundImage: `url(${cover})` }"
-      ></div>
-    </div>
-    <div v-else class="top_group">
-      <!-- 加载时显示 -->
-      <div class="loading_cover radius12">
-        <ImageLoading />
-      </div>
+    <!-- 加载时隐藏 -->
+    <div
+      v-if="loaded"
+      class="cover radius12"
+      :style="{ backgroundImage: `url(${cover})` }"
+    ></div>
+    <!-- 加载时显示 -->
+    <div v-else class="loading_cover radius12">
+      <ImageLoading />
     </div>
   </div>
 </template>
+
 <script setup lang="ts">
 import { computed } from "vue";
 import type { IArticle } from "@/store/types";
@@ -38,9 +36,6 @@ const cover = computed(() => {
 });
 </script>
 <style scoped>
-/* ----------------------------媒体查询部分----------------------------- */
-/* 转移到fontsize.css */
-/* ------------------------媒体查询-显示数量部分-------------------------- */
 @media (max-width: 960px) {
   .main {
     width: 50%;
@@ -51,26 +46,17 @@ const cover = computed(() => {
     width: 350px;
   }
 }
-/* ------------------------------布局部分------------------------------- */
-/* .main {
-  border-radius: 12px;
-} */
-.main::after {
+.cover {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+.cover::after {
   content: "";
   display: block;
   padding-top: 60%;
 }
 
-.top_group {
-  width: 100%;
-  height: 100%;
-}
-
-.top_group .cover {
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-}
 /* .top_group .cover::after {
   content: "";
   display: block;
