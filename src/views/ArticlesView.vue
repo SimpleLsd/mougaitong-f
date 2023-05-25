@@ -4,6 +4,8 @@
       <div>页数: {{ page_number }}</div>
       <div>总文章数: {{ articlesCount }}</div>
       <div>当前页文章: {{ articles_num }}</div>
+      <!-- <div>全部文章: {{ all_articles[16] }}</div> -->
+      <!-- <div>当前页文章: {{ current_articles }}</div> -->
     </div>
     <div class="pagination">
       <router-link
@@ -21,7 +23,7 @@
       <div class="articles">
         <div v-for="item in articles_num" :key="item">
           {{ item }}
-          <NewArticles :article="article[item]" />
+          <NewArticles :article="current_articles[item]" />
         </div>
       </div>
     </div>
@@ -29,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from "vue";
+import { ref, computed, onMounted, watch } from "vue";
 import { useMetadataStore } from "@/store/metadata";
 import { useRoute } from "vue-router";
 
@@ -43,15 +45,15 @@ import NewArticles from "@/components/layout/home/NewArticles.vue";
 const route = useRoute();
 const metadata = useMetadataStore();
 
-let article = ref([] as IArticleArray);
+const all_articles = ref([] as IArticleArray);
+const current_articles = ref([] as IArticleArray);
 
 onMounted(async () => {
-  const articles = await getArticles();
-  for (const iterator of articles_num.value) {
-    console.log(iterator);
-    article.value[iterator] = articles[iterator];
+  const newArticles = await getArticles();
+  for (const iterator in newArticles) {
+    all_articles.value[parseInt(iterator)] = newArticles[parseInt(iterator)];
   }
-  article = articles;
+  console.log("onMounted");
 });
 
 const page_size = 12;
@@ -78,6 +80,18 @@ const articles_num = computed(() => {
   }
   return num;
 });
+
+watch(
+  [page_number, all_articles],
+  () => {
+    const article = [] as IArticleArray;
+    for (const iterator of articles_num.value) {
+      article[iterator] = all_articles.value[iterator];
+    }
+    current_articles.value = article;
+  },
+  { immediate: true, deep: true }
+);
 </script>
 
 <style scoped>
