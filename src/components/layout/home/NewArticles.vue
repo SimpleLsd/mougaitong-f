@@ -84,7 +84,7 @@ const dateStr = computed(() => {
 </script>
 <style scoped>
 .main {
-  width: 258px;
+  width: 258px !important;
   /* height: 200px; */
   background-color: #fff;
   border-radius: var(--radius-12);

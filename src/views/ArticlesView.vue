@@ -21,8 +21,8 @@
       <div class="middle_title_font">New Articles</div>
       <div v-if="articles_num.length == 0" class="empty">空</div>
       <div class="articles">
-        <div v-for="item in articles_num" :key="item">
-          {{ item }}
+        <div v-for="item in articles_num" :key="item" class="article_container">
+          <!-- {{ item }} -->
           <NewArticles :article="current_articles[item]" />
         </div>
       </div>
@@ -114,7 +114,8 @@ watch(
 .articles {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  gap: 15px;
+  /* justify-content: space-between; */
   flex-wrap: wrap;
   width: 100%;
   margin: 20px auto;
