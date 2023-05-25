@@ -7,7 +7,12 @@
       <!-- <div>全部文章: {{ all_articles[16] }}</div> -->
       <!-- <div>当前页文章: {{ current_articles }}</div> -->
     </div>
-    <div class="pagination">
+    <PaginationCommon
+      :total_count="articlesCount"
+      :page_size="page_size"
+      :current_page="page_number"
+    />
+    <!-- <div class="pagination">
       <router-link
         v-for="item in Math.ceil(articlesCount / page_size)"
         :key="item"
@@ -16,7 +21,8 @@
       >
         {{ item }}
       </router-link>
-    </div>
+    </div> -->
+
     <div class="section">
       <div class="middle_title_font">New Articles</div>
       <div v-if="articles_num.length == 0" class="empty">空</div>
@@ -40,6 +46,7 @@ import { getArticles } from "@/service";
 import type { IArticleArray } from "@/store/types";
 
 import NewArticles from "@/components/layout/home/NewArticles.vue";
+import PaginationCommon from "@/components/common/PaginationCommon.vue";
 
 // const router = useRouter();
 const route = useRoute();
