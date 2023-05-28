@@ -107,6 +107,7 @@ watch(
 }
 .section {
   width: 1080px;
+  min-height: 923px;
   margin: 20px auto;
 }
 .articles {
