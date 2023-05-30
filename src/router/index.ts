@@ -6,6 +6,8 @@ import GalleryView from "../views/GalleryView.vue";
 import AboutView from "../views/AboutView.vue";
 import PageTest from "../views/PageTest.vue";
 
+import ArticleDetailView from "../views/ArticleDetailView.vue";
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -23,6 +25,11 @@ const router = createRouter({
       path: "/articles",
       name: "articles",
       component: ArticlesView,
+    },
+    {
+      path: "/articles/:num",
+      name: "articles_detail",
+      component: ArticleDetailView,
     },
     {
       path: "/gallery",

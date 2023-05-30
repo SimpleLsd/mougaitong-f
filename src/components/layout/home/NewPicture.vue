@@ -1,6 +1,7 @@
 <template>
   <!-- <div>{{ loaded }}</div> -->
   <div class="main">
+    <!-- -{{ link }}- -->
     <div
       v-if="loaded"
       class="thumbnail"
@@ -59,7 +60,7 @@ const num = computed(() => {
 
 <style scoped>
 .main {
-  width: 204px;
+  width: 204px !important;
   padding-bottom: 1%;
 }
 .thumbnail {

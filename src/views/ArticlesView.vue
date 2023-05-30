@@ -71,10 +71,10 @@ const articles_num = computed(() => {
     index <= page_number.value * page_size;
     index++
   ) {
+    num.push(index - 1);
     if (index >= articlesCount.value) {
       break;
     }
-    num.push(index);
   }
   return num;
 });

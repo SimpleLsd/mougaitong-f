@@ -46,8 +46,11 @@ onMounted(async () => {
     );
     console.log(get_article);
 
+    article.value.cover = get_article.cover ?? "";
+    article.value.articleTags = get_article.articleTags ?? [];
     article.value.articleNum = get_article.articleNum ?? 0;
     article.value.title = get_article.title ?? "";
+    article.value.subTitle = get_article.subTitle ?? "";
     article.value.sections = get_article.sections ?? [];
   } catch (err) {
     console.log(err);
