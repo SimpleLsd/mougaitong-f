@@ -7,6 +7,7 @@
     <div class="show_data">
       <!-- {{ article }} -->
     </div>
+    <div class="article_body"></div>
 
     <!-- <FooterFooter /> -->
   </div>
@@ -61,18 +62,6 @@ const article_num = computed(() => {
   // return parseInt(route.query.page as string) || 1;
   return route.params.num;
 });
-
-// watch(
-//   [page_number, all_articles],
-//   () => {
-//     const article = [] as IArticleArray;
-//     for (const iterator of articles_num.value) {
-//       article[iterator] = all_articles.value[iterator];
-//     }
-//     current_articles.value = article;
-//   },
-//   { immediate: true, deep: true }
-// );
 </script>
 
 <style scoped>
@@ -87,5 +76,7 @@ const article_num = computed(() => {
   align-items: center;
   padding-left: 20px;
   gap: 20px;
+}
+.article_body {
 }
 </style>
