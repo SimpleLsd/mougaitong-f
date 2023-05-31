@@ -7,26 +7,39 @@
     <div class="show_data">
       <!-- {{ article }} -->
     </div>
-    <div class="article_body"></div>
-
+    <div class="article_main">
+      <ArticleTop
+        :num="article.articleNum"
+        :cover="article.cover"
+        :title="article.title"
+        :tags="article.articleTags"
+        :date="article.dateStr"
+      />
+    </div>
+    <div class="article_body">
+      <div
+        class="section"
+        v-for="section in article.sections"
+        :key="section.sectionType"
+      >
+        {{ section.sectionType }}
+      </div>
+    </div>
     <!-- <FooterFooter /> -->
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from "vue";
-// import { useMetadataStore } from "@/store/metadata";
 import { useRoute } from "vue-router";
-
 import { getArticleByNum } from "@/service";
-
 import type { IArticle } from "@/store/types";
+
+import ArticleTop from "@/components/layout/Article/ArticleTop.vue";
 
 // import FooterFooter from "@/components/common/FooterFooter.vue";
 
-// const router = useRouter();
 const route = useRoute();
-// const metadata = useMetadataStore();
 
 const article = ref<IArticle>({
   articleNum: 0,
@@ -45,21 +58,19 @@ onMounted(async () => {
     const get_article = await getArticleByNum(
       parseInt(route.params.num as string)
     );
-    console.log(get_article);
-
     article.value.cover = get_article.cover ?? "";
     article.value.articleTags = get_article.articleTags ?? [];
     article.value.articleNum = get_article.articleNum ?? 0;
     article.value.title = get_article.title ?? "";
     article.value.subTitle = get_article.subTitle ?? "";
     article.value.sections = get_article.sections ?? [];
+    article.value.dateStr = get_article.dateStr ?? [];
   } catch (err) {
     console.log(err);
   }
 });
 
 const article_num = computed(() => {
-  // return parseInt(route.query.page as string) || 1;
   return route.params.num;
 });
 </script>
@@ -77,6 +88,10 @@ const article_num = computed(() => {
   padding-left: 20px;
   gap: 20px;
 }
-.article_body {
+.article_main {
+  width: 740px;
+  background-color: #fff;
+  margin: 0 auto;
+  /*  */
 }
 </style>
