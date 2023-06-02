@@ -17,9 +17,10 @@
       <div class="num theme_red">
         {{ `NO.${articleNumStr}` }}
       </div>
-      <div class="title">
+      <router-link :to="'/articles/' + num" class="title">
         {{ title }}
-      </div>
+      </router-link>
+
       <div class="tag_data">
         <div class="theme_red">
           {{ tag }}
@@ -60,6 +61,10 @@ const loaded = computed(() => {
 
 const title = computed(() => {
   return props.article ? props.article.title : "";
+});
+
+const num = computed(() => {
+  return props.article ? props.article.articleNum : "";
 });
 
 const cover = computed(() => {

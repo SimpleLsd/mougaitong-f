@@ -22,7 +22,15 @@
         v-for="section in article.sections"
         :key="section.sectionType"
       >
-        {{ section.sectionType }}
+        <div v-if="section.sectionType === 'sectionLink'">
+          <SectionLink
+            :content="section.sectionContent"
+            :link="section.sectionDescription"
+          />
+        </div>
+        <div v-else>
+          <SectionPlaceholder :type="section.sectionType" />
+        </div>
       </div>
     </div>
     <!-- <FooterFooter /> -->
@@ -36,6 +44,8 @@ import { getArticleByNum } from "@/service";
 import type { IArticle } from "@/store/types";
 
 import ArticleTop from "@/components/layout/Article/ArticleTop.vue";
+import SectionLink from "@/components/layout/Article/SectionLink.vue";
+import SectionPlaceholder from "@/components/layout/Article/SectionPlaceholder.vue";
 
 // import FooterFooter from "@/components/common/FooterFooter.vue";
 
@@ -88,10 +98,13 @@ const article_num = computed(() => {
   padding-left: 20px;
   gap: 20px;
 }
-.article_main {
+.article_main,
+.article_body {
   width: 740px;
   background-color: #fff;
   margin: 0 auto;
-  /*  */
+}
+.section {
+  margin: 40px 40px;
 }
 </style>

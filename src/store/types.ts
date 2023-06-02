@@ -23,7 +23,7 @@ interface IArticleTag {
 
 interface IArticleSection {
   sectionType: string;
-  sectionContent: string;
+  sectionContent: Array<string>;
   sectionDescription: string;
 }
 

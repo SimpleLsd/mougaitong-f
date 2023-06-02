@@ -33,6 +33,18 @@ const getArticles = async () => {
   });
 };
 
+const getArticlesSortByNum = async () => {
+  return sydRequest.request({
+    url: `/articlesbynum`,
+    method: "GET",
+    interceptors: {
+      responceInterceptor: (res: any) => {
+        return res.data;
+      },
+    },
+  });
+};
+
 const getArticleById = async (id: string) => {
   return sydRequest.request({
     url: `/articles/id/${id}`,
@@ -114,4 +126,5 @@ export {
   getPictures,
   getArticlesCount,
   getPicturesCount,
+  getArticlesSortByNum,
 };

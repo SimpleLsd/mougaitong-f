@@ -31,7 +31,7 @@ import { ref, computed, onMounted, watch } from "vue";
 import { useMetadataStore } from "@/store/metadata";
 import { useRoute } from "vue-router";
 
-import { getArticles } from "@/service";
+import { getArticlesSortByNum } from "@/service";
 
 import type { IArticleArray } from "@/store/types";
 
@@ -47,7 +47,7 @@ const all_articles = ref([] as IArticleArray);
 const current_articles = ref([] as IArticleArray);
 
 onMounted(async () => {
-  const newArticles = await getArticles();
+  const newArticles = await getArticlesSortByNum();
   for (const iterator in newArticles) {
     all_articles.value[parseInt(iterator)] = newArticles[parseInt(iterator)];
   }

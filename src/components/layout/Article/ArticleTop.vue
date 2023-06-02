@@ -46,7 +46,7 @@ const dateStr = computed(() => {
 <style scoped>
 .main {
   width: 100%;
-  padding: 0 40px;
+  padding: 40px 40px;
   display: flex;
   flex-flow: column;
   gap: 32px;
