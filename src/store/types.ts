@@ -25,6 +25,7 @@ interface IArticleSection {
   sectionType: string;
   sectionContent: Array<string>;
   sectionDescription: string;
+  sectionAlign: string;
 }
 
 export interface IArticle {

@@ -2,21 +2,21 @@
   <Suspense>
     <div class="home_main">
       <div class="top_3_recommend">
-        <Top3Recommend :article="topArticle[0]" />
-        <Top3Recommend :article="topArticle[1]" />
-        <Top3Recommend :article="topArticle[2]" class="second_recommend_3" />
+        <Top3Recommend :article="newArticle[5]" />
+        <Top3Recommend :article="newArticle[6]" />
+        <Top3Recommend :article="newArticle[7]" class="second_recommend_3" />
       </div>
       <div class="section">
         <div class="middle_title_font">New Articles</div>
         <div class="articles">
-          <NewArticles :article="newArticle[0]" />
-          <NewArticles :article="newArticle[1]" />
-          <NewArticles :article="newArticle[2]" />
-          <NewArticles :article="newArticle[3]" />
-          <NewArticles :article="newArticle[0]" />
-          <NewArticles :article="newArticle[1]" />
-          <NewArticles :article="newArticle[2]" />
-          <NewArticles :article="newArticle[3]" />
+          <NewArticles :article="newArticle[28]" />
+          <NewArticles :article="newArticle[11]" />
+          <NewArticles :article="newArticle[10]" />
+          <NewArticles :article="newArticle[9]" />
+          <NewArticles :article="newArticle[4]" />
+          <NewArticles :article="newArticle[5]" />
+          <NewArticles :article="newArticle[6]" />
+          <NewArticles :article="newArticle[7]" />
         </div>
       </div>
       <div class="section">
@@ -60,9 +60,9 @@ const newPicture = ref([] as IPictureArray);
 
 metadata.$subscribe(async (mutation, state) => {
   for (const iterator of state.secondArticle.entries()) {
-    console.log(iterator);
+    // console.log(iterator);
     const a = await getArticleByNum(state.secondArticle[iterator[0]]);
-    topArticle.value[iterator[0]] = a[0];
+    topArticle.value[iterator[0]] = a;
   }
 });
 onMounted(async () => {

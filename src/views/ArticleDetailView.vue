@@ -4,9 +4,7 @@
       <div>当前文章: {{ article_num }}</div>
       <!-- <div>当前页文章: {{ current_articles }}</div> -->
     </div>
-    <div class="show_data">
-      <!-- {{ article }} -->
-    </div>
+    <div class="show_data"></div>
     <div class="article_main">
       <ArticleTop
         :num="article.articleNum"
@@ -28,6 +26,31 @@
             :link="section.sectionDescription"
           />
         </div>
+        <div v-else-if="section.sectionType === 'sectionStamp'">
+          <SectionStamp
+            :stamp="section.sectionContent"
+            :stampDescription="section.sectionDescription"
+          ></SectionStamp>
+        </div>
+        <div v-else-if="section.sectionType === 'sectionTitle'">
+          <SectionTitle
+            :content="section.sectionContent"
+            :description="section.sectionDescription"
+          ></SectionTitle>
+        </div>
+        <div v-else-if="section.sectionType === 'sectionParagraph'">
+          <SectionParagraph
+            :content="section.sectionContent"
+            :textAlign="section.sectionAlign"
+          ></SectionParagraph>
+        </div>
+        <div v-else-if="section.sectionType === 'sectionImages'">
+          <SectionImages
+            :imageLinks="section.sectionContent"
+            :sectionDescription="section.sectionDescription"
+            :randomImgId="generateRandomString(10)"
+          ></SectionImages>
+        </div>
         <div v-else>
           <SectionPlaceholder :type="section.sectionType" />
         </div>
@@ -42,9 +65,14 @@ import { ref, computed, onMounted } from "vue";
 import { useRoute } from "vue-router";
 import { getArticleByNum } from "@/service";
 import type { IArticle } from "@/store/types";
+import { generateRandomString } from "@/utils/tools";
 
 import ArticleTop from "@/components/layout/Article/ArticleTop.vue";
+import SectionStamp from "@/components/layout/Article/SectionStamp.vue";
 import SectionLink from "@/components/layout/Article/SectionLink.vue";
+import SectionTitle from "@/components/layout/Article/SectionTitle.vue";
+import SectionParagraph from "@/components/layout/Article/SectionParagraph.vue";
+import SectionImages from "@/components/layout/Article/SectionImages.vue";
 import SectionPlaceholder from "@/components/layout/Article/SectionPlaceholder.vue";
 
 // import FooterFooter from "@/components/common/FooterFooter.vue";
@@ -104,7 +132,12 @@ const article_num = computed(() => {
   background-color: #fff;
   margin: 0 auto;
 }
+
+.section:first-child {
+  margin-top: 0px !important;
+}
 .section {
-  margin: 40px 40px;
+  width: 100%;
+  margin: 40px 0;
 }
 </style>

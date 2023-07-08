@@ -2,6 +2,11 @@
 @import "./color.css";
 @import "./fontsize.css";
 
+* {
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
 html,
 body {
   width: 100%;
@@ -23,7 +28,8 @@ body {
 a,
 .green {
   text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
+  /* color: hsla(160, 100%, 37%, 1); */
+  color: var(--mougaitong-gray-dark);
   transition: 0.4s;
 }
 
@@ -35,8 +41,8 @@ a,
   --radius-12: 12px;
 }
 
-@media (hover: hover) {
+/* @media (hover: hover) {
   a:hover {
     background-color: hsla(160, 100%, 37%, 0.2);
   }
-}
+} */

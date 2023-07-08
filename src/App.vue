@@ -22,6 +22,9 @@ const metadata = useMetadataStore();
 metadata.getMetadataAction();
 </script>
 <style scoped>
+.app * {
+  font-family: var(--body-font-family);
+}
 .router-view-container {
   flex-grow: 1;
   height: 100%;

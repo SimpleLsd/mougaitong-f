@@ -2,7 +2,11 @@
   <div class="main">
     <div v-if="loaded" class="cover_container">
       <!-- 加载时隐藏 -->
-      <div class="cover" :style="{ backgroundImage: `url(${cover})` }"></div>
+      <div
+        class="cover"
+        :style="{ backgroundImage: `url(${cover})` }"
+        @click="redirecrToDestination"
+      ></div>
       <div class="title_group"></div>
     </div>
 
@@ -30,17 +34,6 @@
         </div>
       </div>
     </div>
-
-    <!-- <div v-else class="loading_tag_date">
-      <ContentLoading />
-    </div> -->
-
-    <!-- <div v-if="loaded" class="des des_font dark_gray">
-      {{ subTitle }}
-    </div>
-    <div v-else class="loading_des">
-      <ContentLoading />
-    </div> -->
   </div>
 </template>
 <script lang="ts" setup>
@@ -49,6 +42,9 @@ import ImageLoading from "@/components/common/ImageLoading.vue";
 import { computed } from "vue";
 import type { IArticle } from "@/store/types";
 import { numtoNO3, dateMD } from "@/utils/tools";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 interface Props {
   article: IArticle;
@@ -75,9 +71,10 @@ const tag = computed(() => {
   return props.article ? props.article.articleTags[0].tagName : "";
 });
 
-// const subTitle = computed(() => {
-//   return props.article ? props.article.subTitle : "";
-// });
+const redirecrToDestination = () => {
+  console.log(123);
+  router.push(`/articles/${num.value}`);
+};
 
 const articleNumStr = computed(() => {
   return props.article ? numtoNO3(props.article.articleNum) : "";
@@ -90,7 +87,6 @@ const dateStr = computed(() => {
 <style scoped>
 .main {
   width: 258px !important;
-  /* height: 200px; */
   background-color: #fff;
   border-radius: var(--radius-12);
   overflow: hidden;
@@ -100,6 +96,7 @@ const dateStr = computed(() => {
   width: 100%;
   height: 155px;
   background-size: cover;
+  cursor: pointer;
 }
 .info_container {
   padding: 12px 16px;
@@ -116,6 +113,8 @@ const dateStr = computed(() => {
   /* height: 36px; */
   margin-bottom: 8px;
   font-size: 14px;
+  font-weight: 700;
+  min-height: 36px;
 }
 .tag_data {
   display: flex;
