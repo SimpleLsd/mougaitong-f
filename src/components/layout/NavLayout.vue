@@ -1,10 +1,10 @@
 <template>
   <div class="nav_container">
     <div class="nav_main">
-      <div class="logo">
+      <!-- <div class="logo">
         <img class="logo-inner-1" src="@/assets/mougaitong-logo.svg" />
         <img class="logo-inner-2" src="@/assets/mougaitong-logo-small.svg" />
-      </div>
+      </div> -->
       <div class="nav_items">
         <ul>
           <router-link to="/">

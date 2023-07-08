@@ -91,9 +91,8 @@ onMounted(async () => {
 }
 
 .home_main {
-  width: 100%;
+  width: 1280px;
 }
-/* w = 1420 */
 .top_3_recommend {
   display: flex;
   justify-content: space-between;
@@ -120,28 +119,4 @@ onMounted(async () => {
   width: 100%;
   margin: 20px auto;
 }
-
-/*  */
-/*  */
-/* .second_recommend {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 2%;
-  width: 100%;
-}
-.home_articles,
-.home_gallery {
-  margin-top: 2%;
-  padding: 1% 2%;
-  width: 100%;
-  background-color: var(--mougaitong-white);
-  border-radius: 16px;
-}
-.home_articles .articles,
-.home_gallery .pictures {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1.5%;
-  width: 100%;
-} */
 </style>
