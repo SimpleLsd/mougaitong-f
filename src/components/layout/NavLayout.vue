@@ -69,12 +69,12 @@
 // import IconConContact from "@/components/icons/IconConContact.vue";
 </script>
 <style scoped>
-@media (max-width: 800px) {
+/* @media (max-width: 800px) {
   .nav_main {
     display: none !important;
   }
-}
-@media (min-width: 1280px) and (max-width: 1920px) {
+} */
+/* @media (min-width: 1280px) and (max-width: 1920px) {
   .nav_main {
     --side-width: 210px;
   }
@@ -117,7 +117,8 @@
   .contract span {
     margin: 0 10px;
   }
-}
+} */
+/*
 @media (min-width: 640px) and (max-width: 1279px) {
   .nav_main {
     --side-width: 75px;
@@ -149,12 +150,13 @@
     text-align: center;
     width: 100%;
     padding-bottom: 8px;
-    /* height: 44px; */
   }
   .contract span {
     margin: 8px 0;
   }
 }
+
+*/
 
 .nav_main {
   display: flex;
