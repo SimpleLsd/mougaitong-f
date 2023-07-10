@@ -1,0 +1,7 @@
+@media (max-width: 1920px) {
+  :root {
+    --mougaitong-main-width: 1280px;
+    --mougaitong-nav-width: 240px;
+    --mougaitong-home-gap: 32px;
+  }
+}

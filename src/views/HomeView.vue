@@ -79,19 +79,14 @@ onMounted(async () => {
 
 <style scoped>
 /* ----次级推荐数量媒体查询---- */
-@media (max-width: 960px) {
-  .second_recommend_3 {
-    display: none;
-  }
-}
-@media (min-width: 961px) {
-  .secondRecommend_3 {
-    display: block;
-  }
-}
 
 .home_main {
-  width: 1280px;
+  width: var(--mougaitong-main-width);
+  margin-left: calc(
+    50vw + var(--mougaitong-nav-width) / 2 + var(--mougaitong-home-gap) / 2 -
+      var(--mougaitong-main-width) / 2
+  );
+  background-color: #eee;
 }
 .top_3_recommend {
   display: flex;

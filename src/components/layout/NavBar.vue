@@ -63,9 +63,13 @@
   position: fixed;
   top: 0;
   left: 0;
+  left: calc(
+    50vw - var(--mougaitong-nav-width) / 2 - var(--mougaitong-home-gap) / 2 -
+      var(--mougaitong-main-width) / 2
+  );
   flex-direction: column;
-  width: 300px;
-  height: 300px;
+  width: 240px;
+  height: 380px;
   background-color: #aaa !important;
   font-size: 14px;
   z-index: 1;

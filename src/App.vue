@@ -32,7 +32,9 @@ metadata.getMetadataAction();
 <style scoped>
 .app * {
   font-family: var(--body-font-family);
-  background-color: #f9f9f9;
+}
+.app {
+  background-color: var(--mougaitong-background);
 }
 .content {
   width: 100%;
