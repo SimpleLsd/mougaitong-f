@@ -1,41 +1,28 @@
 <template>
-  <div class="main">
-    <div v-if="loaded" class="cover_container">
-      <!-- 加载时隐藏 -->
-      <div
-        class="cover"
-        :style="{ backgroundImage: `url(${cover})` }"
-        @click="redirecrToDestination"
-      ></div>
-      <div class="title_group"></div>
-    </div>
-
-    <div v-else class="cover_container">
-      <!-- 加载时显示 -->
-      <div class="loading_cover">
-        <ImageLoading />
-      </div>
-    </div>
-
-    <div v-if="loaded" class="info_container">
-      <div class="num theme_red">
-        {{ `NO.${articleNumStr}` }}
-      </div>
-      <router-link :to="'/articles/' + num" class="title">
-        {{ title }}
-      </router-link>
-
-      <div class="tag_data">
-        <div class="theme_red">
-          {{ tag }}
+  <div
+    v-if="loaded"
+    id="main"
+    class="main"
+    :style="{ backgroundImage: `url(${cover})` }"
+    @click="redirecrToDestination"
+  >
+    <div class="info_color">
+      <div class="info">
+        <div class="row">
+          <div class="date_num">{{ dateStr + " #" + num }}</div>
+          <div class="tag">{{ tag }}</div>
         </div>
-        <div class="gray">
-          {{ dateStr }}
+        <div class="title">
+          {{ title }}
         </div>
       </div>
     </div>
   </div>
+  <div v-else class="loading">
+    <ImageLoading />
+  </div>
 </template>
+
 <script lang="ts" setup>
 // import ContentLoading from "@/components/common/ContentLoading.vue";
 import ImageLoading from "@/components/common/ImageLoading.vue";
@@ -45,6 +32,8 @@ import { numtoNO3, dateMD } from "@/utils/tools";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
+
+const showInfo = true;
 
 interface Props {
   article: IArticle;
@@ -72,13 +61,12 @@ const tag = computed(() => {
 });
 
 const redirecrToDestination = () => {
-  console.log(123);
   router.push(`/articles/${num.value}`);
 };
 
-const articleNumStr = computed(() => {
-  return props.article ? numtoNO3(props.article.articleNum) : "";
-});
+// const articleNumStr = computed(() => {
+//   return props.article ? numtoNO3(props.article.articleNum) : "";
+// });
 
 const dateStr = computed(() => {
   return props.article ? dateMD(props.article.dateStr) : "";
@@ -86,38 +74,68 @@ const dateStr = computed(() => {
 </script>
 <style scoped>
 .main {
-  width: 258px !important;
+  width: var(--mougaitong-home-entryw);
+  height: 256px;
   background-color: #fff;
-  border-radius: var(--radius-12);
-  overflow: hidden;
-  margin-bottom: 16px;
-}
-.cover {
-  width: 100%;
-  height: 155px;
   background-size: cover;
   cursor: pointer;
-}
-.info_container {
-  padding: 12px 16px;
-}
-.num {
-  margin-bottom: 4px;
-}
-.title {
-  display: -webkit-box;
-  -webkit-line-clamp: 2; /* 显示两行文本 */
-  -webkit-box-orient: vertical;
+  border-radius: 32px;
   overflow: hidden;
-  text-overflow: ellipsis;
-  /* height: 36px; */
-  margin-bottom: 8px;
-  font-size: 14px;
-  font-weight: 700;
-  min-height: 36px;
+  margin-top: 32px;
+  transition: transform 0.5s ease;
 }
-.tag_data {
+.loading {
+  width: var(--mougaitong-home-entryw);
+  border-radius: 32px;
+  overflow: hidden;
+  margin-top: 32px;
+  height: 224px;
+}
+.loading * {
+  width: 100%;
+  height: 100%;
+}
+.info_color {
+  position: absolute;
+  width: 100%;
+  height: 66%;
+  bottom: 0;
+  /* top: 34%; */
+  margin: 0 auto;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+}
+.info {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  height: 92px;
+  padding: 0 32px;
+  color: #fff;
+}
+.row {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+.tag {
+  border: 1px solid #fff;
+  padding: 3.5px 7px;
+  border-radius: 50px;
+}
+.title {
+  /* display: -webkit-box; */
+  /* -webkit-line-clamp: 2; */
+  /* -webkit-box-orient: vertical; */
+  /* overflow: hidden; */
+  /* text-overflow: ellipsis; */
+  /* min-height: 36px; */
+  font-size: 20px;
+  font-weight: 700;
 }
 </style>

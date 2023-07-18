@@ -1,20 +1,20 @@
 <template>
   <Suspense>
     <div class="home_main">
-      <div class="top_3_recommend">
+      <!-- <div class="top_3_recommend">
         <Top3Recommend :article="newArticle[5]" />
         <Top3Recommend :article="newArticle[6]" />
         <Top3Recommend :article="newArticle[7]" class="second_recommend_3" />
-      </div>
+      </div> -->
       <div class="section">
         <div class="middle_title_font">New Articles</div>
         <div class="articles">
           <NewArticles :article="newArticle[28]" />
-          <NewArticles :article="newArticle[11]" />
+          <!-- <NewArticles :article="newArticle[11]" /> -->
           <NewArticles :article="newArticle[10]" />
           <NewArticles :article="newArticle[9]" />
           <NewArticles :article="newArticle[4]" />
-          <NewArticles :article="newArticle[5]" />
+          <!-- <NewArticles :article="newArticle[5]" /> -->
           <NewArticles :article="newArticle[6]" />
           <NewArticles :article="newArticle[7]" />
         </div>
@@ -82,20 +82,16 @@ onMounted(async () => {
 
 .home_main {
   width: var(--mougaitong-main-width);
-  margin-left: calc(
-    50vw + var(--mougaitong-nav-width) / 2 + var(--mougaitong-home-gap) / 2 -
-      var(--mougaitong-main-width) / 2
-  );
   background-color: #eee;
 }
 .top_3_recommend {
   display: flex;
   justify-content: space-between;
-  width: 1080px;
+  width: 100%;
   margin: 20px auto;
 }
 .section {
-  width: 1080px;
+  width: 100%;
   margin: 20px auto;
 }
 .articles {
@@ -104,7 +100,6 @@ onMounted(async () => {
   justify-content: space-between;
   flex-wrap: wrap;
   width: 100%;
-  margin: 20px auto;
 }
 .drawings {
   display: flex;

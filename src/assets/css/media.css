@@ -1,7 +1,28 @@
-@media (max-width: 1920px) {
+@media (min-width: 1600px) {
   :root {
     --mougaitong-main-width: 1280px;
-    --mougaitong-nav-width: 240px;
+    --mougaitong-nav-width: 220px;
     --mougaitong-home-gap: 32px;
+  }
+  :root {
+    --mougaitong-nav-textfz: 16px;
+    --mougaitong-nav-iconfz: 20px;
+  }
+  :root {
+    --mougaitong-home-entryw: 400px;
+  }
+}
+@media (max-width: 1599px) {
+  :root {
+    --mougaitong-main-width: 1130px;
+    --mougaitong-nav-width: 160px;
+    --mougaitong-home-gap: 32px;
+  }
+  :root {
+    --mougaitong-nav-textfz: 14px;
+    --mougaitong-nav-iconfz: 18px;
+  }
+  :root {
+    --mougaitong-home-entryw: 350px;
   }
 }

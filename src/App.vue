@@ -38,10 +38,12 @@ metadata.getMetadataAction();
 }
 .content {
   width: 100%;
-  height: 100vh;
 }
 .router-view-container {
-  width: 100%;
-  overflow: auto;
+  margin-left: calc(
+    50vw + var(--mougaitong-nav-width) / 2 + var(--mougaitong-home-gap) / 2 -
+      var(--mougaitong-main-width) / 2
+  );
+  /* overflow: auto; */
 }
 </style>
