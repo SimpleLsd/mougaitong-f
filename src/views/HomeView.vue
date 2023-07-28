@@ -7,20 +7,18 @@
         <Top3Recommend :article="newArticle[7]" class="second_recommend_3" />
       </div> -->
       <div class="section">
-        <div class="middle_title_font">New Articles</div>
+        <div class="huge_title_font">New Articles</div>
         <div class="articles">
           <NewArticles :article="newArticle[28]" />
-          <!-- <NewArticles :article="newArticle[11]" /> -->
           <NewArticles :article="newArticle[10]" />
           <NewArticles :article="newArticle[9]" />
           <NewArticles :article="newArticle[4]" />
-          <!-- <NewArticles :article="newArticle[5]" /> -->
           <NewArticles :article="newArticle[6]" />
           <NewArticles :article="newArticle[7]" />
         </div>
       </div>
       <div class="section">
-        <div class="middle_title_font">New Drawings</div>
+        <div class="huge_title_font">New Drawings</div>
         <div class="drawings">
           <NewPicture :picture="newPicture[0]" />
           <NewPicture :picture="newPicture[1]" />
