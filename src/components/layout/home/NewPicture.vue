@@ -21,7 +21,7 @@
     <div v-else class="loading_content">
       <ContentLoading />
     </div>
-    <div v-if="loaded" class="small_title_font">{{ title }}</div>
+    <div v-if="loaded" class="middle_title_font">{{ title }}</div>
   </div>
 </template>
 
@@ -66,7 +66,7 @@ const num = computed(() => {
 .thumbnail {
   background-size: cover;
   flex-shrink: 0;
-  border-radius: 4px;
+  border-radius: 20px;
 }
 .thumbnail::after {
   content: "";
@@ -82,7 +82,7 @@ const num = computed(() => {
 .info {
   margin: 5px 0;
   display: flex;
-  font-size: 12px;
+  font-size: 14px;
   justify-content: space-between;
 }
 .loading_content {

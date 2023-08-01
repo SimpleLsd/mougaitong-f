@@ -33,7 +33,7 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 
-const showInfo = true;
+// const showInfo = true;
 
 interface Props {
   article: IArticle;
@@ -79,7 +79,7 @@ const dateStr = computed(() => {
   background-color: #fff;
   background-size: cover;
   cursor: pointer;
-  border-radius: 32px;
+  border-radius: 20px;
   overflow: hidden;
   margin-top: 32px;
   transition: transform 0.5s ease;
