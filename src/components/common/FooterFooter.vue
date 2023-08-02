@@ -13,6 +13,9 @@
 </template>
 <script setup lang="ts"></script>
 <style scoped>
+img {
+  filter: grayscale(100%);
+}
 .footer {
   width: 100%;
   height: 100px;

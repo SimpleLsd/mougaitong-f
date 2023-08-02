@@ -1,12 +1,8 @@
 <template>
   <div class="app">
-    <!-- <NavLayout /> -->
-    <!-- header预留 -->
+    <HeaderHeader />
     <div class="content">
-      <!-- <div class="nav"> -->
       <NavBar />
-      <!-- </div> -->
-
       <div class="router-view-container">
         <router-view :key="$route.fullPath" v-slot="{ Component }">
           <keep-alive>
@@ -15,6 +11,7 @@
         </router-view>
       </div>
     </div>
+    <FooterFooter />
   </div>
 </template>
 
@@ -23,6 +20,8 @@
 import { RouterView } from "vue-router";
 // import NavLayout from "./components/layout/NavLayout.vue";
 import NavBar from "./components/layout/NavBar.vue";
+import FooterFooter from "./components/common/FooterFooter.vue";
+import HeaderHeader from "./components/common/HeaderHeader.vue";
 
 import { useMetadataStore } from "@/store/metadata";
 
@@ -44,6 +43,6 @@ metadata.getMetadataAction();
     50vw + var(--mougaitong-nav-width) / 2 + var(--mougaitong-home-gap) / 2 -
       var(--mougaitong-main-width) / 2
   );
-  /* overflow: auto; */
+  overflow: auto;
 }
 </style>

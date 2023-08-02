@@ -1,11 +1,6 @@
 <template>
   <Suspense>
     <div class="home_main">
-      <!-- <div class="top_3_recommend">
-        <Top3Recommend :article="newArticle[5]" />
-        <Top3Recommend :article="newArticle[6]" />
-        <Top3Recommend :article="newArticle[7]" class="second_recommend_3" />
-      </div> -->
       <SectionSlot route="all">
         <template #title_name>新文章</template>
         <template #content>
@@ -19,28 +14,18 @@
           </div>
         </template>
       </SectionSlot>
-      <!-- <div class="section">
-        <div class="huge_title_font">New Articles</div>
-        <div class="articles">
-          <NewArticles :article="newArticle[28]" />
-          <NewArticles :article="newArticle[10]" />
-          <NewArticles :article="newArticle[9]" />
-          <NewArticles :article="newArticle[4]" />
-          <NewArticles :article="newArticle[6]" />
-          <NewArticles :article="newArticle[7]" />
-        </div>
-      </div> -->
-      <div class="section">
-        <div class="huge_title_font">New Drawings</div>
-        <div class="drawings">
-          <NewPicture :picture="newPicture[0]" />
-          <NewPicture :picture="newPicture[1]" />
-          <NewPicture :picture="newPicture[2]" />
-          <NewPicture :picture="newPicture[3]" />
-          <NewPicture :picture="newPicture[4]" />
-        </div>
-      </div>
-      <FooterFooter />
+      <SectionSlot route="all">
+        <template #title_name>新图表</template>
+        <template #content>
+          <div class="drawings">
+            <NewPicture :picture="newPicture[0]" />
+            <NewPicture :picture="newPicture[1]" />
+            <NewPicture :picture="newPicture[2]" />
+            <NewPicture :picture="newPicture[3]" />
+          </div>
+        </template>
+      </SectionSlot>
+      <!-- <FooterFooter /> -->
     </div>
   </Suspense>
 </template>
@@ -62,7 +47,7 @@ import SectionSlot from "@/components/layout/home/SectionSlot.vue";
 import NewArticles from "@/components/layout/home/NewArticles.vue";
 import NewPicture from "@/components/layout/home/NewPicture.vue";
 
-import FooterFooter from "@/components/common/FooterFooter.vue";
+// import FooterFooter from "@/components/common/FooterFooter.vue";
 
 const metadata = useMetadataStore();
 // metadata.getMetadataAction();
@@ -91,21 +76,8 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-/* ----次级推荐数量媒体查询---- */
-
 .home_main {
   width: var(--mougaitong-main-width);
-  background-color: #eee;
-}
-.top_3_recommend {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin: 20px auto;
-}
-.section {
-  width: 100%;
-  margin: 20px auto;
 }
 .articles {
   display: flex;

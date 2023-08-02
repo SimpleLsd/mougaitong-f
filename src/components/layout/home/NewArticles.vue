@@ -28,7 +28,7 @@
 import ImageLoading from "@/components/common/ImageLoading.vue";
 import { computed } from "vue";
 import type { IArticle } from "@/store/types";
-import { numtoNO3, dateMD } from "@/utils/tools";
+import { dateMD } from "@/utils/tools";
 import { useRouter } from "vue-router";
 
 const router = useRouter();

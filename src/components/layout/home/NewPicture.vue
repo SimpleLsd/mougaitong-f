@@ -60,7 +60,7 @@ const num = computed(() => {
 
 <style scoped>
 .main {
-  width: 204px !important;
+  width: 290px !important;
   padding-bottom: 1%;
 }
 .thumbnail {

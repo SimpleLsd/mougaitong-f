@@ -57,6 +57,7 @@
 <script setup lang="ts"></script>
 <style scoped>
 .main {
+  margin-top: 60px;
   display: flex;
   position: fixed;
   top: 0;
