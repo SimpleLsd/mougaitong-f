@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div class="main" id="nav_bar">
     <ul>
       <router-link to="/">
         <div class="nav_item_big">
@@ -54,13 +54,25 @@
     </ul>
   </div>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const minOffsetTop = 30;
+const maxOffsetTop = 60;
+window.addEventListener("scroll", () => {
+  const navBar = document.getElementById("nav_bar");
+  if (navBar) {
+    if (window.scrollY > maxOffsetTop - minOffsetTop) {
+      navBar.style.top = minOffsetTop + "px";
+    } else {
+      navBar.style.top = `${maxOffsetTop - window.scrollY}px`;
+    }
+  }
+});
+</script>
 <style scoped>
 .main {
-  margin-top: 60px;
   display: flex;
   position: fixed;
-  top: 0;
+  top: 60px;
   left: calc(
     50vw - var(--mougaitong-nav-width) / 2 - var(--mougaitong-home-gap) / 2 -
       var(--mougaitong-main-width) / 2
