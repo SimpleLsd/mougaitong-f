@@ -14,5 +14,6 @@ a {
   text-decoration: underline;
   font-size: 16px;
   font-weight: 400;
+  padding: 0 40px;
 }
 </style>

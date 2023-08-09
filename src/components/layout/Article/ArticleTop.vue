@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div class="top_main">
     <div class="cover" :style="{ backgroundImage: `url(${cover})` }"></div>
     <div class="text">
       <div class="num font_small theme_red">N0.{{ articleNumStr }}</div>
@@ -44,8 +44,8 @@ const dateStr = computed(() => {
 });
 </script>
 <style scoped>
-.main {
-  width: 100%;
+.top_main {
+  width: 1000px;
   padding: 0 40px 40px 40px;
   display: flex;
   flex-flow: column;

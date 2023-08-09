@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <img class="logo" src="src/assets/mougaitong-logo-header.svg" alt="" />
+    <img class="logo" src="../../assets/mougaitong-logo-header.svg" alt="" />
     <div class="links">
       <a href="">合集</a>
       <a href="">标签</a>

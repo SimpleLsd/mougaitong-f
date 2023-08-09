@@ -1,11 +1,10 @@
 <template>
-  <div class="main">
-    <div class="top_data_test">
+  <div class="article_main">
+    <!-- <div class="top_data_test">
       <div>当前文章: {{ article_num }}</div>
-      <!-- <div>当前页文章: {{ current_articles }}</div> -->
-    </div>
+    </div> -->
     <div class="show_data"></div>
-    <div class="article_main">
+    <div class="article_top">
       <ArticleTop
         :num="article.articleNum"
         :cover="article.cover"
@@ -51,6 +50,17 @@
             :randomImgId="generateRandomString(10)"
           ></SectionImages>
         </div>
+        <div v-else-if="section.sectionType === 'sectionQuote'">
+          <!-- <SectionImages
+            :imageLinks="section.sectionContent"
+            :sectionDescription="section.sectionDescription"
+            :randomImgId="generateRandomString(10)"
+          ></SectionImages> -->
+          <SectionQuote
+            :content="section.sectionContent"
+            :sectionDescription="section.sectionDescription"
+          ></SectionQuote>
+        </div>
         <div v-else>
           <SectionPlaceholder :type="section.sectionType" />
         </div>
@@ -61,7 +71,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from "vue";
+import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
 import { getArticleByNum } from "@/service";
 import type { IArticle } from "@/store/types";
@@ -74,6 +84,7 @@ import SectionTitle from "@/components/layout/Article/SectionTitle.vue";
 import SectionParagraph from "@/components/layout/Article/SectionParagraph.vue";
 import SectionImages from "@/components/layout/Article/SectionImages.vue";
 import SectionPlaceholder from "@/components/layout/Article/SectionPlaceholder.vue";
+import SectionQuote from "@/components/layout/Article/SectionQuote.vue";
 
 // import FooterFooter from "@/components/common/FooterFooter.vue";
 
@@ -108,14 +119,15 @@ onMounted(async () => {
   }
 });
 
-const article_num = computed(() => {
-  return route.params.num;
-});
+// const article_num = computed(() => {
+//   return route.params.num;
+// });
 </script>
 
 <style scoped>
-.main {
-  width: 100%;
+.article_main {
+  width: var(--mougaitong-main-width);
+  padding-top: 20px;
 }
 .top_data_test {
   height: 50px;
@@ -126,10 +138,10 @@ const article_num = computed(() => {
   padding-left: 20px;
   gap: 20px;
 }
-.article_main,
+.article_top,
 .article_body {
-  width: 740px;
-  background-color: #fff;
+  width: 1000px;
+  /* background-color: #fff; */
   margin: 0 auto;
 }
 
