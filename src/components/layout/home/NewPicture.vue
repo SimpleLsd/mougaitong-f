@@ -1,6 +1,6 @@
 <template>
   <!-- <div>{{ loaded }}</div> -->
-  <div class="main">
+  <div class="main" @click="redirecrToDestination">
     <!-- -{{ link }}- -->
     <div
       v-if="loaded"
@@ -21,7 +21,7 @@
     <div v-else class="loading_content">
       <ContentLoading />
     </div>
-    <div v-if="loaded" class="middle_title_font">{{ title }}</div>
+    <!-- <div v-if="loaded" class="middle_title_font">{{ title }}</div> -->
   </div>
 </template>
 
@@ -31,6 +31,9 @@ import ImageLoading from "@/components/common/ImageLoading.vue";
 import { computed } from "vue";
 import type { IPicture } from "@/store/types";
 import { numtoNO3 } from "@/utils/tools";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 interface Props {
   picture: IPicture;
@@ -41,9 +44,9 @@ const loaded = computed(() => {
   return props.picture ? true : false;
 });
 
-const title = computed(() => {
-  return props.picture ? props.picture.title : "";
-});
+// const title = computed(() => {
+//   return props.picture ? props.picture.title : "";
+// });
 
 const link = computed(() => {
   return props.picture ? props.picture.link : "";
@@ -53,6 +56,10 @@ const num = computed(() => {
   return props.picture ? numtoNO3(props.picture.totalNum) : "";
 });
 
+const redirecrToDestination = () => {
+  router.push(`/pictures/${props.picture.pictureNum}`);
+};
+
 // const pictureNumStr = computed(() => {
 //   return props.picture ? numtoNO3(props.picture.pictureNum) : "";
 // });
@@ -60,13 +67,13 @@ const num = computed(() => {
 
 <style scoped>
 .main {
-  width: 290px !important;
+  width: 290px;
   padding-bottom: 1%;
 }
 .thumbnail {
   background-size: cover;
   flex-shrink: 0;
-  border-radius: 20px;
+  border-radius: var(--mougaitong-home-radius);
 }
 .thumbnail::after {
   content: "";
@@ -80,7 +87,7 @@ const num = computed(() => {
   border-radius: 4px;
 }
 .info {
-  margin: 5px 0;
+  margin: 10px 0 0 0;
   display: flex;
   font-size: 14px;
   justify-content: space-between;

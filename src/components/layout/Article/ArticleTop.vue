@@ -45,7 +45,7 @@ const dateStr = computed(() => {
 </script>
 <style scoped>
 .top_main {
-  width: 1000px;
+  width: 100%;
   padding: 0 40px 40px 40px;
   display: flex;
   flex-flow: column;

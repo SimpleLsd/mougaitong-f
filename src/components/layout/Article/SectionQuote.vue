@@ -23,7 +23,6 @@ const props = defineProps<{
 const finalStr = computed(() => {
   return reAsteriskByRE(props.content[0]);
 });
-//首个***被三个引号包含的内容1***，过渡***被三个引号包含的内容2***，
 </script>
 <style scoped>
 .main {

@@ -106,6 +106,18 @@ const getPictures = async () => {
   });
 };
 
+const getPictureByNum = async (num: number) => {
+  return sydRequest.request({
+    url: `/pictures/${num}`,
+    method: "GET",
+    interceptors: {
+      responceInterceptor: (res: any) => {
+        return res.data;
+      },
+    },
+  });
+};
+
 const getPicturesCount = async () => {
   return sydRequest.request({
     url: `/pictures/count`,
@@ -127,4 +139,5 @@ export {
   getArticlesCount,
   getPicturesCount,
   getArticlesSortByNum,
+  getPictureByNum,
 };

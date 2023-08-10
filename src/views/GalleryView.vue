@@ -4,8 +4,6 @@
       <div>页数: {{ page_number }}</div>
       <div>总图片数: {{ picturesCount }}</div>
       <div>当前页图片: {{ pictures_num }}</div>
-      <!-- <div class="">全部图片: {{ all_pictures }}</div> -->
-      <!-- <div class="theme_red">当前页文章: {{ current_pictures }}</div> -->
     </div>
     <div class="section">
       <div class="middle_title_font">New Picture</div>

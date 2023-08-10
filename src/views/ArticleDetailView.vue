@@ -1,5 +1,6 @@
 <template>
   <div class="article_main">
+    <!-- {{ article }} -->
     <!-- <div class="top_data_test">
       <div>当前文章: {{ article_num }}</div>
     </div> -->
@@ -51,11 +52,6 @@
           ></SectionImages>
         </div>
         <div v-else-if="section.sectionType === 'sectionQuote'">
-          <!-- <SectionImages
-            :imageLinks="section.sectionContent"
-            :sectionDescription="section.sectionDescription"
-            :randomImgId="generateRandomString(10)"
-          ></SectionImages> -->
           <SectionQuote
             :content="section.sectionContent"
             :sectionDescription="section.sectionDescription"
@@ -66,7 +62,6 @@
         </div>
       </div>
     </div>
-    <!-- <FooterFooter /> -->
   </div>
 </template>
 

@@ -79,7 +79,7 @@ const dateStr = computed(() => {
   background-color: #fff;
   background-size: cover;
   cursor: pointer;
-  border-radius: 20px;
+  border-radius: var(--mougaitong-home-radius);
   overflow: hidden;
   margin-top: 32px;
   transition: transform 0.5s ease;
@@ -113,7 +113,7 @@ const dateStr = computed(() => {
   bottom: 20px;
   width: 100%;
   height: 92px;
-  padding: 0 32px;
+  padding: 0 24px;
   color: #fff;
 }
 .row {
@@ -129,13 +129,8 @@ const dateStr = computed(() => {
   border-radius: 50px;
 }
 .title {
-  /* display: -webkit-box; */
-  /* -webkit-line-clamp: 2; */
-  /* -webkit-box-orient: vertical; */
-  /* overflow: hidden; */
-  /* text-overflow: ellipsis; */
-  /* min-height: 36px; */
-  font-size: 20px;
+  text-align: justify;
+  font-size: var(--mougaitong-home-titlefz);
   font-weight: 700;
 }
 </style>

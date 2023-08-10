@@ -3,7 +3,7 @@
     <div class="container">
       <div class="left">
         <div class="gradient_block"></div>
-        <img src="src/assets/mougaitong-logo-footer.svg" alt="" />
+        <img src="../../assets/mougaitong-logo-footer.svg" alt="" />
       </div>
       <div class="middle">
         <p>“本网站只进行知识、作品、心得等的分享，拒绝任何鸡汤内容”</p>
