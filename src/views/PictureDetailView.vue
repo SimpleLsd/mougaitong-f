@@ -4,6 +4,14 @@
   <div class="picture_main">
     <img :src="picture.link" class="picture" />
     <div class="title">{{ picture.title }}</div>
+    <div class="tag_group">
+      <div class="tag" v-for="item in picture.pictureTags" :key="item.tagID">
+        {{ item.tagName }}
+      </div>
+    </div>
+    <div class="des">
+      <ArticleBody :sections="picture.descriptions" />
+    </div>
   </div>
 </template>
 <script setup lang="ts">
@@ -12,7 +20,9 @@ import { useRoute } from "vue-router";
 import type { IPicture } from "@/store/types";
 import { getPictureByNum } from "@/service";
 
-// import PictureTest from "@/components/layout/Picture/PictureTest.vue";
+// import { computed } from "vue";
+
+import ArticleBody from "@/components/layout/Article/ArticleBody.vue";
 
 const route = useRoute();
 
@@ -33,8 +43,6 @@ onMounted(async () => {
     const get_picture = await getPictureByNum(
       parseInt(route.params.num as string)
     );
-    console.log(get_picture[0]);
-
     picture.value.pictureNum = get_picture.pictureNum ?? 0;
     picture.value.pictureId = get_picture.pictureId ?? "";
     picture.value.totalNum = get_picture.totalNum ?? 0;
@@ -60,10 +68,21 @@ onMounted(async () => {
   gap: 20px;
 }
 .picture {
-  max-width: 50%;
+  max-width: 60%;
 }
 .title {
   font-size: 20px;
   font-weight: bold;
+}
+.tag_group {
+  display: flex;
+  gap: 8px;
+}
+.tag {
+  border: 1px solid;
+  border-color: var(--mougaitong-theme);
+  color: var(--mougaitong-theme);
+  padding: 2px 6px;
+  border-radius: 20px;
 }
 </style>

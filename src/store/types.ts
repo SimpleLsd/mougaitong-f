@@ -21,7 +21,7 @@ interface IArticleTag {
   tagRoute: string;
 }
 
-interface IArticleSection {
+export interface IArticleSection {
   sectionType: string;
   sectionContent: Array<string>;
   sectionDescription: string;

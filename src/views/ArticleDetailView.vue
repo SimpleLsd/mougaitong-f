@@ -15,6 +15,9 @@
       />
     </div>
     <div class="article_body">
+      <ArticleBody :sections="article.sections" />
+    </div>
+    <!-- <div class="article_body">
       <div
         class="section"
         v-for="section in article.sections"
@@ -61,7 +64,7 @@
           <SectionPlaceholder :type="section.sectionType" />
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -70,18 +73,9 @@ import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
 import { getArticleByNum } from "@/service";
 import type { IArticle } from "@/store/types";
-import { generateRandomString } from "@/utils/tools";
 
 import ArticleTop from "@/components/layout/Article/ArticleTop.vue";
-import SectionStamp from "@/components/layout/Article/SectionStamp.vue";
-import SectionLink from "@/components/layout/Article/SectionLink.vue";
-import SectionTitle from "@/components/layout/Article/SectionTitle.vue";
-import SectionParagraph from "@/components/layout/Article/SectionParagraph.vue";
-import SectionImages from "@/components/layout/Article/SectionImages.vue";
-import SectionPlaceholder from "@/components/layout/Article/SectionPlaceholder.vue";
-import SectionQuote from "@/components/layout/Article/SectionQuote.vue";
-
-// import FooterFooter from "@/components/common/FooterFooter.vue";
+import ArticleBody from "@/components/layout/Article/ArticleBody.vue";
 
 const route = useRoute();
 
