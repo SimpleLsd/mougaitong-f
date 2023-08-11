@@ -4,11 +4,14 @@
     <div class="content">
       <NavBar />
       <div class="router-view-container">
-        <router-view :key="$route.fullPath" v-slot="{ Component }">
-          <keep-alive>
+        <!-- <keep-alive>
+          <router-view :key="$route.fullPath" v-slot="{ Component }">
             <component :is="Component" />
-          </keep-alive>
-        </router-view>
+          </router-view>
+        </keep-alive> -->
+        <keep-alive>
+          <router-view></router-view>
+        </keep-alive>
       </div>
     </div>
     <FooterFooter />
