@@ -33,12 +33,10 @@ import { getPictures } from "@/service";
 
 import type { IPictureArray } from "@/store/types";
 
-// import NewArticles from "@/components/layout/home/NewArticles.vue";
 import NewPicture from "@/components/layout/home/NewPicture.vue";
 import PaginationCommon from "@/components/common/PaginationCommon.vue";
 import FooterFooter from "@/components/common/FooterFooter.vue";
 
-// const router = useRouter();
 const route = useRoute();
 const metadata = useMetadataStore();
 
@@ -46,11 +44,11 @@ const all_pictures = ref([] as IPictureArray);
 const current_pictures = ref([] as IPictureArray);
 
 onMounted(async () => {
+  console.log("onMounted");
   const newArticles = await getPictures();
   for (const iterator in newArticles) {
     all_pictures.value[parseInt(iterator)] = newArticles[parseInt(iterator)];
   }
-  console.log("onMounted");
 });
 
 const page_size = 12;

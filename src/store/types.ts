@@ -8,6 +8,8 @@ export interface IMetadata {
   totalChatNum: number;
   topCollection: string;
   totalTags: Array<IArticleTag>;
+  allArticles: IArticleArray;
+  allPictures: IPictureArray;
   secondArticle: Array<number>;
 }
 

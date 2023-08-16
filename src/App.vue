@@ -4,14 +4,12 @@
     <div class="content">
       <NavBar />
       <div class="router-view-container">
-        <!-- <keep-alive>
-          <router-view :key="$route.fullPath" v-slot="{ Component }">
-            <component :is="Component" />
-          </router-view>
-        </keep-alive> -->
-        <keep-alive>
-          <router-view></router-view>
-        </keep-alive>
+        <router-view v-slot="{ Component }">
+          <keep-alive>
+            <component :is="Component" :key="route.fullPath" />
+          </keep-alive>
+        </router-view>
+        <!-- <router-view></router-view> -->
       </div>
     </div>
     <FooterFooter />
@@ -19,14 +17,14 @@
 </template>
 
 <script setup lang="ts">
-// import { RouterLink, RouterView } from "vue-router";
-import { RouterView } from "vue-router";
-// import NavLayout from "./components/layout/NavLayout.vue";
+import { RouterView, useRoute } from "vue-router";
 import NavBar from "./components/layout/NavBar.vue";
 import FooterFooter from "./components/common/FooterFooter.vue";
 import HeaderHeader from "./components/common/HeaderHeader.vue";
 
 import { useMetadataStore } from "@/store/metadata";
+
+const route = useRoute();
 
 const metadata = useMetadataStore();
 metadata.getMetadataAction();

@@ -20,8 +20,6 @@ import { useRoute } from "vue-router";
 import type { IPicture } from "@/store/types";
 import { getPictureByNum } from "@/service";
 
-// import { computed } from "vue";
-
 import ArticleBody from "@/components/layout/Article/ArticleBody.vue";
 
 const route = useRoute();
