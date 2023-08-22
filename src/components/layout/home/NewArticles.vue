@@ -30,7 +30,6 @@ import { computed } from "vue";
 import type { IArticle } from "@/store/types";
 import { dateMD } from "@/utils/tools";
 import { useRouter } from "vue-router";
-
 const router = useRouter();
 
 // const showInfo = true;
