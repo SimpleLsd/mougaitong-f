@@ -101,9 +101,7 @@ ul {
 
 ul a {
   border-radius: 8px;
-  /* width: 100%; */
-  padding: 16px;
-  /* background-color: #f5f5f5; */
+  padding: 14px;
 }
 
 ul a:hover {

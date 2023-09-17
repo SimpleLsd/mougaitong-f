@@ -80,7 +80,7 @@ const dateStr = computed(() => {
   cursor: pointer;
   border-radius: var(--mougaitong-home-radius);
   overflow: hidden;
-  margin-top: 32px;
+  margin-bottom: 32px;
   transition: transform 0.5s ease;
 }
 .loading {
@@ -109,27 +109,31 @@ const dateStr = computed(() => {
 }
 .info {
   position: absolute;
-  bottom: 20px;
+  bottom: 0;
   width: 100%;
-  height: 92px;
-  padding: 0 24px;
+  height: 60%;
+  padding: 0 5%;
   color: #fff;
 }
 .row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   font-size: 14px;
+  opacity: 0.8;
 }
 .tag {
   border: 1px solid #fff;
-  padding: 3.5px 7px;
+  font-size: 12px;
+  padding: 3.5px 7px 5px 7px;
   border-radius: 50px;
+  opacity: 0;
 }
 .title {
-  text-align: justify;
+  /* text-align: justify; */
   font-size: var(--mougaitong-home-titlefz);
+  line-height: 1.5;
   font-weight: 700;
 }
 </style>

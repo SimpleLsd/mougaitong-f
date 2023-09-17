@@ -6,13 +6,11 @@
   --mougaitong-gray-middle: #656769;
   --mougaitong-gray: #949799;
   --mougaitong-gray-light: #d7d8d9;
-  --mougaitong-background: #fcfbfc;
+  --mougaitong-background: #f6f6f9;
   --mougaitong-white: #fff;
   --mougaitong-context: #464646;
 
-  --body-font-family: PingFang SC, Open Sans, Helvetica Neue, Arial,
-    Hiragino Sans GB, Microsoft YaHei, WenQuanYi Micro Hei, sans-serif;
-
+  --body-font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,sans-serif
   --vt-c-white: #ffffff;
   --vt-c-white-soft: #f8f8f8;
   --vt-c-white-mute: #f2f2f2;

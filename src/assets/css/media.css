@@ -12,7 +12,7 @@
   }
   /* 导航字体大小 */
   :root {
-    --mougaitong-nav-textfz: 16px;
+    --mougaitong-nav-textfz: 14px;
     --mougaitong-nav-iconfz: 20px;
   }
   /* 首页主体内部内容宽度 */
@@ -21,7 +21,7 @@
   }
   /* 首页文字大小 */
   :root {
-    --mougaitong-home-titlefz: 20px;
+    --mougaitong-home-titlefz: 18px;
   }
 }
 @media (max-width: 1599px) {
