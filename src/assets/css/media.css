@@ -1,0 +1,44 @@
+@media (min-width: 1600px) {
+  /* 首页尺寸 */
+  :root {
+    /* 首页主体宽度 */
+    --mougaitong-main-width: 1280px;
+    /* 导航宽度 */
+    --mougaitong-nav-width: 220px;
+    /* 首页间距 */
+    --mougaitong-home-gap: 32px;
+    /* 首页圆角设置 */
+    --mougaitong-home-radius: 24px;
+  }
+  /* 导航字体大小 */
+  :root {
+    --mougaitong-nav-textfz: 14px;
+    --mougaitong-nav-iconfz: 20px;
+  }
+  /* 首页主体内部内容宽度 */
+  :root {
+    --mougaitong-home-entryw: 400px;
+  }
+  /* 首页文字大小 */
+  :root {
+    --mougaitong-home-titlefz: 18px;
+  }
+}
+@media (max-width: 1599px) {
+  :root {
+    --mougaitong-main-width: 1130px;
+    --mougaitong-nav-width: 160px;
+    --mougaitong-home-gap: 24px;
+    --mougaitong-home-radius: 16px;
+  }
+  :root {
+    --mougaitong-nav-textfz: 14px;
+    --mougaitong-nav-iconfz: 18px;
+  }
+  :root {
+    --mougaitong-home-entryw: 350px;
+  }
+  :root {
+    --mougaitong-home-titlefz: 18px;
+  }
+}

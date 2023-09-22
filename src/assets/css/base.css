@@ -6,13 +6,11 @@
   --mougaitong-gray-middle: #656769;
   --mougaitong-gray: #949799;
   --mougaitong-gray-light: #d7d8d9;
-  --mougaitong-background: #f6f6f7;
+  --mougaitong-background: #f6f6f9;
   --mougaitong-white: #fff;
   --mougaitong-context: #464646;
 
-  --body-font-family: PingFangSC, Open Sans, Helvetica Neue, Arial,
-    Hiragino Sans GB, Microsoft YaHei, WenQuanYi Micro Hei, sans-serif;
-
+  --body-font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,sans-serif
   --vt-c-white: #ffffff;
   --vt-c-white-soft: #f8f8f8;
   --vt-c-white-mute: #f2f2f2;
@@ -63,33 +61,7 @@
   }
 }
 
-* {
-  font-family: var(--body-font-family);
+:root {
+  --radius-12: 12px;
+  --gap: 32px;
 }
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  position: relative;
-  font-weight: normal;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  /* text-decoration: none; */
-}
-
-/* .main_view {
-  min-height: 100vh;
-  color: var(--color-text);
-  background: var(--color-background);
-  transition: color 0.5s, background-color 0.5s;
-  line-height: 1.6;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-    Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  font-size: 15px;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-} */

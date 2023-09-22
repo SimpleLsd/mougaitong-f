@@ -8,6 +8,8 @@ export interface IMetadata {
   totalChatNum: number;
   topCollection: string;
   totalTags: Array<IArticleTag>;
+  allArticles: IArticleArray;
+  allPictures: IPictureArray;
   secondArticle: Array<number>;
 }
 
@@ -21,10 +23,11 @@ interface IArticleTag {
   tagRoute: string;
 }
 
-interface IArticleSection {
+export interface IArticleSection {
   sectionType: string;
-  sectionContent: string;
+  sectionContent: Array<string>;
   sectionDescription: string;
+  sectionAlign: string;
 }
 
 export interface IArticle {

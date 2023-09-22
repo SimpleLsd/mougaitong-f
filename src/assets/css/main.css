@@ -1,34 +1,33 @@
 @import "./base.css";
 @import "./color.css";
 @import "./fontsize.css";
+@import "./media.css";
 
-html,
-body {
-  width: 100%;
-  height: 100%;
+* {
+  font-family: var(--body-font-family);
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
 }
 
-#app {
-  width: 100%;
-  height: 100%;
-}
-
-.app {
-  width: 100%;
-  height: 100%;
-  display: flex;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
   font-weight: normal;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 a,
 .green {
   text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
+  color: var(--mougaitong-gray-dark);
   transition: 0.4s;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+.radius12 {
+  border-radius: 12px;
 }

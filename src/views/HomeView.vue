@@ -1,32 +1,32 @@
 <template>
   <Suspense>
     <div class="home_main">
-      <TopRecommend :prop-a="42" />
-      <div class="second_recommend">
-        <SecondRecommend :article="topArticle[0]" />
-        <SecondRecommend :article="topArticle[1]" />
-        <SecondRecommend :article="topArticle[2]" class="second_recommend_3" />
-      </div>
-      <div class="home_articles">
-        <div class="middle_title_font">New Articles</div>
-        <div class="articles">
-          <HomeArticles :article="newArticle[0]" />
-          <HomeArticles :article="newArticle[1]" />
-          <HomeArticles :article="newArticle[2]" />
-          <HomeArticles :article="newArticle[3]" />
-        </div>
-      </div>
-      <div class="home_gallery">
-        <div class="middle_title_font">New Drawings</div>
-        <div class="pictures">
-          <HomeGallery :picture="newPicture[0]" />
-          <HomeGallery :picture="newPicture[1]" />
-          <HomeGallery :picture="newPicture[2]" />
-          <HomeGallery :picture="newPicture[3]" />
-          <HomeGallery :picture="newPicture[4]" />
-          <HomeGallery :picture="newPicture[5]" />
-        </div>
-      </div>
+      <!-- slot 1 -->
+      <SectionSlot route="all">
+        <template #title_name>新文章</template>
+        <template #content>
+          <div class="articles">
+            <NewArticles :article="allArticles[28]" />
+            <NewArticles :article="allArticles[10]" />
+            <NewArticles :article="allArticles[9]" />
+            <NewArticles :article="allArticles[4]" />
+            <NewArticles :article="allArticles[6]" />
+            <NewArticles :article="allArticles[7]" />
+          </div>
+        </template>
+      </SectionSlot>
+      <!-- slot 2 -->
+      <SectionSlot route="all">
+        <template #title_name>新图表</template>
+        <template #content>
+          <div class="drawings">
+            <NewPicture :picture="allPictures[0]" />
+            <NewPicture :picture="allPictures[1]" />
+            <NewPicture :picture="allPictures[2]" />
+            <NewPicture :picture="allPictures[3]" />
+          </div>
+        </template>
+      </SectionSlot>
     </div>
   </Suspense>
 </template>
@@ -35,75 +35,62 @@
 import { ref, onMounted } from "vue";
 import { useMetadataStore } from "@/store/metadata";
 import type { IArticleArray, IPictureArray } from "@/store/types";
-import { getArticles, getArticleByNum, getPictures } from "@/service";
+// import { getArticles, getArticleByNum, getPictures } from "@/service";
 
-import TopRecommend from "@/components/layout/home/TopRecommend.vue";
-import SecondRecommend from "@/components/layout/home/SecondRecommend.vue";
-import HomeArticles from "@/components/layout/home/HomeArticles.vue";
-import HomeGallery from "@/components/layout/home/HomeGallery.vue";
+import SectionSlot from "@/components/layout/home/SectionSlot.vue";
+
+import NewArticles from "@/components/layout/home/NewArticles.vue";
+import NewPicture from "@/components/layout/home/NewPicture.vue";
 
 const metadata = useMetadataStore();
-const topArticle = ref([] as IArticleArray);
-const newArticle = ref([] as IArticleArray);
-const newPicture = ref([] as IPictureArray);
+
+// const topArticle = ref([] as IArticleArray);
+
+const allArticles = ref([] as IArticleArray);
+const allPictures = ref([] as IPictureArray);
+// const newArticle = ref([] as IArticleArray);
+// const newPicture = ref([] as IPictureArray);
 
 metadata.$subscribe(async (mutation, state) => {
-  for (const iterator of state.secondArticle) {
-    const a = await getArticleByNum(state.secondArticle[iterator - 1]);
-    topArticle.value[iterator - 1] = a[0];
-  }
+  // for (const iterator of state.secondArticle.entries()) {
+  //   const a = await getArticleByNum(state.secondArticle[iterator[0]]);
+  //   topArticle.value[iterator[0]] = a;
+  // }
+  allArticles.value = state.allArticles;
+  allPictures.value = state.allPictures;
 });
+
 onMounted(async () => {
-  const newArticles = await getArticles();
-  for (const iterator in newArticles) {
-    newArticle.value[parseInt(iterator)] = newArticles[parseInt(iterator)];
-  }
-  const newPictures = await getPictures();
-  for (const iterator in newPictures) {
-    newPicture.value[parseInt(iterator)] = newPictures[parseInt(iterator)];
-  }
-  // console.log(newPicture);
+  // console.log("HomeViewonMounted");
+  // const newArticles = await getArticles();
+  // for (const iterator in newArticles) {
+  //   newArticle.value[parseInt(iterator)] = newArticles[parseInt(iterator)];
+  // }
+  // const newPictures = await getPictures();
+  // for (const iterator in newPictures) {
+  //   newPicture.value[parseInt(iterator)] = newPictures[parseInt(iterator)];
+  // }
 });
-// console.log(newArticle);
 </script>
 
 <style scoped>
-/* ----次级推荐数量媒体查询---- */
-@media (max-width: 960px) {
-  .second_recommend_3 {
-    display: none;
-  }
-}
-@media (min-width: 961px) {
-  .secondRecommend_3 {
-    display: block;
-  }
-}
 .home_main {
-  background-color: #f6f6f7;
-  width: 100%;
-  height: 100%;
-  padding: 20px 20px;
+  width: var(--mougaitong-main-width);
 }
-.second_recommend {
+.articles {
   display: flex;
-  justify-content: space-between;
-  margin-top: 2%;
+  flex-direction: row;
+  justify-content: left;
+  gap: 40px;
+  flex-wrap: wrap;
   width: 100%;
 }
-.home_articles,
-.home_gallery {
-  margin-top: 2%;
-  padding: 1% 2%;
-  width: 100%;
-  background-color: var(--mougaitong-white);
-  border-radius: 16px;
-}
-.home_articles .articles,
-.home_gallery .pictures {
+.drawings {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  margin-top: 1.5%;
+  flex-wrap: wrap;
   width: 100%;
+  margin: 20px auto;
 }
 </style>

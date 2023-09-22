@@ -1,4 +1,28 @@
-@media (max-width: 640px) {
+.huge_title_font {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.big_title_font {
+  font-weight: 700;
+  font-size: 20px;
+}
+.middle_title_font {
+  font-weight: 700;
+  font-size: 18px;
+}
+.small_title_font {
+  font-weight: 700;
+  font-size: 14px;
+}
+.des_font {
+  font-size: 12px;
+}
+.display_none {
+  display: none;
+}
+
+/* @media (max-width: 640px) {
   .big_title_font {
     font-weight: 700;
     font-size: 12px;
@@ -105,4 +129,4 @@
   .des_font {
     font-size: 16px;
   }
-}
+} */

@@ -7,7 +7,7 @@
 
 <script setup lang="ts">
 const props = defineProps(["size"]);
-console.log(document.getElementById("progress"));
+// console.log(document.getElementById("progress"));
 </script>
 
 <style scoped>

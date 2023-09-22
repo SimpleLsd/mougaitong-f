@@ -33,6 +33,18 @@ const getArticles = async () => {
   });
 };
 
+const getArticlesSortByNum = async () => {
+  return sydRequest.request({
+    url: `/articlesbynum`,
+    method: "GET",
+    interceptors: {
+      responceInterceptor: (res: any) => {
+        return res.data;
+      },
+    },
+  });
+};
+
 const getArticleById = async (id: string) => {
   return sydRequest.request({
     url: `/articles/id/${id}`,
@@ -57,7 +69,20 @@ const getArticleByNum = async (num: number) => {
   });
 };
 
+const getArticlesCount = async () => {
+  return sydRequest.request({
+    url: `/articles/count`,
+    method: "GET",
+    interceptors: {
+      responceInterceptor: (res: any) => {
+        return res.data;
+      },
+    },
+  });
+};
+
 const getMetadata = async () => {
+  console.log("getMetadata");
   return sydRequest.request({
     url: "/metadata",
     method: "GET",
@@ -81,10 +106,38 @@ const getPictures = async () => {
   });
 };
 
+const getPictureByNum = async (num: number) => {
+  return sydRequest.request({
+    url: `/pictures/${num}`,
+    method: "GET",
+    interceptors: {
+      responceInterceptor: (res: any) => {
+        return res.data;
+      },
+    },
+  });
+};
+
+const getPicturesCount = async () => {
+  return sydRequest.request({
+    url: `/pictures/count`,
+    method: "GET",
+    interceptors: {
+      responceInterceptor: (res: any) => {
+        return res.data;
+      },
+    },
+  });
+};
+
 export {
   getArticles,
   getArticleById,
   getArticleByNum,
   getMetadata,
   getPictures,
+  getArticlesCount,
+  getPicturesCount,
+  getArticlesSortByNum,
+  getPictureByNum,
 };
