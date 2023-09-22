@@ -80,7 +80,7 @@ const dateStr = computed(() => {
   cursor: pointer;
   border-radius: var(--mougaitong-home-radius);
   overflow: hidden;
-  margin-bottom: 32px;
+  /* margin-bottom: 32px; */
   transition: transform 0.5s ease;
 }
 .loading {

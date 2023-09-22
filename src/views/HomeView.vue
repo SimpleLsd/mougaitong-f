@@ -80,7 +80,8 @@ onMounted(async () => {
 .articles {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: left;
+  gap: 40px;
   flex-wrap: wrap;
   width: 100%;
 }

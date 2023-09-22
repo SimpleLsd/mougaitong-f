@@ -8,7 +8,7 @@
     /* 首页间距 */
     --mougaitong-home-gap: 32px;
     /* 首页圆角设置 */
-    --mougaitong-home-radius: 16px;
+    --mougaitong-home-radius: 24px;
   }
   /* 导航字体大小 */
   :root {
